@@ -642,6 +642,80 @@ html {
 /* End of Projects */
 /* End of Section 3 */
 
+/* Achievements Section */
+.section-achievements,
+.section-certificate {
+    position: relative;
+    width: 100%;
+    padding: 12rem 0;
+}
+.achievement-grid {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 3rem;
+    width: 100%;
+    padding-top: 12rem;
+}
+.achievement-card {
+    width: 28rem;
+    min-height: 20rem;
+    background: rgba(255,255,255,.08);
+    border: .2rem solid #9b0e0e;
+    border-radius: .8rem;
+    padding: 3rem;
+    color: #fff;
+    text-align: left;
+}
+.achievement-card h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+.achievement-card p {
+    font-size: 1.6rem;
+    line-height: 1.8;
+    color: #ccc;
+}
+.certificate-grid {
+    width: 100%;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 3rem;
+    padding-top: 12rem;
+}
+.certificate-card {
+    width: 38rem;
+}
+.certificate-content {
+    width: 100%;
+    background: rgba(255,255,255,.08);
+    border: .3rem solid #e7be08;
+    border-radius: 1rem;
+    padding: 4rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+.certificate-label {
+    font-size: 1.4rem;
+    color: #e7be08;
+    text-transform: uppercase;
+    letter-spacing: .4rem;
+}
+.certificate-content h2 {
+    font-size: 3rem;
+    color: #fff;
+    margin: 0;
+}
+.certificate-content p {
+    font-size: 1.7rem;
+    color: #ccc;
+    margin: 0;
+}
+.certificate-meta {
+    font-size: 1.4rem;
+    color: #aaa;
+}
+
 /* Section 4 */
 .section-4{
     position: relative;
