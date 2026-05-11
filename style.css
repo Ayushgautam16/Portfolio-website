@@ -930,50 +930,63 @@ body {
 .section-4{
     position: relative;
     width: 100%;
-
+    padding: 12rem 5rem 10rem;
 }
 
 /* Services */
 .services-wrapper{
     width: 100%;
+    display: flex;
     flex-direction: column;
+    align-items: center;
+    gap: 2rem;
 }
 .service{
-    width: 70%;
-    margin: 2rem 0;
+    width: min(100%, 56rem);
+    margin: 0;
     border-bottom: 0.5rem solid #9b0e0e;
+    padding: 1.5rem 0;
 }
 .service-btn{
     width: 100%;
     position: relative;
-    display: block;
-    height: 15rem;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    min-height: 15rem;
+    padding: 1rem;
 }
 .service-btn span{
     font-family: "Poppins", sans-serif;
-    font-size: 10rem;
+    font-size: 5rem;
     font-style: italic;
     font-weight: bold;
     color: #9b0e0e;
-    position: absolute;
-    right: 0;
-    transition: right 0.5s;
+    position: static;
+    right: auto;
+    transform: none;
+    transition: all 0.5s;
     pointer-events: none;
+    white-space: normal;
+    word-break: break-word;
+    line-height: 1.05;
+    width: 100%;
 }
 .service-text{
-    font-size: 4rem;
+    font-size: 2rem;
     color: #777;
-    letter-spacing: 1rem;
+    letter-spacing: .3rem;
+    margin-top: 1rem;
     height: 0;
     visibility: hidden;
     opacity: 0;
     transition: all .2s;
 }
 .change.service-text{
-    height: 15rem;
+    height: auto;
     visibility: visible;
     opacity: 1;
-    transition: height .5s, opacity .5s .5s;
+    transition: opacity .5s .1s;
 }
 /* End of Services */
 /* End of Section 4 */
