@@ -857,14 +857,18 @@ body {
     position: relative;
     width: 100%;
     padding: 12rem 5rem 10rem;
+    display: flex;
+    justify-content: center;
 }
 
 .resume-wrapper {
     width: 100%;
     max-width: 90rem;
+    display: flex;
     flex-direction: column;
     gap: 2rem;
     align-items: center;
+    margin: 0 auto;
 }
 
 .resume-preview-card {
@@ -903,6 +907,285 @@ body {
     min-height: 60rem;
     border: none;
     background-color: #000;
+}
+
+.section-profile,
+.section-skills,
+.section-experience,
+.section-education,
+.section-honors {
+    position: relative;
+    width: 100%;
+    padding: 12rem 5rem;
+    background: linear-gradient(180deg, rgba(0,0,0,.9) 0%, rgba(0,0,0,.7) 100%);
+}
+
+.section-profile .section-heading,
+.section-skills .section-heading,
+.section-experience .section-heading,
+.section-education .section-heading,
+.section-honors .section-heading {
+    margin-bottom: 5rem;
+    text-align: center;
+    font-size: 3.5rem;
+    font-weight: 700;
+    color: #e7be08;
+    text-shadow: 0 .2rem 1rem rgba(0,0,0,.8);
+}
+
+.profile-grid,
+.skills-grid,
+.experience-grid,
+.education-grid,
+.honors-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
+    width: 100%;
+}
+
+.profile-card,
+.skill-card,
+.experience-card,
+.education-card,
+.honor-card {
+    width: min(100%, 45rem);
+    background: linear-gradient(135deg, rgba(155, 14, 14, 0.1), rgba(231, 190, 8, 0.1));
+    border: .3rem solid transparent;
+    border-image: linear-gradient(135deg, #9b0e0e, #e7be08) 1;
+    border-radius: 1.5rem;
+    padding: 3rem;
+    box-shadow: 0 1rem 3rem rgba(0,0,0,.3), 0 0 2rem rgba(231, 190, 8, 0.1);
+    color: #fff;
+    transition: transform .3s ease, box-shadow .3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.profile-card::before,
+.skill-card::before,
+.experience-card::before,
+.education-card::before,
+.honor-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: .5rem;
+    background: linear-gradient(90deg, #9b0e0e, #e7be08);
+}
+
+.profile-card:hover,
+.skill-card:hover,
+.experience-card:hover,
+.education-card:hover,
+.honor-card:hover {
+    transform: translateY(-.5rem);
+    box-shadow: 0 2rem 4rem rgba(0,0,0,.4), 0 0 3rem rgba(231, 190, 8, 0.2);
+}
+
+.profile-card h2,
+.skill-card h2,
+.experience-card h2,
+.education-card h2,
+.honor-card p {
+    margin: 0 0 1.5rem;
+    font-size: 2.6rem;
+    font-weight: 700;
+    color: #e7be08;
+    text-shadow: 0 .1rem .5rem rgba(0,0,0,.5);
+}
+
+.profile-card p,
+.skill-card ul,
+.experience-card p,
+.education-card p,
+.honor-card p {
+    font-size: 1.6rem;
+    line-height: 1.9;
+    color: #fff;
+    margin-bottom: 1rem;
+}
+
+.skill-card ul {
+    list-style: none;
+    padding-left: 0;
+    margin: 0;
+}
+
+.skill-card li {
+    margin-bottom: .8rem;
+    padding-left: 1.5rem;
+    position: relative;
+}
+
+.skill-card li::before {
+    content: '⚡';
+    position: absolute;
+    left: 0;
+    color: #e7be08;
+}
+
+.experience-card h3,
+.education-card p {
+    margin: 0.5rem 0 1.2rem;
+    font-size: 1.8rem;
+    color: #9b0e0e;
+    font-weight: 600;
+}
+
+.experience-meta {
+    color: #aaa;
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+    font-style: italic;
+}
+
+.honor-card {
+    text-align: center;
+    background: linear-gradient(135deg, rgba(231, 190, 8, 0.1), rgba(155, 14, 14, 0.1));
+}
+
+@media (max-width: 900px) {
+    .profile-card,
+    .skill-card,
+    .experience-card,
+    .education-card,
+    .honor-card,
+    .patent-card {
+        width: 100%;
+        padding: 2.5rem;
+    }
+
+    .profile-card h2,
+    .skill-card h2,
+    .experience-card h2,
+    .education-card h2,
+    .honor-card p,
+    .patent-card p {
+        font-size: 2.2rem;
+    }
+
+    .profile-card p,
+    .skill-card ul,
+    .experience-card p,
+    .education-card p,
+    .honor-card p,
+    .patent-card p {
+        font-size: 1.4rem;
+    }
+}
+
+/* Social Profiles */
+.section-social {
+    position: relative;
+    width: 100%;
+    padding: 10rem 5rem 12rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.section-social .section-heading {
+    margin-bottom: 4rem;
+}
+
+.slideshow{
+    display: flex;
+    justify-content: center;
+    flex-wrap: nowrap;
+    gap: 2rem;
+    width: 100%;
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 0 2rem;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+.slideshow::-webkit-scrollbar {
+    display: none;
+}
+
+.slideshow-link{
+    width: 8rem;
+    height: 8rem;
+    flex: 0 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    filter: brightness(.5);
+    transition: filter 1.5s, transform .3s;
+}
+
+.slideshow-link:hover {
+    filter: brightness(1);
+    transform: translateY(-.4rem);
+}
+
+.slideshow-link img{
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    padding: 0;
+}
+
+.social-icon {
+    display: inline-flex;
+    width: 6rem;
+    height: 6rem;
+    border-radius: 50%;
+    align-items: center;
+    justify-content: center;
+    background-color: #111;
+    border: .2rem solid rgba(255,255,255,.15);
+}
+
+.instagram-icon {
+    width: 100%;
+    height: 100%;
+}
+
+.instagram-icon path {
+    fill: #fff;
+}
+.instagram-icon {
+    background-image: radial-gradient(circle at 30% 30%, #fdf497 0%, #fdf497 10%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+    color: #fff;
+}
+
+.instagram-icon::before {
+    content: none;
+}
+
+@media (max-width: 900px) {
+    .resume-preview-header {
+        flex-direction: column;
+        align-items: stretch;
+        padding: 2rem;
+    }
+    .resume-preview-header h2 {
+        font-size: 2.4rem;
+    }
+    .resume-preview-description {
+        font-size: 1.4rem;
+    }
+}
+
+@media (max-width: 700px) {
+    .resume-preview-iframe {
+        min-height: 45rem;
+    }
+    .slideshow-link img,
+    .social-icon {
+        width: 5rem;
+        height: 5rem;
+    }
 }
 
 .resume-btn {
