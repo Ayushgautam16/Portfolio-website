@@ -1,17 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Jura:wght@400;500;700&family=Roboto:wght@400;700&family=Work+Sans:ital,wght@0,300;0,700;1,300&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Jura:wght@400;500;700&family=Poppins:wght@100;200;300;400;500;600;700;800;900&family=Roboto:wght@400;700&family=Work+Sans:ital,wght@0,300;0,700;1,300&display=swap');
 /* Common Styles */
-.main-circle:hover{
-    width: 75rem;
-    height: 75rem;
-}
 .section-1{
-    padding-top:10em;
+    padding-top: 10em;
+    overflow: hidden;
 }
 
 .circles{
     padding-top: 5rem;
 }
+
 * {
     margin: 0;
     padding: 0;
@@ -24,6 +22,20 @@
 html {
     font-size: 62.5%;
     scroll-behavior: smooth;
+}
+
+body {
+    min-height: 100vh;
+    background-color: #000;
+    color: #fff;
+    overflow-x: hidden;
+}
+
+.container {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    z-index: 1;
 }
 
 .center {
@@ -109,17 +121,18 @@ html {
 
 /* Section Heading */
 .section-heading {
-    font-size: 2rem;
-    font-weight: 300;
+    font-size: 2.8rem;
+    font-weight: 700;
     color: #fff;
     text-transform: uppercase;
-    position: absolute;
-    top: 50%;
-    left: 10rem;
-    transform: translateY(-50%);
-    width: 0;
-    word-break: break-all;
-    line-height: 4;
+    position: relative;
+    top: auto;
+    left: auto;
+    transform: none;
+    width: auto;
+    margin: 0 auto 4rem;
+    text-align: center;
+    line-height: 1.2;
 }
 /* End of Section Heading */
 
@@ -435,13 +448,14 @@ html {
 /* Section 2 */
 .section-2 {
     position: relative;
-    padding: 10rem 10rem 15rem 10rem;
+    padding: 10rem 5rem 15rem 5rem;
 }
 
 /* About Me Text */
 .about-me-text {
-    width: 80%;
-    margin: auto;
+    width: min(90%, 80rem);
+    margin: 0 auto;
+    text-align: center;
 }
 
 .about-me-text span{
@@ -455,6 +469,7 @@ html {
     position: relative;
     mix-blend-mode: color-dodge;
 }
+
 @keyframes aboutMeTextAnim {
     0%{
         color: #aaa;
@@ -484,18 +499,21 @@ html {
 /* Section 3 */
 .section-3 {
     width: 100%;
-    height: 100%;
-    padding: 10rem 0;
+    height: auto;
+    padding: 10rem 5rem;
     margin-top: 10rem;
     position: relative;
 }
+
 /* Projects */
 .projects{
     flex-wrap: wrap;
+    justify-content: center;
     padding-bottom: 15rem;
+    gap: 2rem;
 }
 .project{
-    width: 40rem;
+    width: min(100%, 40rem);
     height: 45rem;
     overflow: hidden;
     margin: 1rem;
@@ -1304,7 +1322,7 @@ html {
     .main-circle{
         width: 38rem;
     }
-    .main-circel:hover{
+    .main-circle:hover{
         width: 42rem;
     }
     .main-circle img{
