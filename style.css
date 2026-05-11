@@ -1227,6 +1227,22 @@ body {
     padding: 0 1rem;
 }
 
+.slideshow-link .social-text {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    min-height: 10rem;
+    color: #fff;
+    font-size: 1.8rem;
+    letter-spacing: .2rem;
+    text-transform: uppercase;
+    padding: 1rem;
+    border: .2rem solid rgba(255,255,255,.2);
+    border-radius: .5rem;
+    box-sizing: border-box;
+}
+
 .faded-out{
     opacity: 0;
     width: 0;
