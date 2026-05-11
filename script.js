@@ -258,6 +258,19 @@ Array.from(aboutMeTextContent).forEach(char => {
         e.target.style.animation = "aboutMeTextAnim 10s infinite"
     })
 });
+
+const hireCardButtons = document.querySelectorAll('.hire-card-btn');
+const hireRoleInput = document.getElementById('hire-role');
+const hireForm = document.getElementById('hire-form');
+
+hireCardButtons.forEach(btn => {
+    btn.addEventListener('click', () => {
+        const role = btn.dataset.role || '';
+        if (hireRoleInput) hireRoleInput.value = role;
+        if (hireForm) hireForm.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+});
+
 // End of About Me Text
 
 // Projects

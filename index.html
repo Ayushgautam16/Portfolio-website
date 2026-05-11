@@ -45,6 +45,7 @@
         <a href="#section-3" class="navbar-link pointer-enter">Projects</a>
         <a href="#section-4" class="navbar-link pointer-enter">Services</a>
         <a href="#section-5" class="navbar-link pointer-enter">Contact</a>
+        <a href="#section-hire" class="navbar-link pointer-enter">Hire Me</a>
 
       </nav>
       <!-- End of Navbar -->
@@ -151,7 +152,7 @@
       <!-- End of Project Hide Buttons -->
       <!-- End of Projects -->
 
-      Projects Button
+      <!-- Projects Button -->
       <a href="#" class="main-btn projects-btn">
         <div class="main-btn-content center">
           <div class="main-btn-line"></div>
@@ -160,9 +161,148 @@
           <span>Show More</span>
         </div>
       </a>
-      End of Projects Button
+      <!-- End of Projects Button -->
       </section>
       <!-- End of Section 3 -->
+
+      <!-- Hire Section -->
+      <section class="section-hire" id="section-hire">
+        <h1 class="hire-heading">Proposing a Job Offer</h1>
+
+        <div class="hire-cards center">
+          <div class="hire-card">
+            <div class="hire-icon">💼</div>
+            <h2>Job</h2>
+            <p>Full-time position at your company.</p>
+            <button type="button" class="hire-card-btn" data-role="Job">Propose Job</button>
+          </div>
+          <div class="hire-card">
+            <div class="hire-icon">⭐</div>
+            <h2>Freelance</h2>
+            <p>Project-based work and gigs.</p>
+            <button type="button" class="hire-card-btn" data-role="Freelance">Propose Freelance</button>
+          </div>
+          <div class="hire-card">
+            <div class="hire-icon">📺</div>
+            <h2>Sponsor</h2>
+            <p>Sponsor a YouTube video.</p>
+            <button type="button" class="hire-card-btn" data-role="Sponsor">Propose Sponsor</button>
+            <a href="https://github.com/sponsors/Ayushgautam16" target="_blank" class="hire-card-link">Sponsor on GitHub</a>
+          </div>
+        </div>
+
+        <form class="hire-form center" id="hire-form" method="POST" data-netlify="true">
+          <input type="hidden" name="role" id="hire-role" value="">
+          <div class="hire-form-inner">
+            <label>
+              <span>Company Name *</span>
+              <input type="text" name="company" class="hire-input" placeholder="Your company name" required>
+            </label>
+            <label>
+              <span>Your Email *</span>
+              <input type="email" name="email" class="hire-input" placeholder="email@company.com" required>
+            </label>
+            <label>
+              <span>Designation *</span>
+              <input type="text" name="designation" class="hire-input" placeholder="Select your role..." required>
+            </label>
+            <label>
+              <span>Offering CTC (per annum) *</span>
+              <input type="text" name="ctc" class="hire-input" placeholder="Amount in your currency" required>
+            </label>
+            <label>
+              <span>Mobile Number (optional)</span>
+              <input type="text" name="mobile" class="hire-input" placeholder="+91 XXXXXXXXXX">
+            </label>
+            <label>
+              <span>What I will be working on</span>
+              <input type="text" name="work" class="hire-input" placeholder="Select work areas..." required>
+            </label>
+            <label>
+              <span>Anything else (optional)</span>
+              <textarea name="message" class="hire-textarea" placeholder="Any additional details..."></textarea>
+            </label>
+            <button type="submit" class="hire-submit-btn">Submit Proposal</button>
+          </div>
+        </form>
+      </section>
+      <!-- End of Hire Section -->
+
+      <!-- Sponsors Section -->
+      <section class="section-sponsors" id="section-sponsors">
+        <h1 class="section-heading">Support My Work</h1>
+        <div class="sponsors-container center">
+          <div class="sponsor-embed">
+            <iframe src="https://github.com/sponsors/Ayushgautam16/button" title="Sponsor Ayushgautam16" height="32" width="114" style="border: 0; border-radius: 6px;"></iframe>
+          </div>
+          <div class="sponsor-card-embed">
+            <iframe src="https://github.com/sponsors/Ayushgautam16/card" title="Sponsor Ayushgautam16" height="225" width="600" style="border: 0;"></iframe>
+          </div>
+        </div>
+      </section>
+      <!-- End of Sponsors Section -->
+
+      <!-- Resume Section -->
+      <section class="section-resume" id="section-resume">
+        <h1 class="section-heading">Resume</h1>
+        <div class="resume-wrapper center">
+          <p class="resume-text">Download my latest resume to review my skills, experience, and projects.</p>
+          <a href="https://drive.google.com/file/d/1wuYaUdnYTIfjH_DR4ufbGhsQnKG_UwSe/view" target="_blank" class="main-btn resume-btn">
+            <div class="main-btn-content center">
+              <div class="main-btn-line"></div>
+              <div class="main-btn-line"></div>
+              <div class="main-btn-line"></div>
+              <span>View Resume</span>
+            </div>
+          </a>
+        </div>
+      </section>
+      <!-- End of Resume Section -->
+
+      <!-- Achievements Section -->
+      <section class="section-achievements" id="section-achievements">
+        <h1 class="section-heading">Achievements</h1>
+        <div class="achievement-grid center">
+          <div class="achievement-card">
+            <h2>Top Performer</h2>
+            <p>Recognized for outstanding project delivery and technical excellence.</p>
+          </div>
+          <div class="achievement-card">
+            <h2>Hackathon Winner</h2>
+            <p>Awarded first place for building an innovative web application.</p>
+          </div>
+          <div class="achievement-card">
+            <h2>Open Source Contributor</h2>
+            <p>Contributed fixes and enhancements to community projects on GitHub.</p>
+          </div>
+        </div>
+      </section>
+      <!-- End of Achievements Section -->
+
+      <!-- Certificate Section -->
+      <section class="section-certificate" id="section-certificate">
+        <h1 class="section-heading">Certificate</h1>
+        <div class="certificate-grid center">
+          <div class="certificate-card">
+            <div class="certificate-content">
+              <span class="certificate-label">Copyright Certificate</span>
+              <h2>Copyright Registration #1</h2>
+              <p>This certificate confirms registered ownership of original website design and code.</p>
+              <p class="certificate-meta">Issued by: Digital Copyright Authority</p>
+            </div>
+          </div>
+          <div class="certificate-card">
+            <div class="certificate-content">
+              <span class="certificate-label">Copyright Certificate</span>
+              <h2>Copyright Registration #2</h2>
+              <p>This certificate confirms registered ownership of additional website assets and source files.</p>
+              <p class="certificate-meta">Issued by: Digital Copyright Authority</p>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- End of Certificate Section -->
+
       <section class="section-4" id="section-4">
       <!-- Section 4 Heading -->
       <h1 class="section-heading">What I Can</h1>
@@ -208,62 +348,29 @@
 
       <!-- Section 5 -->
       <section class="section-5 center" id="section-5">
-        <!-- Section 5 Heading -->
-        <h1 class="section-heading">Contact Me</h1>
-        <!-- End of Section 5 Heading -->
+        <div class="drop-message-wrapper">
+          <h1 class="drop-heading">Drop A Message</h1>
+          <label class="drop-privacy-label">
+            <input type="checkbox" class="drop-checkbox" name="anonymous">
+            <span>Send Anonymously</span>
+          </label>
 
-        <!-- Form -->
-        <div class="form-wrapper">
-          <h2 class="form-heading">Let's Talk</h2>
-          <form class="contact-form center" action="POST" data-netlify="true">
-            <input type="text" class="contact-form-input pointer-enter" placeholder="Name" id="name" autocomplete="off" name="name">
-            <p class="message">Error Message</p>
-            <input type="text" class="contact-form-input pointer-enter" placeholder="Email" id="email" autocomplete="off" name="email">
-            <p class="message">Error Message</p>
-            <input type="text" class="contact-form-input pointer-enter" placeholder="Subject" id="subject" autocomplete="off" name="subject">
-            <p class="message">Error Message</p>
-            <textarea class="contact-form-input contact-form-textarea pointer-enter" placeholder="Message" id="message" autocomplete="off" name="message"></textarea>
-            <p class="message">Error Message</p>
-            <input type="submit" class="form-submit-btn pointer-enter" value="Send Request">
+          <form class="contact-form center" method="POST" data-netlify="true">
+            <div class="contact-field">
+              <label for="name">Your Name *</label>
+              <input type="text" class="contact-form-input pointer-enter" placeholder="Your full name" id="name" autocomplete="off" name="name" required>
+            </div>
+            <div class="contact-field">
+              <label for="email">Your Email *</label>
+              <input type="email" class="contact-form-input pointer-enter" placeholder="email@example.com" id="email" autocomplete="off" name="email" required>
+            </div>
+            <div class="contact-field">
+              <label for="message">Message *</label>
+              <textarea class="contact-form-input contact-form-textarea pointer-enter" placeholder="What's on your mind?" id="message" autocomplete="off" name="message" required></textarea>
+            </div>
+            <button type="submit" class="form-submit-btn pointer-enter">Send Message</button>
           </form>
         </div>
-        <!-- End of Form -->
-
-        <!-- Slide Show -->
-        <div class="slideshow">
-          <a href="https://x.com/GainsBy_Ayush" target="_blank" class="slideshow-link">
-            <img src="images/social-icons/slideshow-img-1.png">
-          </a>
-          <a href="https://youtube.com/@gainsby_ayush?si=Kvp6uzhLBWP8tLi4" target="_blank" class="slideshow-link">
-            <img src="images/social-icons/slideshow-img-2.png">
-
-          <!-- </a>
-          <a href="https://facebook.com/pyaesonepsn" target="_blank" class="slideshow-link light">
-            <img src="images/social-icons/slideshow-img-3.png">
-          </a> -->
-
-<!-- GitHub -->
-<a href="https://github.com/Ayushgautam16" target="_blank" class="slideshow-link">
-  <img src="images/social-icons/slideshow-img-4.png">
-</a>
-
-<!-- LinkedIn -->
-<a href="https://www.linkedin.com/in/ayush-gautam-9baa14248/" target="_blank" class="slideshow-link">
-  <img src="images/social-icons/linkedin.png" alt="LinkedIn">
-</a>
-
-<!-- LeetCode -->
-<a href="https://leetcode.com/u/user8155D/" target="_blank" class="slideshow-link">
-  <img src="images/social-icons/leetcode.png" alt="LeetCode">
-</a>
-
-<!-- Gmail -->
-<a href="mailto:ayushgautam2007.kg@gmail.com" target="_blank" class="slideshow-link">
-  <img src="images/social-icons/slideshow-img-5.png">
-</a>
-        </div>
-        <!-- End of Slide Show -->
-
       </section>
       <!-- End of Section 5 -->
     </div>
