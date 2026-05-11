@@ -852,6 +852,86 @@ body {
 
 /* End of Sponsors Section */
 
+/* Resume Section */
+.section-resume {
+    position: relative;
+    width: 100%;
+    padding: 12rem 5rem 10rem;
+}
+
+.resume-wrapper {
+    width: 100%;
+    max-width: 90rem;
+    flex-direction: column;
+    gap: 2rem;
+    align-items: center;
+}
+
+.resume-preview-card {
+    width: 100%;
+    border: .2rem solid rgba(255,255,255,.15);
+    border-radius: 1.2rem;
+    background: rgba(255,255,255,.05);
+    box-shadow: 0 0 4rem rgba(0,0,0,.25);
+    overflow: hidden;
+}
+
+.resume-preview-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 2rem;
+    padding: 2.5rem 3rem;
+    border-bottom: .1rem solid rgba(255,255,255,.1);
+}
+
+.resume-preview-header h2 {
+    font-size: 3rem;
+    margin: 0;
+    color: #fff;
+}
+
+.resume-preview-description {
+    font-size: 1.6rem;
+    color: #ccc;
+    max-width: 60rem;
+    margin-top: 1rem;
+}
+
+.resume-preview-iframe {
+    width: 100%;
+    min-height: 60rem;
+    border: none;
+    background-color: #000;
+}
+
+.resume-btn {
+    position: static;
+    margin: 0;
+}
+
+@media (max-width: 900px) {
+    .resume-preview-header {
+        flex-direction: column;
+        align-items: stretch;
+        padding: 2rem;
+    }
+    .resume-preview-header h2 {
+        font-size: 2.4rem;
+    }
+    .resume-preview-description {
+        font-size: 1.4rem;
+    }
+}
+
+@media (max-width: 700px) {
+    .resume-preview-iframe {
+        min-height: 45rem;
+    }
+}
+
+/* End of Resume Section */
+
 /* Achievements Section */
 .section-achievements,
 .section-certificate {
