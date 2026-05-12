@@ -415,7 +415,21 @@ formInputs.forEach((input) => {
 });
 
 // End of Form
+function openFreelanceForm(){
+  document.getElementById("freelancePopup").style.display = "flex";
+}
 
+function closeFreelanceForm(){
+  document.getElementById("freelancePopup").style.display = "none";
+}
+
+window.onclick = function(event){
+  const popup = document.getElementById("freelancePopup");
+
+  if(event.target == popup){
+    popup.style.display = "none";
+  }
+}
 // SLide Show
 const slideshow = document.querySelector('.slideshow')
 
@@ -439,7 +453,13 @@ setInterval(() => {
     }, 500);
 },3000);
 // End of Slide Show
+function openSponsorForm(){
+  document.getElementById("sponsorPopup").style.display = "flex";
+}
 
+function closeSponsorForm(){
+  document.getElementById("sponsorPopup").style.display = "none";
+}
 // Form Validation
 const form = document.querySelector(".contact-form");
 const username = document.getElementById("name");

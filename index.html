@@ -156,20 +156,44 @@
             <p>Full-time position at your company.</p>
             <button type="button" class="hire-card-btn" data-role="Job">Propose Job</button>
           </div>
+         <div class="hire-card">
+  <div class="hire-icon">⭐</div>
+
+  <h2>Freelance</h2>
+
+  <p>Project-based work and gigs.</p>
+
+  <button 
+    type="button" 
+    class="hire-card-btn"
+    onclick="openFreelanceForm()"
+  >
+    Propose Freelance
+  </button>
+</div>
           <div class="hire-card">
-            <div class="hire-icon">⭐</div>
-            <h2>Freelance</h2>
-            <p>Project-based work and gigs.</p>
-            <button type="button" class="hire-card-btn" data-role="Freelance">Propose Freelance</button>
-          </div>
-          <div class="hire-card">
-            <div class="hire-icon">📺</div>
-            <h2>Sponsor</h2>
-            <p>Sponsor a YouTube video.</p>
-            <button type="button" class="hire-card-btn" data-role="Sponsor">Propose Sponsor</button>
-            <a href="https://github.com/sponsors/Ayushgautam16" target="_blank" class="hire-card-link">Sponsor on GitHub</a>
-          </div>
-        </div>
+  <div class="hire-icon">📺</div>
+
+  <h2>Sponsor</h2>
+
+  <p>Sponsor a YouTube video.</p>
+
+  <button 
+    type="button" 
+    class="hire-card-btn"
+    onclick="openSponsorForm()"
+  >
+    Propose Sponsor
+  </button>
+
+  <a 
+    href="https://github.com/sponsors/Ayushgautam16" 
+    target="_blank" 
+    class="hire-card-link"
+  >
+    Sponsor on GitHub
+  </a>
+</div>
 
        <form 
   class="hire-form center" 
@@ -177,7 +201,91 @@
   action="https://formspree.io/f/xykoojqb"
   method="POST"
 >
+<!-- SPONSOR POPUP -->
+<div class="freelance-popup" id="sponsorPopup">
 
+  <div class="freelance-popup-box">
+
+    <span class="freelance-close" onclick="closeSponsorForm()">
+      &times;
+    </span>
+
+    <h2>Sponsorship Proposal</h2>
+
+    <form 
+      action="https://formspree.io/f/xykoojqb"
+      method="POST"
+      class="freelance-form"
+    >
+
+      <input 
+        type="hidden" 
+        name="_subject" 
+        value="New Sponsorship Proposal"
+      >
+
+      <div class="freelance-field">
+        <label>Your Name *</label>
+
+        <input 
+          type="text" 
+          name="name" 
+          placeholder="Enter your name"
+          required
+        >
+      </div>
+
+      <div class="freelance-field">
+        <label>Email Address *</label>
+
+        <input 
+          type="email" 
+          name="email" 
+          placeholder="Enter your email"
+          required
+        >
+      </div>
+
+      <div class="freelance-field">
+        <label>Company / Brand Name *</label>
+
+        <input 
+          type="text" 
+          name="brand"
+          placeholder="Your company or brand"
+          required
+        >
+      </div>
+
+      <div class="freelance-field">
+        <label>Sponsorship Budget *</label>
+
+        <input 
+          type="text" 
+          name="budget"
+          placeholder="Budget amount"
+          required
+        >
+      </div>
+
+      <div class="freelance-field">
+        <label>Campaign Details *</label>
+
+        <textarea 
+          name="campaign"
+          placeholder="Explain sponsorship requirements..."
+          required
+        ></textarea>
+      </div>
+
+      <button type="submit" class="freelance-submit-btn">
+        Submit Sponsorship
+      </button>
+
+    </form>
+
+  </div>
+</div>
   <!-- Optional Hidden Fields -->
   <input type="hidden" name="_subject" value="New Hiring Proposal">
   
@@ -263,20 +371,130 @@
 
   </div>
 </form>
+
+<div class="freelance-popup" id="freelancePopup">
+
+  <div class="freelance-popup-box">
+
+    <span class="freelance-close" onclick="closeFreelanceForm()">
+      &times;
+    </span>
+
+    <h2>Freelance Project Proposal</h2>
+
+    <form 
+      action="https://formspree.io/f/xykoojqb"
+      method="POST"
+      class="freelance-form"
+    >
+
+      <input 
+        type="hidden" 
+        name="_subject" 
+        value="New Freelance Proposal"
+      >
+
+      <div class="freelance-field">
+        <label>Your Name *</label>
+        <input type="text" name="name" placeholder="Enter your name" required>
+      </div>
+
+      <div class="freelance-field">
+        <label>Email Address *</label>
+        <input type="email" name="email" placeholder="Enter your email" required>
+      </div>
+
+      <div class="freelance-field">
+        <label>Contact Number *</label>
+        <input type="text" name="phone" placeholder="+91 XXXXXXXXXX" required>
+      </div>
+
+      <div class="freelance-field">
+        <label>Project Name *</label>
+        <input type="text" name="project_name" placeholder="Project title" required>
+      </div>
+
+      <div class="freelance-field">
+        <label>Project Budget *</label>
+        <input type="text" name="budget" placeholder="Budget amount" required>
+      </div>
+
+      <div class="freelance-field">
+        <label>Project Requirements *</label>
+
+        <textarea 
+          name="requirements"
+          placeholder="Explain your project requirements..."
+          required
+        ></textarea>
+      </div>
+
+      <button type="submit" class="freelance-submit-btn">
+        Submit Proposal
+      </button>
+
+    </form>
+
+  </div>
+</div>
+
+
+
       <!-- End of Hire Section -->
 
       <!-- Sponsors Section -->
       <section class="section-sponsors" id="section-sponsors">
-        <h1 class="section-heading">Support My Work</h1>
-        <div class="sponsors-container center">
-          <div class="sponsor-embed">
-            <iframe src="https://github.com/sponsors/Ayushgautam16/button" title="Sponsor Ayushgautam16" height="32" width="114" style="border: 0; border-radius: 6px;"></iframe>
-          </div>
-          <div class="sponsor-card-embed">
-            <iframe src="https://github.com/sponsors/Ayushgautam16/card" title="Sponsor Ayushgautam16" height="225" width="600" style="border: 0;"></iframe>
-          </div>
+
+  <h1 class="section-heading">Support My Work</h1>
+
+  <div class="modern-sponsor-card">
+
+    <div class="modern-sponsor-left">
+
+      <div class="modern-sponsor-avatar">
+        <img 
+          src="images/landing/psn.jpeg" 
+          alt="Ayush Gautam"
+        >
+      </div>
+
+      <div class="modern-sponsor-content">
+
+        <h2>
+          Sponsor Ayush Gautam
+        </h2>
+
+        <p>
+          Support open-source projects, AI innovations, 
+          developer content, and impactful tech creations.
+        </p>
+
+        <div class="modern-sponsor-tags">
+          <span>AI/ML</span>
+          <span>Open Source</span>
+          <span>Full Stack</span>
+          <span>Content Creator</span>
         </div>
-      </section>
+
+      </div>
+
+    </div>
+
+    <div class="modern-sponsor-right">
+
+      <a 
+        href="https://github.com/sponsors/Ayushgautam16"
+        target="_blank"
+        class="modern-sponsor-btn"
+      >
+        Sponsor Now
+      </a>
+
+    </div>
+
+  </div>
+
+</section>
       <!-- End of Sponsors Section -->
 
       <!-- Resume Section -->
@@ -504,6 +722,7 @@
       <!-- End of Services -->
       </section>
       <!--Section 4  -->
+
       <!-- End of Section 4 -->
 
       <!-- Section 5 -->
