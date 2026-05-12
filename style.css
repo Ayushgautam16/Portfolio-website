@@ -1716,9 +1716,11 @@ body {
     }
     .main-circle{
         width: 38rem;
+        height: 38rem;
     }
     .main-circle:hover{
         width: 42rem;
+        height: 42rem;
     }
     .main-circle img{
         width: 200%;
