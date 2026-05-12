@@ -171,41 +171,98 @@
           </div>
         </div>
 
-        <form class="hire-form center" id="hire-form" method="POST" data-netlify="true">
-          <input type="hidden" name="role" id="hire-role" value="">
-          <div class="hire-form-inner">
-            <label>
-              <span>Company Name *</span>
-              <input type="text" name="company" class="hire-input" placeholder="Your company name" required>
-            </label>
-            <label>
-              <span>Your Email *</span>
-              <input type="email" name="email" class="hire-input" placeholder="email@company.com" required>
-            </label>
-            <label>
-              <span>Designation *</span>
-              <input type="text" name="designation" class="hire-input" placeholder="Select your role..." required>
-            </label>
-            <label>
-              <span>Offering CTC (per annum) *</span>
-              <input type="text" name="ctc" class="hire-input" placeholder="Amount in your currency" required>
-            </label>
-            <label>
-              <span>Mobile Number (optional)</span>
-              <input type="text" name="mobile" class="hire-input" placeholder="+91 XXXXXXXXXX">
-            </label>
-            <label>
-              <span>What I will be working on</span>
-              <input type="text" name="work" class="hire-input" placeholder="Select work areas..." required>
-            </label>
-            <label>
-              <span>Anything else (optional)</span>
-              <textarea name="message" class="hire-textarea" placeholder="Any additional details..."></textarea>
-            </label>
-            <button type="submit" class="hire-submit-btn">Submit Proposal</button>
-          </div>
-        </form>
-      </section>
+       <form 
+  class="hire-form center" 
+  id="hire-form"
+  action="https://formspree.io/f/xykoojqb"
+  method="POST"
+>
+
+  <!-- Optional Hidden Fields -->
+  <input type="hidden" name="_subject" value="New Hiring Proposal">
+  
+  <div class="hire-form-inner">
+
+    <label>
+      <span>Company Name *</span>
+      <input 
+        type="text" 
+        name="company" 
+        class="hire-input" 
+        placeholder="Your company name" 
+        required
+      >
+    </label>
+
+    <label>
+      <span>Your Email *</span>
+      <input 
+        type="email" 
+        name="email" 
+        class="hire-input" 
+        placeholder="email@company.com" 
+        required
+      >
+    </label>
+
+    <label>
+      <span>Designation *</span>
+      <input 
+        type="text" 
+        name="designation" 
+        class="hire-input" 
+        placeholder="Your role/designation" 
+        required
+      >
+    </label>
+
+    <label>
+      <span>Offering CTC (per annum) *</span>
+      <input 
+        type="text" 
+        name="ctc" 
+        class="hire-input" 
+        placeholder="Amount in your currency" 
+        required
+      >
+    </label>
+
+    <label>
+      <span>Mobile Number (optional)</span>
+      <input 
+        type="text" 
+        name="mobile" 
+        class="hire-input" 
+        placeholder="+91 XXXXXXXXXX"
+      >
+    </label>
+
+    <label>
+      <span>What I will be working on *</span>
+      <input 
+        type="text" 
+        name="work" 
+        class="hire-input" 
+        placeholder="Describe the work/project" 
+        required
+      >
+    </label>
+
+    <label>
+      <span>Anything else (optional)</span>
+      <textarea 
+        name="message" 
+        class="hire-textarea" 
+        placeholder="Any additional details..."
+      ></textarea>
+    </label>
+
+    <button type="submit" class="hire-submit-btn">
+      Submit Proposal
+    </button>
+
+  </div>
+</form>
       <!-- End of Hire Section -->
 
       <!-- Sponsors Section -->
