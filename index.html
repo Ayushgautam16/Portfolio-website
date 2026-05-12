@@ -515,22 +515,61 @@
             <span>Send Anonymously</span>
           </label>
 
-          <form class="contact-form center" method="POST" data-netlify="true">
-            <div class="contact-field">
-              <label for="name">Your Name *</label>
-              <input type="text" class="contact-form-input pointer-enter" placeholder="Your full name" id="name" autocomplete="off" name="name" required>
-            </div>
-            <div class="contact-field">
-              <label for="email">Your Email *</label>
-              <input type="email" class="contact-form-input pointer-enter" placeholder="email@example.com" id="email" autocomplete="off" name="email" required>
-            </div>
-            <div class="contact-field">
-              <label for="message">Message *</label>
-              <textarea class="contact-form-input contact-form-textarea pointer-enter" placeholder="What's on your mind?" id="message" autocomplete="off" name="message" required></textarea>
-            </div>
-            <button type="submit" class="form-submit-btn pointer-enter">Send Message</button>
-          </form>
-        </div>      </section>
+         <form 
+  class="contact-form center" 
+  action="https://formspree.io/f/xykoojqb"
+  method="POST"
+>
+
+  <!-- Optional Hidden Subject -->
+  <input type="hidden" name="_subject" value="New Portfolio Contact Message">
+
+  <div class="contact-field">
+    <label for="name">Your Name *</label>
+    
+    <input 
+      type="text" 
+      class="contact-form-input pointer-enter" 
+      placeholder="Your full name" 
+      id="name" 
+      autocomplete="off" 
+      name="name" 
+      required
+    >
+  </div>
+
+  <div class="contact-field">
+    <label for="email">Your Email *</label>
+    
+    <input 
+      type="email" 
+      class="contact-form-input pointer-enter" 
+      placeholder="email@example.com" 
+      id="email" 
+      autocomplete="off" 
+      name="email" 
+      required
+    >
+  </div>
+
+  <div class="contact-field">
+    <label for="message">Message *</label>
+    
+    <textarea 
+      class="contact-form-input contact-form-textarea pointer-enter" 
+      placeholder="What's on your mind?" 
+      id="message" 
+      autocomplete="off" 
+      name="message" 
+      required
+    ></textarea>
+  </div>
+
+  <button type="submit" class="form-submit-btn pointer-enter">
+    Send Message
+  </button>
+
+</form>
       <!-- End of Section 5 -->
 
       <!-- Social Profiles -->
