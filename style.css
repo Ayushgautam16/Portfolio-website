@@ -1932,49 +1932,6 @@ body {
         height: 200%;
     }
 }
-
-.social-slider{
-  width: 100%;
-  overflow: hidden;
-  position: relative;
-  padding: 20px 0;
-}
-
-.social-track{
-  display: flex;
-  align-items: center;
-  gap: 40px;
-  animation: scrollLeft 12s linear infinite;
-}
-
-.slideshow-link{
-  flex-shrink: 0;
-}
-
-.slideshow-link img{
-  width: 90px;
-  height: 90px;
-  object-fit: contain;
-  transition: transform 0.3s ease;
-}
-
-.slideshow-link img:hover{
-  transform: scale(1.1);
-}
-
-@keyframes scrollLeft{
-  0%{
-    transform: translateX(0);
-  }
-
-  100%{
-    transform: translateX(-50%);
-  }
-}
-
-
-
-
 /* End of Responsive */
 .logo {
   display: flex;
