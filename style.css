@@ -1933,3 +1933,13 @@ body {
     }
 }
 /* End of Responsive */
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+  color: white;
+  font-size: 2rem;
+  font-weight: 700;
+}
+
