@@ -1745,6 +1745,27 @@ body {
 /* End of Slide Show */
 /* End of Section 5 */
 
+/* Logo styling (unconditional) */
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+  color: white;
+  font-weight: 700;
+}
+.logo-img {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  object-fit: cover;
+  transition: 0.3s ease;
+}
+.logo-img:hover {
+  transform: scale(1.08);
+}
+/* End of Logo */
+
 /* Responsive */
 @media (max-width: 1500px){
     .circle{
@@ -1873,7 +1894,7 @@ body {
         font-size: 50%;
     }
     .contact-form-input{
-        width: 50rem;
+        width: 100%;
     }
 }
 @media (max-width: 480px){
@@ -1895,10 +1916,10 @@ body {
         color: #bbb;
     }
     .contact-form-input{
-        width: 40rem;
+        width: 100%;
     }
     .slideshow{
-        width: 45rem;
+        width: 100%;
     }
     .slideshow-link img{
         padding: 0 1.1rem;
@@ -1932,24 +1953,298 @@ body {
         height: 200%;
     }
 }
-/* End of Responsive */
-.logo {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  text-decoration: none;
-  color: white;
-  font-size: 2rem;
-  font-weight: 700;
-}
-.logo-img {
-  width: 48px;
-  height: 48px;
-  border-radius: 50%;
-  object-fit: cover;
-  transition: 0.3s ease;
+
+/* ===== Phone Responsiveness ===== */
+@media (max-width: 768px) {
+    /* Block any horizontal overflow */
+    html, body { max-width: 100%; overflow-x: hidden; }
+
+    /* Hide bespoke desktop cursor effects on phones */
+    .mouse-circle, .mouse-dot { display: none !important; }
+
+    /* Neutralize desktop offset that pushes headings off-screen */
+    .section-heading { left: 0 !important; }
+
+    /* Navbar: wrap to multiple rows so every link is visible at a glance */
+    .navbar {
+        top: 7.5rem;
+        padding: 0 1.5rem;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: .4rem 0;
+        row-gap: .4rem;
+    }
+    .navbar-link {
+        font-size: 1.4rem;
+        margin: 0 .8rem;
+        padding: .4rem .2rem;
+    }
+    .menu-icon { right: -2rem; }
+
+    /* Logo */
+    .logo {
+        top: 1.5rem;
+        left: 1.5rem;
+        font-size: 1.6rem;
+        gap: 6px;
+    }
+    .logo span { font-size: 1.6rem; }
+    .logo-img { width: 32px; height: 32px; }
+
+    /* Section 1 hero — extra top space for stacked logo + navbar */
+    .section-1 { padding-top: 14rem; }
+    .main-circle {
+        width: 28rem;
+        height: 28rem;
+    }
+    .main-circle:hover {
+        width: 28rem;
+        height: 28rem;
+    }
+    .circle {
+        width: 11rem;
+        height: 11rem;
+    }
+    .circle-1, .circle-3 { margin-left: -3rem; }
+    .circle-2, .circle-4 { margin-right: -3rem; }
+    .featured-text { font-size: 1.8rem; }
+    .featured-text-1 { margin: 0 auto 0 2rem; }
+    .featured-text-2 { margin: 0 2rem 0 auto; }
+
+    /* Section paddings */
+    .section-2 { padding: 8rem 2rem 12rem; }
+    .section-3 { padding: 8rem 2rem; margin-top: 5rem; }
+    .section-hire { padding: 10rem 2rem 6rem; }
+    .section-sponsors { padding: 10rem 2rem 6rem; }
+    .section-resume { padding: 10rem 2rem 6rem; }
+    .section-profile,
+    .section-skills,
+    .section-experience,
+    .section-education,
+    .section-honors,
+    .section-achievements,
+    .section-certificate { padding: 10rem 2rem; }
+    .section-4 { padding: 10rem 2rem 6rem; }
+    .section-5 { padding: 10rem 2rem 6rem; margin-top: 5rem; }
+    .section-social { padding: 8rem 2rem 10rem; }
+
+    /* Section headings */
+    .section-heading { font-size: 2.4rem; margin-bottom: 3rem; }
+    .section-3-heading,
+    .hire-heading { font-size: 2.4rem; text-align: center; margin-bottom: 3rem; }
+
+    /* About me */
+    .about-me-text span {
+        font-size: 4rem;
+        color: #ccc;
+    }
+    .section-2 .main-btn {
+        bottom: -7rem;
+    }
+
+    /* Projects */
+    .project {
+        width: 100%;
+        height: 32rem;
+        margin: 0;
+    }
+    .project img { width: 95%; top: 1rem; }
+    .project-img { padding: 6rem 1rem; }
+    .project-hide-btn { right: 1.5rem; top: 2rem; font-size: 1.8rem; }
+
+    /* Hire cards: stack full width */
+    .hire-cards { gap: 2rem; }
+    .hire-card {
+        width: 100%;
+        min-height: auto;
+        padding: 2.5rem;
+    }
+
+    /* Hire form */
+    .hire-form-inner { gap: 1.4rem; }
+    .hire-input, .hire-textarea { font-size: 1.5rem; }
+    .hire-submit-btn { width: 100%; }
+
+    /* Freelance / Sponsor popups */
+    .freelance-popup-box {
+        width: 92%;
+        padding: 20px;
+        max-height: 88vh;
+        overflow-y: auto;
+    }
+    .freelance-popup-box h2 { font-size: 1.8rem; }
+    .freelance-field input,
+    .freelance-field textarea { padding: 12px; font-size: 14px; }
+
+    /* Modern sponsor card: stack to column */
+    .modern-sponsor-card {
+        width: 100%;
+        margin: 30px auto;
+        padding: 24px;
+        flex-direction: column;
+        gap: 24px;
+        text-align: center;
+        border-radius: 18px;
+    }
+    .modern-sponsor-left {
+        flex-direction: column;
+        align-items: center;
+        gap: 18px;
+        text-align: center;
+    }
+    .modern-sponsor-avatar { width: 90px; height: 90px; }
+    .modern-sponsor-content h2 { font-size: 2.2rem; }
+    .modern-sponsor-content p { font-size: 1.4rem; }
+    .modern-sponsor-tags { justify-content: center; }
+    .modern-sponsor-tags span { font-size: 1.2rem; padding: 8px 14px; }
+    .modern-sponsor-btn {
+        min-width: 0;
+        width: 100%;
+        padding: 14px 20px;
+        font-size: 1.5rem;
+    }
+
+    /* Resume */
+    .resume-preview-iframe { min-height: 45rem; }
+    .resume-preview-header { padding: 2rem; }
+    .resume-preview-header h2 { font-size: 2.2rem; }
+
+    /* Profile / skill / experience / education / honor / achievement / certificate cards */
+    .profile-card,
+    .skill-card,
+    .experience-card,
+    .education-card,
+    .honor-card,
+    .achievement-card,
+    .certificate-card {
+        width: 100%;
+        padding: 2.2rem;
+    }
+    .certificate-content { padding: 2.5rem; }
+    .certificate-content h2 { font-size: 2.2rem; }
+    .certificate-content p { font-size: 1.5rem; }
+    .achievement-grid,
+    .certificate-grid { padding-top: 4rem; gap: 2rem; }
+
+    /* Services */
+    .service-btn { min-height: 8rem; padding: 0.5rem; }
+    .service-btn span { font-size: 4rem; line-height: 1.1; }
+    .service-text { font-size: 1.6rem; letter-spacing: .1rem; }
+
+    /* Drop message / contact form */
+    .drop-message-wrapper {
+        padding: 2.5rem 2rem;
+        gap: 2rem;
+    }
+    .drop-heading {
+        font-size: 2.6rem;
+        letter-spacing: .2rem;
+    }
+    .contact-form-input {
+        width: 100%;
+        font-size: 1.6rem;
+        padding: 1.3rem 1.2rem;
+    }
+    .contact-form-textarea { min-height: 16rem; }
+    .form-submit-btn { width: 100%; }
+
+    /* Slideshow socials */
+    .slideshow {
+        width: 100%;
+        max-width: 100%;
+        margin: 4rem 0 0;
+        padding: 0 1rem;
+        gap: 1.2rem;
+    }
+    .slideshow-link,
+    .slideshow-link img,
+    .social-icon {
+        width: 5.5rem;
+        height: 5.5rem;
+    }
+    .slideshow-link img { padding: 0; }
+
+    /* Progress bar a bit smaller */
+    .progress-bar {
+        right: 1rem;
+        bottom: 1rem;
+        width: 4.5rem;
+        height: 4.5rem;
+    }
+    .progress-bar-circle {
+        width: 4.3rem;
+        height: 4.3rem;
+        font-size: 1.6rem;
+    }
 }
 
-.logo-img:hover {
-  transform: scale(1.08);
+@media (max-width: 480px) {
+    .navbar-link { font-size: 1.3rem; margin: 0 .7rem; padding: .3rem .1rem; }
+    .navbar { top: 7rem; padding: 0 1rem; }
+    .logo { font-size: 1.4rem; left: 1rem; top: 1.2rem; }
+    .logo span { font-size: 1.4rem; }
+    .logo-img { width: 28px; height: 28px; }
+    .section-1 { padding-top: 13rem; }
+    .main-circle { width: 24rem; height: 24rem; }
+    .main-circle:hover { width: 24rem; height: 24rem; }
+    .circle { width: 9rem; height: 9rem; }
+    .featured-text { font-size: 1.5rem; }
+    .featured-text-1 { margin: 0 auto 0 1rem; }
+    .featured-text-2 { margin: 0 1rem 0 auto; }
+    .about-me-text span { font-size: 3.2rem; }
+    .section-2 { padding: 6rem 1.5rem 11rem; }
+    .section-3,
+    .section-hire,
+    .section-sponsors,
+    .section-resume,
+    .section-profile,
+    .section-skills,
+    .section-experience,
+    .section-education,
+    .section-honors,
+    .section-achievements,
+    .section-certificate,
+    .section-4,
+    .section-5,
+    .section-social { padding-left: 1.5rem; padding-right: 1.5rem; }
+    .section-heading,
+    .section-3-heading,
+    .hire-heading { font-size: 2rem; margin-bottom: 2.5rem; }
+    .drop-heading { font-size: 2rem; letter-spacing: .15rem; }
+    .service-btn span { font-size: 3rem; }
+    .service-btn { min-height: 6rem; }
+    .project { height: 26rem; }
+    .resume-preview-iframe { min-height: 38rem; }
+    .modern-sponsor-card { padding: 18px; border-radius: 14px; }
+    .modern-sponsor-content h2 { font-size: 1.8rem; }
+    .modern-sponsor-content p { font-size: 1.3rem; }
+    .modern-sponsor-tags span { font-size: 1.1rem; padding: 6px 10px; }
+    .freelance-popup-box { padding: 16px; }
+    .freelance-popup-box h2 { font-size: 1.6rem; }
+    .freelance-field label { font-size: 1.3rem; }
+    .hire-icon { width: 5rem; height: 5rem; font-size: 2.4rem; }
+    .hire-card { padding: 2rem; }
+    .hire-card h2 { font-size: 2rem; }
+    .hire-card p { font-size: 1.4rem; }
+    .slideshow-link,
+    .slideshow-link img,
+    .social-icon { width: 4.5rem; height: 4.5rem; }
+    .progress-bar { width: 4rem; height: 4rem; }
+    .progress-bar-circle { width: 3.8rem; height: 3.8rem; font-size: 1.4rem; }
 }
+
+@media (max-width: 360px) {
+    .navbar-link { font-size: 1.2rem; margin: 0 .5rem; }
+    .main-circle { width: 20rem; height: 20rem; }
+    .main-circle:hover { width: 20rem; height: 20rem; }
+    .circle { width: 7.5rem; height: 7.5rem; }
+    .featured-text { display: none; }
+    .about-me-text span { font-size: 2.8rem; }
+    .section-heading,
+    .section-3-heading,
+    .hire-heading { font-size: 1.8rem; }
+    .project { height: 22rem; }
+    .resume-preview-iframe { min-height: 32rem; }
+}
+/* ===== End of Phone Responsiveness ===== */
+/* End of Responsive */
