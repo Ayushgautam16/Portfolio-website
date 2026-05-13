@@ -1,887 +1,521 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>
-Ayush Gautam | AI Developer | Full Stack Developer | ML Engineer
-</title>
-    <link rel="stylesheet" href="style.css" />
 
-<link rel="icon" type="image/png" href="images/favicon.png">
+// Mouse Circle
+const mouseCircle = document.querySelector('.mouse-circle');
+const mouseDot = document.querySelector('.mouse-dot');
 
-<meta name="title" content="Ayush Gautam | AI Developer | Full Stack Developer | ML Engineer">
+let mouseCircleBool = true;
 
-<meta name="description" content="Official portfolio of Ayush Gautam — AI Developer, Full Stack Developer, Machine Learning Engineer, Freelancer, and Tech Creator. Building AI applications, scalable web apps, automation tools, and innovative software solutions.">
-
-<meta name="keywords" content="Ayush Gautam, Ayush Developer, AI Developer, Full Stack Developer, Machine Learning Engineer, Portfolio Website, Python Developer, Next.js Developer, Freelancer, Software Engineer, AI Engineer">
-
-<meta name="author" content="Ayush Gautam">
-
-<meta property="og:title" content="Ayush Gautam | AI Developer">
-
-<meta property="og:description" content="AI Developer | Full Stack Developer | ML Engineer | Freelancer">
-
-<meta property="og:image" content="images/logo.png">
-
-<meta property="og:url" content="https://ayushgautam.co.in">
-
-<meta name="robots" content="index, follow">
-
-<link rel="canonical" href="https://ayushgautam.co.in">
-
-<link rel="icon" type="image/png" href="images/favicon.png">
-
-<meta name="title" content="Ayush Gautam | AI Developer | Full Stack Developer | ML Engineer">
-
-<meta name="description" content="Official portfolio of Ayush Gautam — AI Developer, Full Stack Developer, Machine Learning Engineer, Freelancer, and Tech Creator. Building AI applications, scalable web apps, automation tools, and innovative software solutions.">
-
-<meta name="keywords" content="Ayush Gautam, Ayush Developer, AI Developer, Full Stack Developer, Machine Learning Engineer, Portfolio Website, Python Developer, Next.js Developer, Freelancer, Software Engineer, AI Engineer">
-
-<meta name="author" content="Ayush Gautam">
-
-<meta property="og:title" content="Ayush Gautam | AI Developer">
-
-<meta property="og:description" content="AI Developer | Full Stack Developer | ML Engineer | Freelancer">
-
-<meta property="og:image" content="images/logo.png">
-
-<meta property="og:url" content="https://ayushgautam.co.in">
-
-<meta name="robots" content="index, follow">
-
-<link rel="icon" type="image/png" href="images/favicon.png">
-
-<meta name="description" content="Ayush Gautam - AI Developer, Full Stack Developer, Freelancer and Tech Creator Portfolio">
-
-<meta name="keywords" content="Ayush Gautam, AI Developer, Full Stack Developer, Portfolio, Machine Learning, Web Developer">
-
-<meta name="author" content="Ayush Gautam">
-
-<meta property="og:title" content="Ayush Gautam Portfolio">
-
-<meta property="og:description" content="AI Developer | Full Stack Developer | Freelancer">
-
-<meta property="og:image" content="images/logo.png">
-
-<meta property="og:url" content="https://ayushgautam.co.in">
-  </head>
-  <body>
-
-    <!-- Mouse Circle -->
-    <div class="mouse-circle"></div>
-    <div class="mouse-dot"></div>
-    <!-- End of Mouse Circle -->
-
-    <!-- Page Container -->
-    <div class="container">
-      <!-- Page BG -->
-      <div class="page-bg"></div>
-      <!-- End of Page BG -->
-
-      <!-- Progress Bar -->
-      <a href="#" class="progress-bar center sticky">
-        <div class="half-circle"></div>
-        <div class="half-circle"></div>
-        <div class="half-circle-top"></div>
-        <div class="progress-bar-circle center">&#8595;</div>
-      </a>
-      <!-- End of Progress Bar -->
-
-
-      <!-- Navigation -->
-      <!-- Menu Icon -->
-      <div class="menu-icon center sticky">
-        <div class="menu-icon-line"></div>
-        <div class="menu-icon-line"></div>
-      </div>
-      <!-- End of Menu Icon -->
-
-      <!-- Navbar -->
-      <nav class="navbar">
-        <a href="#section-1" class="navbar-link pointer-enter">Home</a>
-        <a href="#section-2" class="navbar-link pointer-enter">About Me</a>
-        <a href="#section-3" class="navbar-link pointer-enter">Projects</a>
-        <a href="#section-4" class="navbar-link pointer-enter">Services</a>
-        <a href="#section-5" class="navbar-link pointer-enter">Contact</a>
-        <a href="#section-hire" class="navbar-link pointer-enter">Hire Me</a>
-
-      </nav>
-      <!-- End of Navbar -->
-      <!-- End of Navigation -->
-
-      <!-- Section 1 -->
-      <div class="section-1 center" id="section-1">
-        <!-- Logo -->
-        <a href="#" class="logo">
-  <img src="images/logo.png" alt="Ayush Gautam Logo" class="logo-img">
-  <span>Ayush Gautam</span>
-</a>
-        <!-- End of Logo -->
-
-        <!-- Animated Circles -->
-        <div class="circles">
-          <div class="circle circle-1"></div>
-          <div class="circle circle-2"></div>
-          <div class="circle circle-3"></div>
-          <div class="circle circle-4"></div>
-        </div>
-        <div class="main-circle center">
-          <img src="images/landing/psn.jpeg" alt="Designer Image">
-        </div>
-        <!-- End of Animated Circles -->
-
-        <!-- Featured Text -->
-        <h4 class="featured-text featured-text-1">Fullstack</h4>
-        <h4 class="featured-text featured-text-2">Developer</h4>
-        <!-- End of Featured Text -->
-
-      </div>
-      <!-- End of Section 1 -->
-
-      <!-- Section 2 -->
-      <section class="section-2" id="section-2">
-        <!-- Section 2 heading -->
-        <h1 class="section-heading">About Me</h1>
-        <!-- End of Section 2 heading -->
-
-        <!-- About Me Text -->
-        <p class="about-me-text"></p>
-        <!-- End of About Me Text -->
-
-        <!-- Main Button -->
-        <a href="#" class="main-btn">
-          <div class="main-btn-content center">
-            <div class="main-btn-line"></div>
-            <div class="main-btn-line"></div>
-            <div class="main-btn-line"></div>
-            <span>Let's Talk</span>
-          </div>
-        </a>
-        <!-- End of Main Button -->
-
-      </section>
-      <!-- End of Section 2 -->
-
-      <!-- Section 3 -->
-      <section class="section-3" id="section-3">
-      <!-- Section-3 Heading -->
-      <h1 class="section-3-heading">My Work</h1>
-      <!-- End of Section-3 Heading -->
-      <!-- Projects -->
-      <div class="projects center">
-        <div class="project pointer-enter">
-          <img src="images/projects/project-1.jpg">
-        </div>
-        <div class="project pointer-enter">
-          <img src="images/projects/project-2.jpg">
-        </div>
-        <div class="project pointer-enter">
-          <img src="images/projects/project-3.jpg">
-        </div>
-        <div class="project pointer-enter">
-          <img src="images/projects/project-4.jpg">
-        </div>
-        <div class="project pointer-enter">
-          <img src="images/projects/project-5.jpg">
-        </div>
-        <div class="project pointer-enter">
-          <img src="images/projects/project-6.jpg">
-        </div>
-        <div class="project pointer-enter">
-          <img src="images/projects/project-7.jpg">
-        </div>
-        <div class="project pointer-enter">
-          <img src="images/projects/project-8.jpg">
-        </div>
-        <div class="project pointer-enter">
-          <img src="images/projects/project-9.jpg">
-        </div>
-      </div>
-      <!-- Project Hide Buttons -->
-      <button class="project-hide-btn">&laquo;Close</button>
-      <!-- End of Project Hide Buttons -->
-      <!-- End of Projects -->
-
-      <!-- End of Projects Button -->
-      </section>
-      <!-- End of Section 3 -->
-
-      <!-- Hire Section -->
-      <section class="section-hire" id="section-hire">
-        <h1 class="hire-heading">Proposing a Job Offer</h1>
-
-        <div class="hire-cards center">
-          <div class="hire-card">
-            <div class="hire-icon">💼</div>
-            <h2>Job</h2>
-            <p>Full-time position at your company.</p>
-            <button type="button" class="hire-card-btn" data-role="Job">Propose Job</button>
-          </div>
-         <div class="hire-card">
-  <div class="hire-icon">⭐</div>
-
-  <h2>Freelance</h2>
-
-  <p>Project-based work and gigs.</p>
-
-  <button 
-    type="button" 
-    class="hire-card-btn"
-    onclick="openFreelanceForm()"
-  >
-    Propose Freelance
-  </button>
-</div>
-          <div class="hire-card">
-  <div class="hire-icon">📺</div>
-
-  <h2>Sponsor</h2>
-
-  <p>Sponsor a YouTube video.</p>
-
-  <button 
-    type="button" 
-    class="hire-card-btn"
-    onclick="openSponsorForm()"
-  >
-    Propose Sponsor
-  </button>
-
-  <a 
-    href="https://github.com/sponsors/Ayushgautam16" 
-    target="_blank" 
-    class="hire-card-link"
-  >
-    Sponsor on GitHub
-  </a>
-</div>
-
-       <form 
-  class="hire-form center" 
-  id="hire-form"
-  action="https://formspree.io/f/xykoojqb"
-  method="POST"
->
-<!-- SPONSOR POPUP -->
-<div class="freelance-popup" id="sponsorPopup">
-
-  <div class="freelance-popup-box">
-
-    <span class="freelance-close" onclick="closeSponsorForm()">
-      &times;
-    </span>
-
-    <h2>Sponsorship Proposal</h2>
-
-    <form 
-      action="https://formspree.io/f/xykoojqb"
-      method="POST"
-      class="freelance-form"
-    >
-
-      <input 
-        type="hidden" 
-        name="_subject" 
-        value="New Sponsorship Proposal"
-      >
-
-      <div class="freelance-field">
-        <label>Your Name *</label>
-
-        <input 
-          type="text" 
-          name="name" 
-          placeholder="Enter your name"
-          required
-        >
-      </div>
-
-      <div class="freelance-field">
-        <label>Email Address *</label>
-
-        <input 
-          type="email" 
-          name="email" 
-          placeholder="Enter your email"
-          required
-        >
-      </div>
-
-      <div class="freelance-field">
-        <label>Company / Brand Name *</label>
-
-        <input 
-          type="text" 
-          name="brand"
-          placeholder="Your company or brand"
-          required
-        >
-      </div>
-
-      <div class="freelance-field">
-        <label>Sponsorship Budget *</label>
-
-        <input 
-          type="text" 
-          name="budget"
-          placeholder="Budget amount"
-          required
-        >
-      </div>
-
-      <div class="freelance-field">
-        <label>Campaign Details *</label>
-
-        <textarea 
-          name="campaign"
-          placeholder="Explain sponsorship requirements..."
-          required
-        ></textarea>
-      </div>
-
-      <button type="submit" class="freelance-submit-btn">
-        Submit Sponsorship
-      </button>
-
-    </form>
-
-  </div>
-</div>
-  <!-- Optional Hidden Fields -->
-  <input type="hidden" name="_subject" value="New Hiring Proposal">
-  
-  <div class="hire-form-inner">
-
-    <label>
-      <span>Company Name *</span>
-      <input 
-        type="text" 
-        name="company" 
-        class="hire-input" 
-        placeholder="Your company name" 
-        required
-      >
-    </label>
-
-    <label>
-      <span>Your Email *</span>
-      <input 
-        type="email" 
-        name="email" 
-        class="hire-input" 
-        placeholder="email@company.com" 
-        required
-      >
-    </label>
-
-    <label>
-      <span>Designation *</span>
-      <input 
-        type="text" 
-        name="designation" 
-        class="hire-input" 
-        placeholder="Your role/designation" 
-        required
-      >
-    </label>
-
-    <label>
-      <span>Offering CTC (per annum) *</span>
-      <input 
-        type="text" 
-        name="ctc" 
-        class="hire-input" 
-        placeholder="Amount in your currency" 
-        required
-      >
-    </label>
-
-    <label>
-      <span>Mobile Number (optional)</span>
-      <input 
-        type="text" 
-        name="mobile" 
-        class="hire-input" 
-        placeholder="+91 XXXXXXXXXX"
-      >
-    </label>
-
-    <label>
-      <span>What I will be working on *</span>
-      <input 
-        type="text" 
-        name="work" 
-        class="hire-input" 
-        placeholder="Describe the work/project" 
-        required
-      >
-    </label>
-
-    <label>
-      <span>Anything else (optional)</span>
-      <textarea 
-        name="message" 
-        class="hire-textarea" 
-        placeholder="Any additional details..."
-      ></textarea>
-    </label>
-
-    <button type="submit" class="hire-submit-btn">
-      Submit Proposal
-    </button>
-
-  </div>
-</form>
-
-<div class="freelance-popup" id="freelancePopup">
-
-  <div class="freelance-popup-box">
-
-    <span class="freelance-close" onclick="closeFreelanceForm()">
-      &times;
-    </span>
-
-    <h2>Freelance Project Proposal</h2>
-
-    <form 
-      action="https://formspree.io/f/xykoojqb"
-      method="POST"
-      class="freelance-form"
-    >
-
-      <input 
-        type="hidden" 
-        name="_subject" 
-        value="New Freelance Proposal"
-      >
-
-      <div class="freelance-field">
-        <label>Your Name *</label>
-        <input type="text" name="name" placeholder="Enter your name" required>
-      </div>
-
-      <div class="freelance-field">
-        <label>Email Address *</label>
-        <input type="email" name="email" placeholder="Enter your email" required>
-      </div>
-
-      <div class="freelance-field">
-        <label>Contact Number *</label>
-        <input type="text" name="phone" placeholder="+91 XXXXXXXXXX" required>
-      </div>
-
-      <div class="freelance-field">
-        <label>Project Name *</label>
-        <input type="text" name="project_name" placeholder="Project title" required>
-      </div>
-
-      <div class="freelance-field">
-        <label>Project Budget *</label>
-        <input type="text" name="budget" placeholder="Budget amount" required>
-      </div>
-
-      <div class="freelance-field">
-        <label>Project Requirements *</label>
-
-        <textarea 
-          name="requirements"
-          placeholder="Explain your project requirements..."
-          required
-        ></textarea>
-      </div>
-
-      <button type="submit" class="freelance-submit-btn">
-        Submit Proposal
-      </button>
-
-    </form>
-
-  </div>
-</div>
-
-
-
-      <!-- End of Hire Section -->
-
-      <!-- Sponsors Section -->
-      <section class="section-sponsors" id="section-sponsors">
-
-  <h1 class="section-heading">Support My Work</h1>
-
-  <div class="modern-sponsor-card">
-
-    <div class="modern-sponsor-left">
-
-      <div class="modern-sponsor-avatar">
-        <img 
-          src="images/landing/psn.jpeg" 
-          alt="Ayush Gautam"
-        >
-      </div>
-
-      <div class="modern-sponsor-content">
-
-        <h2>
-          Sponsor Ayush Gautam
-        </h2>
-
-        <p>
-          Support open-source projects, AI innovations, 
-          developer content, and impactful tech creations.
-        </p>
-
-        <div class="modern-sponsor-tags">
-          <span>AI/ML</span>
-          <span>Open Source</span>
-          <span>Full Stack</span>
-          <span>Content Creator</span>
-        </div>
-
-      </div>
-
-    </div>
-
-    <div class="modern-sponsor-right">
-
-      <a 
-        href="https://github.com/sponsors/Ayushgautam16"
-        target="_blank"
-        class="modern-sponsor-btn"
-      >
-        Sponsor Now
-      </a>
-
-    </div>
-
-  </div>
-
-</section>
-      <!-- End of Sponsors Section -->
-
-      <!-- Resume Section -->
-      <section class="section-resume" id="section-resume">
-        <h1 class="section-heading">Resume</h1>
-        <div class="resume-wrapper center">
-          <div class="resume-preview-card">
-            <div class="resume-preview-header">
-              <div>
-                <h2>Resume Preview</h2>
-                <p class="resume-preview-description">View the latest version of my resume directly in the browser before downloading.</p>
-              </div>
-            </div>
-            <iframe class="resume-preview-iframe" src="https://drive.google.com/file/d/1wuYaUdnYTIfjH_DR4ufbGhsQnKG_UwSe/preview" title="Resume Preview"></iframe>
-          </div>
-        </div>
-      </section>
-      <!-- End of Resume Section -->
-
-      <!-- Profile Summary Section -->
-      <section class="section-profile" id="section-profile">
-        <h1 class="section-heading">Professional Summary</h1>
-        <div class="profile-grid center">
-          <div class="profile-card">
-            <h2>Contact</h2>
-            <p>Mobile: +91 76490 34211</p>
-            <p>Email: ayushgautam2007.kg@gmail.com</p>
-            <p>LinkedIn: <a href="https://www.linkedin.com/in/ayushgautam16/" target="_blank">ayushgautam16</a></p>
-          </div>
-          <div class="profile-card">
-            <h2>Summary</h2>
-            <p>Currently pursuing a B.Tech in Computer Science Engineering at Gyan Ganga Institute of Technology Sciences, graduating July 2026.</p>
-            <p>Experienced as an Automation Engineer Intern at Tech Mahindra with Python automation, SQL DB2, and Node.js.</p>
-            <p>Delivered over 20 freelance projects across web development, AI/ML, and software applications.</p>
-            <p>Passionate about cloud technology, automation, and building impactful solutions.</p>
-          </div>
-        </div>
-      </section>
-      <!-- End of Profile Summary Section -->
-
-      <!-- Skills & Certification Section -->
-      <section class="section-skills" id="section-skills">
-        <h1 class="section-heading">Skills & Certifications</h1>
-        <div class="skills-grid center">
-          <div class="skill-card">
-            <h2>Top Skills</h2>
-            <ul>
-              <li>ASP.NET Web API</li>
-              <li>Amazon Web Services (AWS)</li>
-              <li>HTML5</li>
-              <li>Python Automation</li>
-              <li>SQL DB2</li>
-              <li>Next.js</li>
-            </ul>
-          </div>
-          <div class="skill-card">
-            <h2>Certifications</h2>
-            <ul>
-              <li>Google Cloud Certified Professional Cloud Architect</li>
-              <li>Monitoring in Google Cloud Skill Badge</li>
-              <li>National Board of Accreditation</li>
-              
-              <li>NASA SpaceApps Challenge</li>
-              <li>Eureka Entrepreneurship Competition</li>
-            </ul>
-          </div>
-        </div>
-      </section>
-      <!-- End of Skills & Certifications Section -->
-
-      <!-- Experience Section -->
-      <section class="section-experience" id="section-experience">
-        <h1 class="section-heading">Experience</h1>
-        <div class="experience-grid center">
-          <div class="experience-card">
-            <h2>Automation Engineer Intern</h2>
-            <h3>Tech Mahindra</h3>
-            <p class="experience-meta">April 2026 - Present | Noida, Uttar Pradesh</p>
-            <ul>
-              <li>Engineered Python RPA bots to automate high-volume repetitive processes.</li>
-              <li>Implemented asynchronous APIs and optimized execution pipelines.</li>
-              <li>Analyzed process flows and identified automation opportunities.</li>
-              <li>Integrated automation scripts with backend systems and APIs.</li>
-            </ul>
-          </div>
-          <div class="experience-card">
-            <h2>Digital Content Creator</h2>
-            <h3>YouTube</h3>
-            <p class="experience-meta">May 2026 - Present | India</p>
-            <p>Created developer-focused content around AI/ML, coding consistency, and real-world project experience.</p>
-          </div>
-          <div class="experience-card">
-            <h2>Freelancer</h2>
-            <h3>Freelancer.com</h3>
-            <p class="experience-meta">Nov 2022 - Apr 2026 | India</p>
-            <p>Delivered 20+ projects in web development, AI/ML, and software engineering.</p>
-          </div>
-        </div>
-      </section>
-      <!-- End of Experience Section -->
-
-      <!-- Education Section -->
-      <section class="section-education" id="section-education">
-        <h1 class="section-heading">Education</h1>
-        <div class="education-grid center">
-          <div class="education-card">
-            <h2>Gyan Ganga Institute of Technology Sciences</h2>
-            <p>B.Tech in Computer Science Engineering</p>
-            <p>September 2022 - July 2026</p>
-          </div>
-          <div class="education-card">
-            <h2>Kendriya Vidyalaya</h2>
-            <p>Higher Secondary Education</p>
-            <p>September 2010 - September 2022</p>
-          </div>
-        </div>
-      </section>
-      <!-- End of Education Section -->
-
-      <!-- Honors Section -->
-      <section class="section-honors" id="section-honors">
-        <h1 class="section-heading">Honors & Awards</h1>
-        <div class="honors-grid center">
-          <div class="honor-card">
-            <p>Honourable Governor Appreciation Certificate</p>
-          </div>
-          <div class="honor-card">
-            <p>Medallion from Lt General for Best Performance in Republic Day Camp 2025</p>
-          </div>
-          <div class="honor-card">
-            <p>Token of Appreciation from the Group Commander</p>
-          </div>
-          <div class="honor-card">
-            <p>Honourable Chief Minister Award RDC 2025</p>
-          </div>
-          <div class="honor-card">
-            <p>ADG Appreciation Certificate</p>
-          </div>
-        </div>
-      </section>
-      <!-- End of Honors Section -->
-
-      <!-- Achievements Section -->
-      <section class="section-achievements" id="section-achievements">
-        <h1 class="section-heading">Achievements</h1>
-        <div class="achievement-grid center">
-          <div class="achievement-card">
-            <h2>Top Performer</h2>
-            <p>Recognized for outstanding project delivery and technical excellence.</p>
-          </div>
-          <div class="achievement-card">
-            <h2>Hackathon Winner</h2>
-            <p>Awarded first place for building an innovative web application.</p>
-          </div>
-          <div class="achievement-card">
-            <h2>Open Source Contributor</h2>
-            <p>Contributed fixes and enhancements to community projects on GitHub.</p>
-          </div>
-        </div>
-      </section>
-      <!-- End of Achievements Section -->
-
-      <!-- Certificate Section -->
-      <section class="section-certificate" id="section-certificate">
-        <h1 class="section-heading">Copyright Certificate</h1>
-        <div class="certificate-grid center">
-          <div class="certificate-card">
-            <div class="certificate-content">
-              <span class="certificate-label">Copyright Certificate</span>
-              <h2>Patent: Sign Language Translation System</h2>
-              <p>This certificate confirms registered ownership of the patent for Sign Language Translation System.</p>
-              <p class="certificate-meta">Issued by: Intellectual Property Office</p>
-            </div>
-          </div>
-          <div class="certificate-card">
-            <div class="certificate-content">
-              <span class="certificate-label">Copyright Certificate</span>
-              <h2>Patent: Deepfake Detection Technology</h2>
-              <p>This certificate confirms registered ownership of the patent for Deepfake Detection Technology.</p>
-              <p class="certificate-meta">Issued by: Intellectual Property Office</p>
-            </div>
-          </div>
-        </div>
-      </section>
-      <!-- End of Certificate Section -->
-
-      <section class="section-4" id="section-4">
-      <!-- Section 4 Heading -->
-      <h1 class="section-heading">What I Can</h1>
-      <!-- End of Section 4 Heading -->
-
-      <!-- Services -->
-      <div class="services-wrapper center">
-        <div class="service">
-          <a href="#" class="service-btn pointer-enter"><span>
-            Full Stack Developer
-          </span></a>
-          <p class="service-text">Landing Pages, User Flow, Wireframing, Prototyping, Mobile App, Web Design</p>
-        </div>
-        <div class="service">
-          <a href="#" class="service-btn pointer-enter"><span>
-            Icon/Illustration
-          </span></a>
-          <p class="service-text">Character Design,Icon Set,Illustration Guide,Illustration Set</p>
-        </div>
-        <div class="service">
-          <a href="#" class="service-btn pointer-enter"><span>
-            Web Application
-          </span></a>
-          <p class="service-text">Developing web application</p>
-        </div>
-        <div class="service">
-          <a href="#" class="service-btn pointer-enter"><span>
-            Development
-          </span></a>
-          <p class="service-text">HTML/CSS, JavaScript, Node.Js, MongoDB, Responsive Websites</p>
-        </div>
-        <div class="service">
-          <a href="#" class="service-btn pointer-enter"><span>
-            Motion
-          </span></a>
-          <p class="service-text">2D Animation, UI Motion</p>
-        </div>
-      </div>
-      <!-- End of Services -->
-      </section>
-      <!--Section 4  -->
-
-      <!-- End of Section 4 -->
-
-      <!-- Section 5 -->
-      <section class="section-5 center" id="section-5">
-        <div class="drop-message-wrapper">
-          <h1 class="drop-heading">Drop A Message</h1>
-          <label class="drop-privacy-label">
-            <input type="checkbox" class="drop-checkbox" name="anonymous">
-            <span>Send Anonymously</span>
-          </label>
-
-         <form 
-  class="contact-form center" 
-  action="https://formspree.io/f/xykoojqb"
-  method="POST"
->
-
-  <!-- Optional Hidden Subject -->
-  <input type="hidden" name="_subject" value="New Portfolio Contact Message">
-
-  <div class="contact-field">
-    <label for="name">Your Name *</label>
+const mouseCircleFn = (x,y) => {
+    mouseCircleBool && (mouseCircle.style.cssText = `top: ${y}px; left: ${x}px; opacity:1`);
     
-    <input 
-      type="text" 
-      class="contact-form-input pointer-enter" 
-      placeholder="Your full name" 
-      id="name" 
-      autocomplete="off" 
-      name="name" 
-      required
-    >
-  </div>
+    mouseDot.style.cssText = `top: ${y}px; left: ${x}px; opacity:1`;
+};
+// End of Mouse Circle
 
-  <div class="contact-field">
-    <label for="email">Your Email *</label>
+// Animated Circles
+const circles = document.querySelectorAll(".circle");
+const mainImg = document.querySelector(".main-circle img");
+
+let mX=0;
+let mY=0;
+const z=100;
+const animateCircles = (e,x,y) => {
+    if (x<mX) {
+        circles.forEach((circle) => {
+            circle.style.left = `${z}px`;
+        });
+        mainImg.style.left = `${z}px`;
+    } else if (x>mX){
+        circles.forEach((circle) => {
+            circle.style.left = `-${z}px`;
+        });
+        mainImg.style.left = `-${z}px`;
+    }
+    if (y<mY) {
+        circles.forEach((circle) => {
+            circle.style.top = `${z}px`;
+        });
+        mainImg.style.top = `${z}px`;
+    } else if (y>mY){
+        circles.forEach((circle) => {
+            circle.style.top = `-${z}px`;
+        });
+        mainImg.style.top = `-${z}px`;
+    }
+    mX = e.clientX;
+    mY = e.clientY;
+}
+// End of Animated Circles
+
+let hoveredElPosition = [];
+
+const stickyElement = (x,y,hoveredEl) => {
+    // Sticky Elements
+    if(hoveredEl.classList.contains("sticky")){
+        hoveredElPosition.length < 1 && (hoveredElPosition = [hoveredEl.offsetTop, hoveredEl.offsetLeft]);
+        
+        hoveredEl.style.cssText =`top: ${y}px; left: ${x}px`;
+ 
+        if(hoveredEl.offsetTop <= hoveredElPosition[0] - 100 || 
+           hoveredEl.offsetTop >= hoveredElPosition[0] + 100 ||
+           hoveredEl.offsetLeft <= hoveredElPosition[1] - 100 ||
+           hoveredEl.offsetLeft >= hoveredElPosition[1] + 100
+          ){
+            hoveredEl.style.cssText = "";
+            hoveredElPosition = [];
+        }
+ 
+        hoveredEl.onmouseleave = () => {
+         hoveredEl.style.cssText = "";
+         hoveredElPosition = [];
+        };
+     };
+     // End of Sticky Elements
+};
+
+// Mouse Circle Transform
+const mouseCircleTransform = (hoveredEl) => {
+    if(hoveredEl.classList.contains("pointer-enter")){
+        hoveredEl.onmousemove = () => {
+            mouseCircleBool = false;
+            mouseCircle.style.cssText = `
+            width: ${hoveredEl.getBoundingClientRect().width}px;
+            height: ${hoveredEl.getBoundingClientRect().height}px;
+            top: ${hoveredEl.getBoundingClientRect().top}px;
+            left: ${hoveredEl.getBoundingClientRect().left}px;
+            opacity: 1;
+            transform: translate(0,0);
+            animation: none;
+            border-radius: ${getComputedStyle(hoveredEl).borderRadius};
+            transition: width .5s, height .5s, top .5s, left .5s, transform .5s, border-radius .5s;
+            `;
+        }
+        
+        hoveredEl.onmouseleave = () => {
+            mouseCircleBool = true;
+        }
+        document.onscroll = () => {
+            if(!mouseCircleBool){
+                mouseCircle.style.top = `${hoveredEl.getBoundingClientRect().top}px`;
+            }
+        }
+    }
+}
+// End of Mouse Circle Transform
+
+
+document.body.addEventListener('mousemove', (e) => {
+    let x = e.clientX;
+    let y = e.clientY;
+
+    mouseCircleFn(x,y);
+    animateCircles(e,x,y);
+
+    const hoveredEl = document.elementFromPoint(x,y);
+
+    stickyElement(x,y,hoveredEl);  
+
+    mouseCircleTransform(hoveredEl);
+});
+document.body.addEventListener('mouseleave', () => {
+    mouseCircle.style.opacity = '0';
+    mouseDot.style.opacity = '0';
+});
+
+// Main Button
+const mainBtns = document.querySelectorAll('.main-btn');
+
+mainBtns.forEach((btn) => {
+    let ripple;
+
+    btn.addEventListener('mouseenter', e => {
+        const left = e.clientX - e.target.getBoundingClientRect().left;
+        const top = e.clientY - e.target.getBoundingClientRect().top;
+
+        ripple = document.createElement('div')
+        ripple.classList.add("ripple");
+        ripple.style.left = `${left}px`;
+        ripple.style.top = `${top}px`;
+        btn.prepend(ripple);
+    })
+
+    btn.addEventListener('mouseleave', () => {
+        btn.removeChild(ripple);
+    })
+})
+
+// End of Main Button
+
+
+// Progress Bar
+const sections = document.querySelectorAll("section");
+const progressBar = document.querySelector(".progress-bar");
+
+const halfCircles = document.querySelectorAll(".half-circle");
+const halfCircleTop = document.querySelector(".half-circle-top");
+const progressBarCircle = document.querySelector(".progress-bar-circle");
+
+let scrolledPortion = 0;
+let scrollBool = false;
+let imageWrapper = false;
+
+const progressBarFn = (bigImgWrapper) => {
+    imageWrapper = bigImgWrapper;
+    let pageHeight = 0;
+    const pageViewportHeight = window.innerHeight;
+
+    if(!imageWrapper) {
+        pageHeight = document.documentElement.scrollHeight;
+        scrolledPortion = window.pageYOffset;
+    }else {
+        pageHeight = imageWrapper.firstElementChild.scrollHeight;
+        scrolledPortion = imageWrapper.scrollTop;
+    }
+
+    scrolledPortionDegree = (scrolledPortion / (pageHeight - pageViewportHeight)) * 360;
     
-    <input 
-      type="email" 
-      class="contact-form-input pointer-enter" 
-      placeholder="email@example.com" 
-      id="email" 
-      autocomplete="off" 
-      name="email" 
-      required
-    >
-  </div>
+    halfCircles.forEach(el => {
+        el.style.transform = `rotate(${scrolledPortionDegree}deg)`;
 
-  <div class="contact-field">
-    <label for="message">Message *</label>
+        if(scrolledPortionDegree >= 180){
+            halfCircles[0].style.transform = "rotate(180deg)";
+            halfCircleTop.style.opacity = "0";
+        }else {
+            halfCircleTop.style.opacity = "1";
+        }
+    });
+    const scrollBool = (scrolledPortion + pageViewportHeight) - 0.5 === pageHeight;
+   
     
-    <textarea 
-      class="contact-form-input contact-form-textarea pointer-enter" 
-      placeholder="What's on your mind?" 
-      id="message" 
-      autocomplete="off" 
-      name="message" 
-      required
-    ></textarea>
-  </div>
 
-  <button type="submit" class="form-submit-btn pointer-enter">
-    Send Message
-  </button>
+    // Arrow Rotation
+    if(scrollBool){
+        progressBarCircle.style.transform = "rotate(180deg)";
+    }else {
+        progressBarCircle.style.transform = "rotate(0)";
+    }
+    // End of Arrow Rotation
+};
 
-</form>
-      <!-- End of Section 5 -->
+// Progress Bar Click
+progressBar.addEventListener("click",e => {
+    e.preventDefault()
 
-      <!-- Social Profiles -->
-      <section class="section-social" id="section-social">
-        <h1 class="section-heading">Connect With Me</h1>
-        <div class="slideshow center">
-          <a href="https://x.com/GainsBy_Ayush" target="_blank" class="slideshow-link">
-            <img src="images/social-icons/slideshow-img-1.png" alt="X">
-          </a>
-          <a href="https://youtube.com/@gainsby_ayush?si=Kvp6uzhLBWP8tLi4" target="_blank" class="slideshow-link">
-            <img src="images/social-icons/slideshow-img-2.png" alt="YouTube">
-          </a>
-          <a href="https://github.com/Ayushgautam16" target="_blank" class="slideshow-link">
-            <img src="images/social-icons/slideshow-img-4.png" alt="GitHub">
-          </a>
-          <a href="https://www.linkedin.com/in/ayush-gautam-9baa14248/" target="_blank" class="slideshow-link">
-            <img src="images/social-icons/linkedin.png" alt="LinkedIn">
-          </a>
-          <a href="https://instagram.com/GainsBy_Ayush" target="_blank" class="slideshow-link instagram-link">
-            <svg class="social-icon instagram-icon" viewBox="0 0 448 512" aria-label="Instagram" role="img">
-              <path fill="currentColor" d="M224.1 141c-63.6 0-114 50.4-114 114 0 63.6 50.4 114 114 114s114-50.4 114-114c0-63.6-50.4-114-114-114zm0 186c-39.8 0-72-32.2-72-72 0-39.8 32.2-72 72-72s72 32.2 72 72c0 39.8-32.2 72-72 72zm146.4-194.8c0 14.9-12.1 27-27 27s-27-12.1-27-27 12.1-27 27-27 27 12.1 27 27zm76.1 27.2c-1.7-35.7-9.9-67.3-36.1-93.5-26.2-26.2-57.8-34.4-93.5-36.1-37-2.1-147.8-2.1-184.8 0-35.7 1.7-67.3 9.9-93.5 36.1-26.2 26.2-34.4 57.8-36.1 93.5-2.1 37-2.1 147.8 0 184.8 1.7 35.7 9.9 67.3 36.1 93.5 26.2 26.2 57.8 34.4 93.5 36.1 37 2.1 147.8 2.1 184.8 0 35.7-1.7 67.3-9.9 93.5-36.1 26.2-26.2 34.4-57.8 36.1-93.5 2.1-37 2.1-147.8 0-184.8zm-48.5 224c-7.8 19.6-23 34.8-42.6 42.6-29.5 11.7-99.5 9-132.9 9s-103.4 2.6-132.9-9c-19.6-7.8-34.8-23-42.6-42.6-11.7-29.5-9-99.5-9-132.9s-2.6-103.4 9-132.9c7.8-19.6 23-34.8 42.6-42.6 29.5-11.7 99.5-9 132.9-9s103.4-2.6 132.9 9c19.6 7.8 34.8 23 42.6 42.6 11.7 29.5 9 99.5 9 132.9s2.6 103.4-9 132.9z"></path>
-            </svg>
-          </a>
-        </div>
-      </section>
-      <!-- End of Social Profiles -->
-    </div>
-    <!-- End of Page Container -->
+    if(!imageWrapper){
+        const sectionPositions = Array.from(sections).map(section => scrolledPortion + section.getBoundingClientRect().top);
+    
+        const position = sectionPositions.find(sectionPosition => {
+        return sectionPosition > scrolledPortion;
+        });
+
+        scrollBool ? window.scrollTo(0,0) : window.scrollTo(0,position);
+    }else {
+        scrollBool ? imageWrapper.scrollTo(0,0) : imageWrapper.scrollTo(0,imageWrapper.scrollHeight);
+    }
+
+});
+// End of Progress Bar Click
+
+progressBarFn();
+// End of Progress Bar
 
 
-    <script src="script.js"></script>
-  </body>
-</html>
+// Navigation
+const menuIcon = document.querySelector(".menu-icon");
+const navbar = document.querySelector(".navbar");
+
+const scrollFn = () => {
+    menuIcon.classList.add("show-menu-icon");
+    navbar.classList.add("hide-navbar");
+
+    if(window.scrollY === 0) {
+        menuIcon.classList.remove("show-menu-icon");
+        navbar.classList.remove("hide-navbar");
+    }
+
+    progressBarFn();
+}
+
+document.addEventListener('scroll', scrollFn);
+    
+
+menuIcon.addEventListener('click',() => {
+     menuIcon.classList.remove("show-menu-icon");
+    navbar.classList.remove("hide-navbar");
+});
+// End of Navigation
+
+
+// About Me Text
+const aboutMeText = document.querySelector(".about-me-text");
+const aboutMeTextContent = "I'm a web developer & I create websites with the best user experiences. Just contact me.";
+Array.from(aboutMeTextContent).forEach(char => {
+    const span = document.createElement('span');
+    span.textContent = char;
+    aboutMeText.appendChild(span);
+
+    span.addEventListener('mouseenter', (e) => {
+        e.target.style.animation = "aboutMeTextAnim 10s infinite"
+    })
+});
+
+const hireCardButtons = document.querySelectorAll('.hire-card-btn');
+const hireRoleInput = document.getElementById('hire-role');
+const hireForm = document.getElementById('hire-form');
+
+hireCardButtons.forEach(btn => {
+    btn.addEventListener('click', () => {
+        const role = btn.dataset.role || '';
+        if (hireRoleInput) hireRoleInput.value = role;
+        if (hireForm) hireForm.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+});
+
+// End of About Me Text
+
+// Projects
+const container = document.querySelector('.container');
+const projects = document.querySelectorAll('.project');
+const projectHideBtn = document.querySelector('.project-hide-btn');
+
+projects.forEach((project, i) => {
+    project.addEventListener('mouseenter',() => {
+        project.firstElementChild.style.top = `-${project.firstElementChild.offsetHeight - project.offsetHeight + 20}px`;
+    });
+    project.addEventListener('mouseleave',() => {
+        project.firstElementChild.style.top = '2rem';
+    })
+
+    // Big Project Image
+    project.addEventListener('click',() => {
+        const imageWrapper = document.createElement('div');
+        imageWrapper.className = "project-img-wrapper";
+        container.appendChild(imageWrapper);
+
+        const bigImg = document.createElement('img');
+        bigImg.className = "project-img"
+        const imgPath =project.firstElementChild.getAttribute("src").split(".")[0];
+        bigImg.setAttribute("src", `${imgPath}-big.jpg`);
+        imageWrapper.appendChild(bigImg);
+        document.body.style.overflowY = "hidden";
+
+        document.removeEventListener("scroll",scrollFn);
+
+        mouseCircle.style.opacity = 0;
+
+        progressBarFn(imageWrapper);
+
+        imageWrapper.onscroll = () => {
+            progressBarFn(imageWrapper);
+        }
+
+        projectHideBtn.classList.add("change");
+
+        projectHideBtn.onclick = ()=>{
+            projectHideBtn.classList.remove("change");
+            imageWrapper.remove()
+            document.body.style.overflowY = "scroll";
+
+            document.addEventListener("scroll",scrollFn);
+
+            progressBarFn();
+        };
+    });
+    // End of Big Project Image
+   
+    i >= 6 && (project.style.cssText = "display:none; opacity:0");
+    
+});
+
+// Projects Button
+const section3 = document.querySelector('.section-3');
+const projectsBtn = document.querySelector('.projects-btn');
+const projectsBtnText = document.querySelector('.projects-btn span');
+
+const showProjects = (project,i) => {
+    setTimeout(() => {
+        project.style.display = "flex";
+        section3.scrollIntoView({block:"end"});
+    },600);
+    setTimeout(() => {
+        project.style.opacity = "1";
+    },i*200);
+}
+
+const hideProjects = (project,i) => {
+    setTimeout(() => {
+        project.style.display = "none";
+        section3.scrollIntoView({block:"end"});
+    },1200);
+
+    setTimeout(() => {
+        project.style.opacity = "0";
+    },i*100);
+}
+
+let showHideBool = true;
+
+projectsBtn.addEventListener("click", (e) => {
+    e.preventDefault();
+
+    projectsBtn.firstElementChild.nextElementSibling.classList.toggle("change");
+
+    showHideBool ? (projectsBtnText.textContent = "Show Less")
+    : (projectsBtnText.textContent = "Show More");
+
+    projects.forEach((project, i) => {
+        i >= 6 && (showHideBool ? showProjects(project,i):
+        hideProjects(project,i));
+    })
+    showHideBool = !showHideBool;
+});
+// End of Projects Button
+// End of Projects
+
+// Section 4
+document.querySelectorAll(".service-btn").forEach
+(service => {
+    service.addEventListener('click',e => {
+       e.preventDefault(); 
+
+       const serviceText = service.nextElementSibling;
+       serviceText.classList.toggle("change");
+
+       const rightPosition = serviceText.classList.contains("change") ? `calc(100% - ${getComputedStyle(service.firstElementChild).width})`
+       : 0;
+
+       service.firstElementChild.style.right = rightPosition;
+    });
+});
+// End of Section 4
+
+// Section 5
+// Form
+const formHeading = document.querySelector('.form-heading');
+const formInputs = document.querySelectorAll('.contact-form-input');
+
+formInputs.forEach((input) => {
+    input.addEventListener('focus',() => {
+        formHeading.style.opacity = "0";
+        setTimeout(() => {
+            formHeading.textContent =`Your ${input.placeholder}`;
+            formHeading.style.opacity = "1";
+        },300);
+       
+    });
+
+    input.addEventListener('blur',() => {
+        formHeading.style.opacity = "0";
+        setTimeout(() => {
+            formHeading.textContent ="Let's Talk";
+            formHeading.style.opacity = "1";
+        },300);
+       
+    });
+});
+
+// End of Form
+function openFreelanceForm(){
+  document.getElementById("freelancePopup").style.display = "flex";
+}
+
+function closeFreelanceForm(){
+  document.getElementById("freelancePopup").style.display = "none";
+}
+
+window.onclick = function(event){
+  const popup = document.getElementById("freelancePopup");
+
+  if(event.target == popup){
+    popup.style.display = "none";
+  }
+}
+// SLide Show
+const slideshow = document.querySelector('.slideshow')
+
+setInterval(() => {
+    const firstIcon = slideshow.firstElementChild;
+
+    firstIcon.classList.add("faded-out");
+
+    const thirdIcon = slideshow.children[3]
+
+    thirdIcon.classList.add("light");
+    thirdIcon.previousElementSibling.classList.remove("light");
+    
+    setTimeout(() => {
+        slideshow.removeChild(firstIcon);
+        slideshow.appendChild(firstIcon);
+
+        setTimeout(() => {
+            firstIcon.classList.remove("faded-out")
+        }, 500);
+    }, 500);
+},3000);
+// End of Slide Show
+function openSponsorForm(){
+  document.getElementById("sponsorPopup").style.display = "flex";
+}
+
+function closeSponsorForm(){
+  document.getElementById("sponsorPopup").style.display = "none";
+}
+// Form Validation
+const form = document.querySelector(".contact-form");
+const username = document.getElementById("name");
+const email = document.getElementById("email");
+const subject = document.getElementById("subject");
+const message = document.getElementById("message");
+const messages = document.querySelectorAll(".message");
+
+const error = (input, message) => {
+    input.nextElementSibling.classList.add("error");
+    input.nextElementSibling.textContent = message;
+}
+
+const success = (input) => {
+    input.nextElementSibling.classList.remove("error");
+}
+
+const checkRequiredFields =(inputArr) => {
+    inputArr.forEach(input => {
+        if(input.value.trim() === ""){
+            error(input, `${input.id} is required`);
+        }
+    });
+};
+
+const checkLength = (input,min) => {
+    if(input.value.trim().length < min){
+        error(input, `${input.id} must be at least ${min} characters`);
+    }else {
+        success(input);
+    }
+}
+
+const checkEmail = (input) => {
+    const regEx =
+    /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
+
+    if(regEx.test(input.value.trim())){
+        success(input);
+    }else {
+        error(input, "Email is not valid.");
+    }
+};
+
+form.addEventListener("submit", (e) => {
+    checkLength(username,2);
+    checkLength(subject,2);
+    checkLength(message,10);
+    checkEmail(email);
+    checkRequiredFields([username,email,subject,message]);
+
+    const notValid = Array.from(messages).find(message => {
+        return message.classList.contains("error")
+    })
+
+    notValid && e.preventDefault();
+});
+// End of Form Validation
+// End of Section 5
