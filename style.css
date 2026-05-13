@@ -1937,35 +1937,38 @@ body {
   width: 100%;
   overflow: hidden;
   position: relative;
-  margin-top: 5rem;
+  padding: 20px 0;
 }
 
 .social-track{
   display: flex;
   align-items: center;
-  gap: 5rem;
-  width: max-content;
-  animation: socialScroll 18s linear infinite;
+  gap: 40px;
+  animation: scrollLeft 12s linear infinite;
+}
+
+.slideshow-link{
+  flex-shrink: 0;
 }
 
 .slideshow-link img{
-  width: 8rem;
-  height: 8rem;
+  width: 90px;
+  height: 90px;
   object-fit: contain;
-  transition: 0.3s;
+  transition: transform 0.3s ease;
 }
 
 .slideshow-link img:hover{
   transform: scale(1.1);
 }
 
-@keyframes socialScroll{
+@keyframes scrollLeft{
   0%{
-    transform: translateX(100%);
+    transform: translateX(0);
   }
 
   100%{
-    transform: translateX(-100%);
+    transform: translateX(-50%);
   }
 }
 
