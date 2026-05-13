@@ -1932,6 +1932,46 @@ body {
         height: 200%;
     }
 }
+
+.social-slider{
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  margin-top: 5rem;
+}
+
+.social-track{
+  display: flex;
+  align-items: center;
+  gap: 5rem;
+  width: max-content;
+  animation: socialScroll 18s linear infinite;
+}
+
+.slideshow-link img{
+  width: 8rem;
+  height: 8rem;
+  object-fit: contain;
+  transition: 0.3s;
+}
+
+.slideshow-link img:hover{
+  transform: scale(1.1);
+}
+
+@keyframes socialScroll{
+  0%{
+    transform: translateX(100%);
+  }
+
+  100%{
+    transform: translateX(-100%);
+  }
+}
+
+
+
+
 /* End of Responsive */
 .logo {
   display: flex;
