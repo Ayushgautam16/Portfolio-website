@@ -1301,47 +1301,7 @@ body {
     margin-bottom: 4rem;
 }
 
-.slideshow{
-    display: flex;
-    justify-content: center;
-    flex-wrap: nowrap;
-    gap: 2rem;
-    width: 100%;
-    max-width: 100%;
-    margin: 0 auto;
-    padding: 0 2rem;
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-    scrollbar-width: none;
-    -ms-overflow-style: none;
-}
 
-.slideshow::-webkit-scrollbar {
-    display: none;
-}
-
-.slideshow-link{
-    width: 8rem;
-    height: 8rem;
-    flex: 0 0 auto;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    filter: brightness(.5);
-    transition: filter 1.5s, transform .3s;
-}
-
-.slideshow-link:hover {
-    filter: brightness(1);
-    transform: translateY(-.4rem);
-}
-
-.slideshow-link img{
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-    padding: 0;
-}
 
 .social-icon {
     display: inline-flex;
@@ -1691,58 +1651,66 @@ body {
 
 /* End of Form */
 
-/* Slide Show */
-.slideshow{
-    display: flex;
-    width: 50rem;
-    margin-top: 10rem;
-    padding: 0 2rem;
-}
-.slideshow-link{
-    width: 20%;
-    filter: brightness(.5);
-    transition: filter 1.5s;
-}
+/* Marquee / Slide Show */
 
-.slideshow-link:nth-child(3){
-    transition: filter 0.5s;
-}
-
-.slideshow-link:nth-child(1),
-.slideshow-link:nth-child(5){
-    transition: width 0.5s, opacity 0.5s;
-}
-
-.slideshow-link img{
+/* Outer container – clips overflow so icons scroll through */
+.marquee-wrapper {
     width: 100%;
-    padding: 0 1rem;
+    overflow: hidden;
+    /* soft fade edges */
+    -webkit-mask-image: linear-gradient(to right, transparent 0%, #000 8%, #000 92%, transparent 100%);
+    mask-image: linear-gradient(to right, transparent 0%, #000 8%, #000 92%, transparent 100%);
 }
 
-.slideshow-link .social-text {
-    display: inline-flex;
+/* Inner track – holds 2 identical sets of icons side-by-side */
+.marquee-track {
+    display: flex;
+    align-items: center;
+    width: max-content;          /* shrink-wraps all icons */
+    gap: 4rem;
+    padding: 1rem 2rem;
+    animation: marqueeScroll 8s linear infinite;
+}
+
+/* Pause on hover so users can click icons */
+.marquee-wrapper:hover .marquee-track {
+    animation-play-state: paused;
+}
+
+/* Right-to-left scroll: translate by exactly half (= 1 full set) */
+@keyframes marqueeScroll {
+    0%   { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+}
+
+/* Individual icon links */
+.slideshow-link {
+    flex: 0 0 auto;
+    width: 8rem;
+    height: 8rem;
+    display: flex;
     align-items: center;
     justify-content: center;
+    filter: brightness(.55);
+    transition: filter .3s, transform .3s;
+}
+
+.slideshow-link:hover {
+    filter: brightness(1.1);
+    transform: translateY(-.5rem) scale(1.08);
+}
+
+.slideshow-link img {
     width: 100%;
-    min-height: 10rem;
-    color: #fff;
-    font-size: 1.8rem;
-    letter-spacing: .2rem;
-    text-transform: uppercase;
-    padding: 1rem;
-    border: .2rem solid rgba(255,255,255,.2);
-    border-radius: .5rem;
-    box-sizing: border-box;
+    height: 100%;
+    object-fit: contain;
+    padding: 0;
 }
 
-.faded-out{
-    opacity: 0;
-    width: 0;
-}
-
-.light{
-    filter: brightness(1.5);
-}
-/* End of Slide Show */
+/* Legacy helpers (kept for safety) */
+.faded-out { opacity: 0; width: 0; }
+.light      { filter: brightness(1.5); }
+/* End of Marquee / Slide Show */
 /* End of Section 5 */
 
 /* Logo styling (unconditional) */
@@ -1852,7 +1820,7 @@ body {
     .service-text{
         font-size: 3.5rem;
     }
-    .slideshow{
+    .marquee-wrapper {
         margin: 5rem 0;
     }
 }
@@ -1918,11 +1886,12 @@ body {
     .contact-form-input{
         width: 100%;
     }
-    .slideshow{
+    .marquee-wrapper {
         width: 100%;
     }
-    .slideshow-link img{
-        padding: 0 1.1rem;
+    .slideshow-link {
+        width: 5.5rem;
+        height: 5.5rem;
     }
 }
 
@@ -2148,21 +2117,19 @@ body {
     .contact-form-textarea { min-height: 16rem; }
     .form-submit-btn { width: 100%; }
 
-    /* Slideshow socials */
-    .slideshow {
+    /* Marquee socials */
+    .marquee-wrapper {
         width: 100%;
         max-width: 100%;
         margin: 4rem 0 0;
-        padding: 0 1rem;
-        gap: 1.2rem;
     }
+    .marquee-track { gap: 2.5rem; }
     .slideshow-link,
     .slideshow-link img,
     .social-icon {
         width: 5.5rem;
         height: 5.5rem;
     }
-    .slideshow-link img { padding: 0; }
 
     /* Progress bar a bit smaller */
     .progress-bar {
@@ -2229,6 +2196,7 @@ body {
     .slideshow-link,
     .slideshow-link img,
     .social-icon { width: 4.5rem; height: 4.5rem; }
+    .marquee-track { gap: 2rem; }
     .progress-bar { width: 4rem; height: 4rem; }
     .progress-bar-circle { width: 3.8rem; height: 3.8rem; font-size: 1.4rem; }
 }
