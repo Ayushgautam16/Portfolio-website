@@ -223,28 +223,64 @@ progressBarFn();
 
 
 // Navigation
-const menuIcon = document.querySelector(".menu-icon");
-const navbar = document.querySelector(".navbar");
+const menuBtn = document.querySelector("#menu-btn");
+const navbar = document.querySelector("#navbar");
+const navbarLinks = document.querySelector("#navbar-links");
+const MOBILE_NAV_BREAKPOINT = 768;
+
+const isMobileNav = () => window.innerWidth <= MOBILE_NAV_BREAKPOINT;
+
+const closeMobileMenu = () => {
+    navbar?.classList.remove("menu-open");
+    menuBtn?.classList.remove("menu-open");
+    menuBtn?.setAttribute("aria-expanded", "false");
+    menuBtn?.setAttribute("aria-label", "Open navigation menu");
+};
+
+const toggleMobileMenu = () => {
+    const willOpen = !navbar.classList.contains("menu-open");
+    navbar.classList.toggle("menu-open", willOpen);
+    menuBtn.classList.toggle("menu-open", willOpen);
+    menuBtn.setAttribute("aria-expanded", String(willOpen));
+    menuBtn.setAttribute(
+        "aria-label",
+        willOpen ? "Close navigation menu" : "Open navigation menu"
+    );
+};
+
+menuBtn?.addEventListener("click", () => {
+    if (!isMobileNav()) return;
+    toggleMobileMenu();
+});
+
+navbarLinks?.querySelectorAll(".navbar-link").forEach((link) => {
+    link.addEventListener("click", () => {
+        if (isMobileNav()) closeMobileMenu();
+    });
+});
+
+window.addEventListener("resize", () => {
+    if (!isMobileNav()) closeMobileMenu();
+});
 
 const scrollFn = () => {
-    menuIcon.classList.add("show-menu-icon");
-    navbar.classList.add("hide-navbar");
+    if (isMobileNav()) {
+        navbar?.classList.remove("hide-navbar", "navbar-scrolled");
+        progressBarFn();
+        return;
+    }
 
     if (window.scrollY === 0) {
-        menuIcon.classList.remove("show-menu-icon");
-        navbar.classList.remove("hide-navbar");
+        navbar?.classList.remove("hide-navbar", "navbar-scrolled");
+    } else {
+        navbar?.classList.add("navbar-scrolled");
     }
 
     progressBarFn();
-}
+};
 
-document.addEventListener('scroll', scrollFn);
-
-
-menuIcon.addEventListener('click', () => {
-    menuIcon.classList.remove("show-menu-icon");
-    navbar.classList.remove("hide-navbar");
-});
+document.addEventListener("scroll", scrollFn);
+scrollFn();
 // End of Navigation
 
 
