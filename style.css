@@ -2,12 +2,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Jura:wght@400;500;700&family=Poppins:wght@100;200;300;400;500;600;700;800;900&family=Roboto:wght@400;700&family=Work+Sans:ital,wght@0,300;0,700;1,300&display=swap');
 /* Common Styles */
 .section-1{
-    padding-top: 10em;
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    padding-top: 0.5rem;
     overflow: hidden;
 }
 
 .circles{
-    padding-top: 5rem;
+    padding-top: 0;
 }
 
 * {
@@ -296,7 +299,7 @@ body {
     position: relative;
     width: 100%;
     z-index: 10;
-    padding: 1.5rem 3rem;
+    padding: 1rem 3rem 0.6rem;
     background: #000;
     transition: opacity .5s, visibility .5s;
 }
@@ -410,12 +413,11 @@ body {
 }
 /* End of Navigation */
 
-/* Section 1 */
-.section-1 {
-    position: relative;
-    width: 100%;
-    height: 100vh;
-    
+/* Section 1 — hero cluster shifted up toward navbar */
+.section-1 .circles,
+.section-1 .main-circle,
+.section-1 .featured-text {
+    transform: translateY(-3.5rem);
 }
 /* Logo */
 .logo{
@@ -2098,7 +2100,16 @@ body {
         top: auto;
     }
 
-    .section-1 { padding-top: 2rem; }
+    .section-1 {
+        padding-top: 0;
+    }
+
+    .section-1 .circles,
+    .section-1 .main-circle,
+    .section-1 .featured-text {
+        transform: translateY(-1.5rem);
+    }
+
     .main-circle {
         width: 28rem;
         height: 28rem;
@@ -2289,7 +2300,12 @@ body {
     .menu-btn { font-size: 1rem; padding: 0.5rem 0.8rem; }
     .logo span { font-size: 1.4rem; }
     .logo-img { width: 28px; height: 28px; }
-    .section-1 { padding-top: 2rem; }
+    .section-1 { padding-top: 0; }
+    .section-1 .circles,
+    .section-1 .main-circle,
+    .section-1 .featured-text {
+        transform: translateY(-1rem);
+    }
     .main-circle { width: 24rem; height: 24rem; }
     .main-circle:hover { width: 24rem; height: 24rem; }
     .circle { width: 9rem; height: 9rem; }
