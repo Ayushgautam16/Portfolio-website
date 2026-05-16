@@ -263,24 +263,8 @@ window.addEventListener("resize", () => {
     if (!isMobileNav()) closeMobileMenu();
 });
 
-const scrollFn = () => {
-    if (isMobileNav()) {
-        navbar?.classList.remove("hide-navbar", "navbar-scrolled");
-        progressBarFn();
-        return;
-    }
-
-    if (window.scrollY === 0) {
-        navbar?.classList.remove("hide-navbar", "navbar-scrolled");
-    } else {
-        navbar?.classList.add("navbar-scrolled");
-    }
-
-    progressBarFn();
-};
-
-document.addEventListener("scroll", scrollFn);
-scrollFn();
+document.addEventListener("scroll", progressBarFn);
+progressBarFn();
 // End of Navigation
 
 

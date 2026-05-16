@@ -287,15 +287,12 @@ body {
 
 /* Navigation */
 .navbar{
-    position: fixed;
-    top: 0;
-    left: 0;
+    position: relative;
     width: 100%;
-    z-index: 200;
+    z-index: 10;
     padding: 1.5rem 3rem;
-    background: rgba(0, 0, 0, 0.35);
-    backdrop-filter: blur(6px);
-    transition: opacity .5s, visibility .5s, transform .5s;
+    background: #000;
+    transition: opacity .5s, visibility .5s;
 }
 
 .navbar-header {
@@ -404,18 +401,6 @@ body {
         flex: 1;
     }
 
-    .navbar.navbar-scrolled .navbar-links {
-        opacity: 0;
-        visibility: hidden;
-        transform: translateX(2rem);
-        pointer-events: none;
-    }
-}
-
-.hide-navbar {
-    opacity: 0;
-    visibility: hidden;
-    transform: translateY(-100%);
 }
 /* End of Navigation */
 
@@ -2031,7 +2016,7 @@ body {
         flex-direction: column;
         align-items: stretch;
         padding: 1.2rem 1.5rem 0;
-        background: rgba(0, 0, 0, 0.55);
+        background: #000;
     }
 
     .navbar-header {
@@ -2088,8 +2073,8 @@ body {
         border-bottom: none;
     }
 
-    /* Section 1 hero — space for compact header */
-    .section-1 { padding-top: 8rem; }
+    /* Section 1 hero */
+    .section-1 { padding-top: 2rem; }
     .main-circle {
         width: 28rem;
         height: 28rem;
@@ -2280,7 +2265,7 @@ body {
     .menu-btn { font-size: 1rem; padding: 0.5rem 0.8rem; }
     .logo span { font-size: 1.4rem; }
     .logo-img { width: 28px; height: 28px; }
-    .section-1 { padding-top: 13rem; }
+    .section-1 { padding-top: 2rem; }
     .main-circle { width: 24rem; height: 24rem; }
     .main-circle:hover { width: 24rem; height: 24rem; }
     .circle { width: 9rem; height: 9rem; }
