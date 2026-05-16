@@ -542,7 +542,12 @@ body {
   padding:30px;
   border-radius:20px;
   position:relative;
-  border:2px solid red;
+  border: 0.2rem dotted #9b0e0e;
+  transition: border-color 0.25s ease;
+}
+
+.freelance-popup-box:hover {
+  border-color: #e7be08;
 }
 
 .freelance-popup-box h2{
@@ -630,7 +635,7 @@ body {
   border-radius:30px;
   background:rgba(255,255,255,0.05);
   backdrop-filter:blur(18px);
-  border:1px solid rgba(255,255,255,0.1);
+  border: 0.2rem dotted #9b0e0e;
 
   display:flex;
   justify-content:space-between;
@@ -645,6 +650,7 @@ body {
 
 .modern-sponsor-card:hover{
   transform:translateY(-8px);
+  border-color: #e7be08;
   box-shadow:
   0 0 60px rgba(255,0,0,0.2);
 }
@@ -696,7 +702,7 @@ body {
   background:rgba(255,255,255,0.08);
   color:#ffcc00;
   font-size:1.3rem;
-  border:1px solid rgba(255,255,255,0.1);
+  border: 0.2rem dotted #9b0e0e;
 }
 
 .modern-sponsor-btn{
@@ -1122,8 +1128,9 @@ body {
     width: 32rem;
     min-height: 28rem;
     padding: 3rem;
-    border: .2rem solid #9b0e0e;
+    border: 0.2rem dotted #9b0e0e;
     border-radius: 1rem;
+    transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
     background: rgba(255,255,255,.05);
     display: flex;
     flex-direction: column;
@@ -1142,6 +1149,12 @@ body {
     border-radius: 50%;
     border: .2rem solid #e7be08;
 }
+.hire-card:hover {
+    transform: translateY(-0.4rem);
+    border-color: #e7be08;
+    box-shadow: 0 0.8rem 2.4rem rgba(155, 14, 14, 0.35);
+}
+
 .hire-card h2 {
     font-size: 2.4rem;
     color: #fff;
@@ -1309,11 +1322,16 @@ body {
 
 .resume-preview-card {
     width: 100%;
-    border: .2rem solid rgba(255,255,255,.15);
+    border: 0.2rem dotted #9b0e0e;
+    transition: border-color 0.25s ease;
     border-radius: 1.2rem;
     background: rgba(255,255,255,.05);
     box-shadow: 0 0 4rem rgba(0,0,0,.25);
     overflow: hidden;
+}
+
+.resume-preview-card:hover {
+    border-color: #e7be08;
 }
 
 .resume-preview-header {
@@ -1388,8 +1406,7 @@ body {
 .honor-card {
     width: min(100%, 45rem);
     background: linear-gradient(135deg, rgba(155, 14, 14, 0.1), rgba(231, 190, 8, 0.1));
-    border: .3rem solid transparent;
-    border-image: linear-gradient(135deg, #9b0e0e, #e7be08) 1;
+    border: 0.2rem dotted #9b0e0e;
     border-radius: 1.5rem;
     padding: 3rem;
     box-shadow: 0 1rem 3rem rgba(0,0,0,.3), 0 0 2rem rgba(231, 190, 8, 0.1);
@@ -1420,6 +1437,7 @@ body {
 .honor-card:hover {
     transform: translateY(-.5rem);
     box-shadow: 0 2rem 4rem rgba(0,0,0,.4), 0 0 3rem rgba(231, 190, 8, 0.2);
+    border-color: #e7be08;
 }
 
 .profile-card h2,
@@ -1539,7 +1557,8 @@ body {
     align-items: center;
     justify-content: center;
     background-color: #111;
-    border: .2rem solid rgba(255,255,255,.15);
+    border: 0.2rem dotted #9b0e0e;
+    transition: border-color 0.25s ease;
 }
 
 .instagram-icon {
@@ -1560,7 +1579,11 @@ body {
 }
 
 @media (max-width: 900px) {
-    .resume-preview-header {
+    .resume-preview-card:hover {
+    border-color: #e7be08;
+}
+
+.resume-preview-header {
         flex-direction: column;
         align-items: stretch;
         padding: 2rem;
@@ -1590,7 +1613,11 @@ body {
 }
 
 @media (max-width: 900px) {
-    .resume-preview-header {
+    .resume-preview-card:hover {
+    border-color: #e7be08;
+}
+
+.resume-preview-header {
         flex-direction: column;
         align-items: stretch;
         padding: 2rem;
@@ -1629,12 +1656,19 @@ body {
     width: 28rem;
     min-height: 20rem;
     background: rgba(255,255,255,.08);
-    border: .2rem solid #9b0e0e;
+    border: 0.2rem dotted #9b0e0e;
     border-radius: .8rem;
     padding: 3rem;
     color: #fff;
     text-align: left;
+    transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
 }
+.achievement-card:hover {
+    transform: translateY(-0.4rem);
+    border-color: #e7be08;
+    box-shadow: 0 0.8rem 2.4rem rgba(155, 14, 14, 0.35);
+}
+
 .achievement-card h2 {
     font-size: 2.5rem;
     margin-bottom: 1rem;
@@ -1657,13 +1691,20 @@ body {
 .certificate-content {
     width: 100%;
     background: rgba(255,255,255,.08);
-    border: .3rem solid #e7be08;
+    border: 0.2rem dotted #9b0e0e;
     border-radius: 1rem;
     padding: 4rem;
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
+    transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
 }
+.certificate-content:hover {
+    transform: translateY(-0.4rem);
+    border-color: #e7be08;
+    box-shadow: 0 0.8rem 2.4rem rgba(155, 14, 14, 0.35);
+}
+
 .certificate-label {
     font-size: 1.4rem;
     color: #e7be08;
@@ -2351,7 +2392,11 @@ body {
         max-height: 88vh;
         overflow-y: auto;
     }
-    .freelance-popup-box h2 { font-size: 1.8rem; }
+    .freelance-popup-box:hover {
+  border-color: #e7be08;
+}
+
+.freelance-popup-box h2 { font-size: 1.8rem; }
     .freelance-field input,
     .freelance-field textarea { padding: 12px; font-size: 14px; }
 
@@ -2385,7 +2430,11 @@ body {
 
     /* Resume */
     .resume-preview-iframe { min-height: 45rem; }
-    .resume-preview-header { padding: 2rem; }
+    .resume-preview-card:hover {
+    border-color: #e7be08;
+}
+
+.resume-preview-header { padding: 2rem; }
     .resume-preview-header h2 { font-size: 2.2rem; }
 
     /* Profile / skill / experience / education / honor / achievement / certificate cards */
@@ -2503,11 +2552,21 @@ body {
     .modern-sponsor-content p { font-size: 1.3rem; }
     .modern-sponsor-tags span { font-size: 1.1rem; padding: 6px 10px; }
     .freelance-popup-box { padding: 16px; }
-    .freelance-popup-box h2 { font-size: 1.6rem; }
+    .freelance-popup-box:hover {
+  border-color: #e7be08;
+}
+
+.freelance-popup-box h2 { font-size: 1.6rem; }
     .freelance-field label { font-size: 1.3rem; }
     .hire-icon { width: 5rem; height: 5rem; font-size: 2.4rem; }
     .hire-card { padding: 2rem; }
-    .hire-card h2 { font-size: 2rem; }
+    .hire-card:hover {
+    transform: translateY(-0.4rem);
+    border-color: #e7be08;
+    box-shadow: 0 0.8rem 2.4rem rgba(155, 14, 14, 0.35);
+}
+
+.hire-card h2 { font-size: 2rem; }
     .hire-card p { font-size: 1.4rem; }
     .slideshow-link,
     .slideshow-link img,
@@ -2532,3 +2591,4 @@ body {
 }
 /* ===== End of Phone Responsiveness ===== */
 /* End of Responsive */
+
