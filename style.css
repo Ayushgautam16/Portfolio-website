@@ -798,7 +798,141 @@ body {
 /* End of Section 2 Main Button */
 /* End of Section 2 */
 
-/* Section 3 */
+/* GitHub Projects Section */
+.section-projects {
+    width: 100%;
+    padding: 10rem 5rem 6rem;
+    margin-top: 8rem;
+    position: relative;
+    scroll-margin-top: 2rem;
+}
+
+.section-projects-heading {
+    margin-bottom: 1.5rem;
+}
+
+.section-projects-subtitle {
+    max-width: 72rem;
+    margin: 0 auto 5rem;
+    text-align: center;
+    font-size: 1.6rem;
+    line-height: 1.7;
+    color: #bbb;
+}
+
+.repo-projects-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 2.5rem;
+    max-width: 120rem;
+    margin: 0 auto;
+}
+
+.repo-project-card {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+    padding: 2.5rem;
+    background: rgba(0, 0, 0, 0.65);
+    border: 0.2rem dotted #9b0e0e;
+    border-radius: 0.8rem;
+    box-shadow: 0 0 0 0.1rem rgba(231, 190, 8, 0.15);
+    transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.repo-project-card:hover {
+    transform: translateY(-0.4rem);
+    border-color: #e7be08;
+    box-shadow: 0 0.8rem 2.4rem rgba(155, 14, 14, 0.35);
+}
+
+.repo-project-badge {
+    align-self: flex-start;
+    padding: 0.4rem 1rem;
+    font-size: 1.1rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: #e7be08;
+    border: 0.1rem solid #e7be08;
+    border-radius: 2rem;
+}
+
+.repo-project-title {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #fff;
+    line-height: 1.3;
+    text-transform: none;
+}
+
+.repo-project-desc {
+    font-size: 1.45rem;
+    line-height: 1.65;
+    color: #ccc;
+    flex: 1;
+}
+
+.repo-project-stack {
+    font-size: 1.3rem;
+    line-height: 1.6;
+    color: #aaa;
+}
+
+.repo-project-stack strong {
+    color: #e7be08;
+    font-weight: 600;
+}
+
+.repo-project-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    align-self: flex-start;
+    margin-top: 0.5rem;
+    padding: 0.9rem 1.8rem;
+    font-size: 1.3rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: #fff;
+    background-color: #9b0e0e;
+    border: 0.2rem dotted #e7be08;
+    border-radius: 0.4rem;
+    transition: background-color 0.2s, border-color 0.2s, transform 0.2s;
+}
+
+.repo-project-btn:hover {
+    background-color: #b60000;
+    border-color: #fff;
+    transform: scale(1.03);
+}
+
+/* Section 3 — Freelance gallery */
+.section-3-heading,
+.section-3-subtitle {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.section-3-heading {
+    width: 100%;
+    font-size: 2.8rem;
+    font-weight: 700;
+    color: #fff;
+    text-transform: uppercase;
+    margin-bottom: 1.2rem;
+}
+
+.section-3-subtitle {
+    max-width: 70rem;
+    font-size: 1.6rem;
+    line-height: 1.7;
+    color: #bbb;
+    margin-bottom: 4rem;
+}
+
 .section-3 {
     width: 100%;
     height: auto;
@@ -2130,6 +2264,34 @@ body {
 
     /* Section paddings */
     .section-2 { padding: 8rem 2rem 12rem; }
+    .section-projects {
+        padding: 8rem 2rem 4rem;
+        margin-top: 5rem;
+    }
+
+    .section-projects-subtitle,
+    .section-3-subtitle {
+        font-size: 1.4rem;
+        margin-bottom: 3rem;
+    }
+
+    .repo-projects-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .repo-project-card {
+        padding: 2rem;
+    }
+
+    .repo-project-title {
+        font-size: 1.8rem;
+    }
+
+    .repo-project-desc {
+        font-size: 1.35rem;
+    }
+
     .section-3 { padding: 8rem 2rem; margin-top: 5rem; }
     .section-hire { padding: 10rem 2rem 6rem; }
     .section-sponsors { padding: 10rem 2rem 6rem; }
