@@ -29,6 +29,24 @@ body {
     background-color: #000;
     color: #fff;
     overflow-x: hidden;
+    scrollbar-color: #9b0e0e #111;
+    scrollbar-width: thin;
+}
+
+/* Scrollbar — matches site red + gold theme */
+::-webkit-scrollbar {
+    width: 0.8rem;
+}
+::-webkit-scrollbar-track {
+    background: #111;
+}
+::-webkit-scrollbar-thumb {
+    background: #9b0e0e;
+    border-radius: 0.4rem;
+    border: 0.15rem solid #111;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #b60000;
 }
 
 .container {
@@ -288,16 +306,16 @@ body {
     gap: 1rem;
 }
 
-/* Mobile menu button — hidden on desktop */
+/* Mobile menu button — hidden on desktop (matches site red + gold accents) */
 .menu-btn {
     display: none;
     align-items: center;
     gap: 0.8rem;
-    padding: 0.6rem 1rem;
-    border: none;
+    padding: 0.55rem 1rem;
+    border: 0.2rem dotted #e7be08;
     border-radius: 0.4rem;
-    background-color: #e7be08;
-    color: #000;
+    background-color: #9b0e0e;
+    color: #fff;
     font-family: inherit;
     font-size: 1.2rem;
     font-weight: 700;
@@ -305,7 +323,15 @@ body {
     letter-spacing: 0.05em;
     cursor: pointer;
     flex-shrink: 0;
-    box-shadow: 0 0.2rem 0.6rem rgba(0, 0, 0, 0.35);
+    box-shadow: 0 0.2rem 0.8rem rgba(155, 14, 14, 0.45);
+    transition: background-color 0.2s, border-color 0.2s, box-shadow 0.2s;
+}
+
+.menu-btn:hover,
+.menu-btn.menu-open {
+    background-color: #b60000;
+    border-color: #fff;
+    box-shadow: 0 0.3rem 1rem rgba(231, 190, 8, 0.25);
 }
 
 .menu-btn-text {
@@ -324,7 +350,7 @@ body {
     display: block;
     width: 100%;
     height: 0.18rem;
-    background-color: #000;
+    background-color: #e7be08;
     border-radius: 0.1rem;
 }
 
@@ -2044,8 +2070,10 @@ body {
         opacity: 1;
         margin-top: 0.8rem;
         padding: 1rem 0 1.2rem;
-        background: rgba(30, 30, 30, 0.95);
+        background: rgba(0, 0, 0, 0.92);
+        border-top: 0.15rem dotted #9b0e0e;
         border-radius: 0 0 0.6rem 0.6rem;
+        box-shadow: inset 0 0.2rem 0 #e7be08;
     }
 
     .navbar-link {
