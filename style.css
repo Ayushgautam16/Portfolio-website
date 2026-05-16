@@ -54,6 +54,7 @@ body {
     width: 100%;
     min-height: 100vh;
     z-index: 1;
+    isolation: isolate;
 }
 
 .center {
@@ -219,13 +220,18 @@ body {
 }
 /* End of Mouse Circle */
 
-/* Page BG */
+/* Page BG — scrolls with page (not fixed) */
 .page-bg {
-    position: fixed;
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
-    height: 100vh;
+    min-height: 100%;
+    height: 100%;
     background: linear-gradient(rgba(0,0,0,.7), rgba(0,0,0,.7)), url(images/bg.jpg) center no-repeat;
     background-size: cover;
+    z-index: 0;
+    pointer-events: none;
 }
 /* End of Page BG */
 
@@ -2010,17 +2016,30 @@ body {
     /* Neutralize desktop offset that pushes headings off-screen */
     .section-heading { left: 0 !important; }
 
-    /* Mobile header: logo left, MENU button top-right */
+    /* Mobile header: scrolls with page (never fixed/sticky) */
+    .navbar,
+    .navbar-header,
+    .logo,
+    .menu-btn {
+        position: relative !important;
+        top: auto !important;
+        left: auto !important;
+        right: auto !important;
+        transform: none !important;
+    }
+
     .navbar {
         display: flex;
         flex-direction: column;
         align-items: stretch;
         padding: 1.2rem 1.5rem 0;
         background: #000;
+        z-index: 10;
     }
 
     .navbar-header {
         align-items: center;
+        width: 100%;
     }
 
     .menu-btn {
@@ -2073,7 +2092,12 @@ body {
         border-bottom: none;
     }
 
-    /* Section 1 hero */
+    /* Section 1 hero — no sticky side text on phones */
+    .featured-text {
+        position: relative;
+        top: auto;
+    }
+
     .section-1 { padding-top: 2rem; }
     .main-circle {
         width: 28rem;

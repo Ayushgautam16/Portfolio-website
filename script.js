@@ -263,8 +263,13 @@ window.addEventListener("resize", () => {
     if (!isMobileNav()) closeMobileMenu();
 });
 
-document.addEventListener("scroll", progressBarFn);
-progressBarFn();
+const onScroll = () => {
+    if (isMobileNav()) closeMobileMenu();
+    progressBarFn();
+};
+
+document.addEventListener("scroll", onScroll);
+onScroll();
 // End of Navigation
 
 
