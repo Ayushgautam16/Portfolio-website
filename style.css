@@ -358,8 +358,26 @@ body {
     text-shadow: 0 .3rem .5rem #000;
 }
 
-/* Desktop: hide nav links on scroll, show menu N/A */
+/* Desktop: logo left, links right in one row */
 @media (min-width: 769px) {
+    .navbar {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: nowrap;
+        gap: 2rem;
+    }
+
+    .navbar-header {
+        width: auto;
+        flex-shrink: 0;
+    }
+
+    .navbar-links {
+        justify-content: flex-end;
+        flex: 1;
+    }
+
     .navbar.navbar-scrolled .navbar-links {
         opacity: 0;
         visibility: hidden;
@@ -1883,9 +1901,6 @@ body {
 }
 
 @media (max-width: 900px){
-    .menu-icon{
-        right: -4rem;
-    }
     .navbar-link{
         font-size: 1.5rem;
         margin: 0 1rem;
@@ -1926,9 +1941,6 @@ body {
     html{
         font-size: 40%;
     }
-    .menu-icon{
-        right: -8rem;
-    }
     .main-circle img{
         width: 180%;
         height: 180%;
@@ -1958,13 +1970,9 @@ body {
     }
     .logo{
         font-size: 1.7rem;
-        top: 13rem;
-        left: 50%;
-        transform: translateX(-50%);
     }
     .navbar{
-        justify-content: center;
-        padding: 0;
+        padding: 1rem 1rem 0;
     }
     .main-circle{
         width: 38rem;
@@ -1991,34 +1999,66 @@ body {
     /* Neutralize desktop offset that pushes headings off-screen */
     .section-heading { left: 0 !important; }
 
-    /* Navbar: wrap to multiple rows so every link is visible at a glance */
+    /* Mobile header: logo left, MENU button top-right */
     .navbar {
-        top: 7.5rem;
-        padding: 0 1.5rem;
-        justify-content: center;
-        flex-wrap: wrap;
-        gap: .4rem 0;
-        row-gap: .4rem;
+        padding: 1.2rem 1.5rem 0;
+        background: rgba(0, 0, 0, 0.55);
     }
-    .navbar-link {
-        font-size: 1.4rem;
-        margin: 0 .8rem;
-        padding: .4rem .2rem;
-    }
-    .menu-icon { right: -2rem; }
 
-    /* Logo */
+    .navbar-header {
+        align-items: center;
+    }
+
+    .menu-btn {
+        display: flex;
+    }
+
     .logo {
-        top: 1.5rem;
-        left: 1.5rem;
         font-size: 1.6rem;
         gap: 6px;
     }
     .logo span { font-size: 1.6rem; }
     .logo-img { width: 32px; height: 32px; }
 
-    /* Section 1 hero — extra top space for stacked logo + navbar */
-    .section-1 { padding-top: 14rem; }
+    /* Collapsible nav panel (reference-style vertical list) */
+    .navbar-links {
+        display: none;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0;
+        width: 100%;
+        margin-top: 0;
+        padding: 0;
+        max-height: 0;
+        overflow: hidden;
+        opacity: 0;
+        transition: max-height 0.35s ease, opacity 0.25s ease, padding 0.25s ease;
+    }
+
+    .navbar.menu-open .navbar-links {
+        display: flex;
+        max-height: 50rem;
+        opacity: 1;
+        margin-top: 0.8rem;
+        padding: 1rem 0 1.2rem;
+        background: rgba(30, 30, 30, 0.95);
+        border-radius: 0 0 0.6rem 0.6rem;
+    }
+
+    .navbar-link {
+        font-size: 1.5rem;
+        margin: 0;
+        padding: 0.9rem 0.2rem;
+        width: 100%;
+        border-bottom: 0.05rem solid rgba(255, 255, 255, 0.08);
+    }
+
+    .navbar-link:last-child {
+        border-bottom: none;
+    }
+
+    /* Section 1 hero — space for compact header */
+    .section-1 { padding-top: 8rem; }
     .main-circle {
         width: 28rem;
         height: 28rem;
@@ -2203,9 +2243,10 @@ body {
 }
 
 @media (max-width: 480px) {
-    .navbar-link { font-size: 1.3rem; margin: 0 .7rem; padding: .3rem .1rem; }
-    .navbar { top: 7rem; padding: 0 1rem; }
-    .logo { font-size: 1.4rem; left: 1rem; top: 1.2rem; }
+    .navbar-link { font-size: 1.3rem; padding: 0.8rem 0.2rem; }
+    .navbar { padding: 1rem 1rem 0; }
+    .logo { font-size: 1.4rem; }
+    .menu-btn { font-size: 1rem; padding: 0.5rem 0.8rem; }
     .logo span { font-size: 1.4rem; }
     .logo-img { width: 28px; height: 28px; }
     .section-1 { padding-top: 13rem; }
