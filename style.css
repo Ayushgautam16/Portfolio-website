@@ -1366,7 +1366,6 @@ body {
 .section-profile,
 .section-skills,
 .section-experience,
-.section-education,
 .section-honors {
     position: relative;
     width: 100%;
@@ -1377,7 +1376,6 @@ body {
 .section-profile .section-heading,
 .section-skills .section-heading,
 .section-experience .section-heading,
-.section-education .section-heading,
 .section-honors .section-heading {
     margin-bottom: 5rem;
     text-align: center;
@@ -1390,7 +1388,6 @@ body {
 .profile-grid,
 .skills-grid,
 .experience-grid,
-.education-grid,
 .honors-grid {
     display: flex;
     flex-wrap: wrap;
@@ -1402,7 +1399,6 @@ body {
 .profile-card,
 .skill-card,
 .experience-card,
-.education-card,
 .honor-card {
     width: min(100%, 45rem);
     background: linear-gradient(135deg, rgba(155, 14, 14, 0.1), rgba(231, 190, 8, 0.1));
@@ -1419,7 +1415,6 @@ body {
 .profile-card::before,
 .skill-card::before,
 .experience-card::before,
-.education-card::before,
 .honor-card::before {
     content: '';
     position: absolute;
@@ -1433,7 +1428,6 @@ body {
 .profile-card:hover,
 .skill-card:hover,
 .experience-card:hover,
-.education-card:hover,
 .honor-card:hover {
     transform: translateY(-.5rem);
     box-shadow: 0 2rem 4rem rgba(0,0,0,.4), 0 0 3rem rgba(231, 190, 8, 0.2);
@@ -1443,7 +1437,6 @@ body {
 .profile-card h2,
 .skill-card h2,
 .experience-card h2,
-.education-card h2,
 .honor-card p {
     margin: 0 0 1.5rem;
     font-size: 2.6rem;
@@ -1455,7 +1448,6 @@ body {
 .profile-card p,
 .skill-card ul,
 .experience-card p,
-.education-card p,
 .honor-card p {
     font-size: 1.6rem;
     line-height: 1.9;
@@ -1482,8 +1474,7 @@ body {
     color: #e7be08;
 }
 
-.experience-card h3,
-.education-card p {
+.experience-card h3 {
     margin: 0.5rem 0 1.2rem;
     font-size: 1.8rem;
     color: #9b0e0e;
@@ -1506,7 +1497,6 @@ body {
     .profile-card,
     .skill-card,
     .experience-card,
-    .education-card,
     .honor-card,
     .patent-card {
         width: 100%;
@@ -1516,7 +1506,6 @@ body {
     .profile-card h2,
     .skill-card h2,
     .experience-card h2,
-    .education-card h2,
     .honor-card p,
     .patent-card p {
         font-size: 2.2rem;
@@ -1525,7 +1514,6 @@ body {
     .profile-card p,
     .skill-card ul,
     .experience-card p,
-    .education-card p,
     .honor-card p,
     .patent-card p {
         font-size: 1.4rem;
@@ -2340,7 +2328,6 @@ body {
     .section-profile,
     .section-skills,
     .section-experience,
-    .section-education,
     .section-honors,
     .section-achievements,
     .section-certificate { padding: 10rem 2rem; }
@@ -2441,7 +2428,6 @@ body {
     .profile-card,
     .skill-card,
     .experience-card,
-    .education-card,
     .honor-card,
     .achievement-card,
     .certificate-card {
@@ -2532,7 +2518,6 @@ body {
     .section-profile,
     .section-skills,
     .section-experience,
-    .section-education,
     .section-honors,
     .section-achievements,
     .section-certificate,
