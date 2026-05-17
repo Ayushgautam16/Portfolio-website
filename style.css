@@ -1056,9 +1056,9 @@ body {
   }
 }
 .project-img {
-  width: 100%;
+  width: calc(100% - 40rem);
+  margin: 7rem auto;
   border-radius: 0.5rem;
-  padding: 7rem 20rem;
   opacity: 0.9;
   display: block;
   animation: imgAnim 1s 1s both;
@@ -1077,23 +1077,29 @@ body {
 /* Project Hide Button */
 .project-hide-btn {
   position: fixed;
-  top: 5rem;
-  right: 5rem;
-  background-color: transparent;
-  border: none;
+  top: 4rem;
+  left: 4rem;
+  background-color: rgba(0, 0, 0, 0.7);
+  padding: 1rem 2rem;
+  border-radius: 0.5rem;
+  border: 0.1rem solid #fff;
   color: #fff;
   font-size: 2rem;
   letter-spacing: 0.1rem;
   cursor: pointer;
-  z-index: 200;
+  z-index: 9999;
   transform: scale(0);
   visibility: hidden;
+  transition: transform 0.5s, background-color 0.3s;
 }
 
 .change.project-hide-btn {
   transform: scale(1);
   visibility: visible;
-  transition: transform 0.5s;
+}
+
+.change.project-hide-btn:hover {
+  background-color: #9b0e0e;
 }
 /* End of Project Hide Button */
 
@@ -2149,10 +2155,19 @@ body {
     font-size: 7.5rem;
   }
   .project-img {
-    padding: 7rem 11rem;
+    width: calc(100% - 22rem);
+    margin: 7rem auto;
   }
   .project-hide-btn {
-    right: 2rem;
+    top: 3rem;
+    left: 3rem;
+    font-size: 1.6rem;
+    padding: 0.8rem 1.6rem;
+    background-color: #333;
+    transition: background 0.3s;
+  }
+  .project-hide-btn:hover {
+    background-color: #555;
   }
   .service-btn {
     height: 12rem;
@@ -2502,10 +2517,11 @@ body {
     top: 1rem;
   }
   .project-img {
-    padding: 6rem 1rem;
+    width: calc(100% - 2rem);
+    margin: 6rem auto;
   }
   .project-hide-btn {
-    right: 1.5rem;
+    left: 1.5rem;
     top: 2rem;
     font-size: 1.8rem;
   }
