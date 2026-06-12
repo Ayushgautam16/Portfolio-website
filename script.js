@@ -82,8 +82,6 @@ const mouseCircleTransform = (hoveredEl) => {
             mouseCircleBool = false;
             mouseCircle.style.cssText = `
             width: ${hoveredEl.getBoundingClientRect().width}px;
-
-            
             height: ${hoveredEl.getBoundingClientRect().height}px;
             top: ${hoveredEl.getBoundingClientRect().top}px;
             left: ${hoveredEl.getBoundingClientRect().left}px;
@@ -432,7 +430,7 @@ formInputs.forEach((input) => {
     input.addEventListener("focus", () => {
         formHeading.style.opacity = "0";
         setTimeout(() => {
-            formHeading.textContent = `Your ${input.placeholder}`;
+            formHeading.textContent = "Let's Talk";
             formHeading.style.opacity = "1";
         }, 300);
     });
@@ -546,7 +544,7 @@ form.addEventListener("submit", (e) => {
     const notValid = Array.from(messages).find((message) => {
         return message.classList.contains("error");
     });
-
+    
     notValid && e.preventDefault();
 });
 // End of Form Validation
