@@ -30,6 +30,7 @@ See the live portfolio on GitHub Pages or your hosting provider after deployment
    ```bash
    git clone https://github.com/<your-username>/<repository-name>.git
    ```
+   
 2. Open `index.html` in a browser, or serve it locally with a web server.
 
 ## 📦 Deployment
