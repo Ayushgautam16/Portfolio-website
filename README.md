@@ -49,5 +49,6 @@ This repository can be deployed using GitHub Pages or a static hosting platform 
 - Add more section cards or projects as needed
 
 ## 📞 Contact
+
 If you want to make any further changes or add new sections, feel free to update the content in `index.html` or ask for help.
 
