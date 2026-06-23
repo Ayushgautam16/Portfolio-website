@@ -28,8 +28,10 @@ See the live portfolio on GitHub Pages or your hosting provider after deployment
 ## 🔧 How to Use
 1. Clone the repository:
    ```bash
+   
    git clone https://github.com/<your-username>/<repository-name>.git
    ```
+   
 2. Open `index.html` in a browser, or serve it locally with a web server.
 
 ## 📦 Deployment
@@ -47,5 +49,6 @@ This repository can be deployed using GitHub Pages or a static hosting platform 
 - Add more section cards or projects as needed
 
 ## 📞 Contact
+
 If you want to make any further changes or add new sections, feel free to update the content in `index.html` or ask for help.
 
