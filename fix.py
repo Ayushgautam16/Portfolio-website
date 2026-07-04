@@ -12,7 +12,7 @@ icons = """            <a href="https://x.com/GainsBy_Ayush" target="_blank" cla
             <a href="https://github.com/Ayushgautam16" target="_blank" class="slideshow-link pointer-enter">
               <img src="images/social-icons/slideshow-img-4.png" alt="GitHub" />
             </a>
-            <a href="https://www.linkedin.com/in/ayush-gautam-9baa14248/" target="_blank" class="slideshow-link pointer-enter">
+            <a href="https://www.linkedin.com/in/ayush-gautam16" target="_blank" class="slideshow-link pointer-enter">
               <img src="images/social-icons/linkedin.png" alt="LinkedIn" />
             </a>
             <a href="https://instagram.com/GainsBy_Ayush" target="_blank" class="slideshow-link instagram-link pointer-enter">
@@ -30,7 +30,7 @@ icons_hidden = """            <a href="https://x.com/GainsBy_Ayush" target="_bla
             <a href="https://github.com/Ayushgautam16" target="_blank" class="slideshow-link pointer-enter" aria-hidden="true" tabindex="-1">
               <img src="images/social-icons/slideshow-img-4.png" alt="GitHub" />
             </a>
-            <a href="https://www.linkedin.com/in/ayush-gautam-9baa14248/" target="_blank" class="slideshow-link pointer-enter" aria-hidden="true" tabindex="-1">
+            <a href="https://www.linkedin.com/in/ayush-gautam16" target="_blank" class="slideshow-link pointer-enter" aria-hidden="true" tabindex="-1">
               <img src="images/social-icons/linkedin.png" alt="LinkedIn" />
             </a>
             <a href="https://instagram.com/GainsBy_Ayush" target="_blank" class="slideshow-link instagram-link pointer-enter" aria-hidden="true" tabindex="-1">
