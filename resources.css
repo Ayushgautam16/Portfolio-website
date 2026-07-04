@@ -1,0 +1,1042 @@
+/* Resources Hub Specific Styling */
+
+/* Page layout adjustments */
+.resources-main {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 12rem 2rem 4rem;
+  position: relative;
+  z-index: 2;
+  min-height: calc(100vh - 150px);
+}
+
+.resources-header {
+  text-align: center;
+  margin-bottom: 5rem;
+}
+
+.resources-subtitle {
+  font-family: "Poppins", sans-serif;
+  font-size: 1.6rem;
+  color: #ccc;
+  font-weight: 300;
+  max-width: 700px;
+  margin: 1.5rem auto 0;
+  line-height: 1.6;
+}
+
+/* Glassmorphism Panel base */
+.glass-panel {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 16px;
+  padding: 3rem;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+  transition: all 0.3s ease;
+}
+
+.glass-panel:hover {
+  border-color: rgba(231, 190, 8, 0.3);
+  box-shadow: 0 8px 32px 0 rgba(231, 190, 8, 0.05);
+}
+
+/* Tabs Navigation Styling */
+.tabs-nav {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-bottom: 5rem;
+  flex-wrap: wrap;
+}
+
+.tab-link {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  color: #fff;
+  padding: 1.2rem 2.4rem;
+  border-radius: 50px;
+  font-size: 1.5rem;
+  font-weight: 600;
+  font-family: "Jura", sans-serif;
+  letter-spacing: 0.05rem;
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.tab-link .tab-icon {
+  font-size: 1.6rem;
+}
+
+.tab-link:hover {
+  background: rgba(231, 190, 8, 0.1);
+  border-color: #e7be08;
+  color: #e7be08;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(231, 190, 8, 0.2);
+}
+
+.tab-link.active {
+  background: #9b0e0e;
+  border-color: #9b0e0e;
+  color: #fff;
+  box-shadow: 0 5px 20px rgba(155, 14, 14, 0.4);
+}
+
+/* Tabs Pane visibility toggler */
+.tab-pane {
+  display: none;
+  opacity: 0;
+  transform: translateY(15px);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.tab-pane.active {
+  display: block;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* 1. DASHBOARD TAB STYLING */
+.dashboard-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2.5rem;
+  margin-bottom: 4rem;
+}
+
+.stat-card {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  padding: 2.5rem;
+  cursor: pointer;
+}
+
+.stat-card:hover {
+  transform: translateY(-5px);
+  border-color: #9b0e0e;
+  box-shadow: 0 8px 25px rgba(155, 14, 14, 0.15);
+}
+
+.stat-icon {
+  font-size: 3.5rem;
+  background: rgba(155, 14, 14, 0.2);
+  width: 7rem;
+  height: 7rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(155, 14, 14, 0.3);
+}
+
+.stat-card:nth-child(1) .stat-icon {
+  background: rgba(231, 190, 8, 0.15);
+  border-color: rgba(231, 190, 8, 0.3);
+  color: #e7be08;
+}
+
+.stat-card:nth-child(2) .stat-icon {
+  background: rgba(155, 14, 14, 0.15);
+  border-color: rgba(155, 14, 14, 0.3);
+  color: #9b0e0e;
+}
+
+.stat-card:nth-child(3) .stat-icon {
+  background: rgba(0, 150, 136, 0.15);
+  border-color: rgba(0, 150, 136, 0.3);
+  color: #009688;
+}
+
+.stat-text h3 {
+  font-size: 3.2rem;
+  font-weight: 700;
+  line-height: 1.1;
+  color: #fff;
+}
+
+.stat-text p {
+  font-family: "Poppins", sans-serif;
+  font-size: 1.3rem;
+  color: #aaa;
+  margin-top: 0.3rem;
+}
+
+/* Finder Search Section */
+.search-section {
+  margin-bottom: 4rem;
+  background: rgba(0, 0, 0, 0.4);
+}
+
+.search-section h2 {
+  font-size: 2.2rem;
+  margin-bottom: 1.5rem;
+  color: #fff;
+  letter-spacing: 0.05rem;
+  text-transform: uppercase;
+}
+
+.search-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.search-input {
+  width: 100%;
+  padding: 1.8rem 5rem 1.8rem 2.5rem;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 50px;
+  color: #fff;
+  font-size: 1.6rem;
+  font-family: "Poppins", sans-serif;
+  transition: all 0.3s ease;
+}
+
+.search-input:focus {
+  background: rgba(255, 255, 255, 0.06);
+  border-color: #e7be08;
+  box-shadow: 0 0 15px rgba(231, 190, 8, 0.25);
+}
+
+.search-lens-icon {
+  position: absolute;
+  right: 2.5rem;
+  font-size: 1.8rem;
+  color: #888;
+  pointer-events: none;
+}
+
+/* Featured cards grid */
+.featured-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2.5rem;
+}
+
+.featured-card {
+  cursor: pointer;
+  position: relative;
+  padding-top: 4.5rem;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.featured-card:hover {
+  transform: translateY(-5px);
+  border-color: #e7be08;
+  background: rgba(231, 190, 8, 0.02);
+  box-shadow: 0 10px 25px rgba(231, 190, 8, 0.1);
+}
+
+.feat-badge {
+  position: absolute;
+  top: 2rem;
+  left: 3rem;
+  font-family: "Poppins", sans-serif;
+  font-size: 1.1rem;
+  text-transform: uppercase;
+  font-weight: 600;
+  letter-spacing: 0.1rem;
+  color: #e7be08;
+  background: rgba(231, 190, 8, 0.1);
+  padding: 0.3rem 1rem;
+  border-radius: 4px;
+  border: 1px solid rgba(231, 190, 8, 0.2);
+}
+
+.featured-card h3 {
+  font-size: 2rem;
+  font-weight: 600;
+  margin-bottom: 1.2rem;
+  color: #fff;
+}
+
+.featured-card p {
+  font-family: "Poppins", sans-serif;
+  font-size: 1.4rem;
+  color: #aaa;
+  line-height: 1.6;
+  margin-bottom: 2.5rem;
+  flex-grow: 1;
+}
+
+.card-action-link {
+  font-size: 1.4rem;
+  color: #e7be08;
+  font-weight: 600;
+  transition: all 0.3s;
+}
+
+.featured-card:hover .card-action-link {
+  color: #fff;
+  transform: translateX(5px);
+}
+
+/* 2. CHEAT SHEETS TAB STYLING */
+.cheatsheet-layout {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: 3rem;
+  align-items: start;
+}
+
+.cheatsheet-sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  background: rgba(0,0,0,0.2);
+  padding: 1.5rem;
+  border-radius: 12px;
+  border: 1px solid rgba(255,255,255,0.05);
+}
+
+.sheet-sidebar-btn {
+  background: transparent;
+  border: none;
+  color: #aaa;
+  text-align: left;
+  padding: 1.5rem 2rem;
+  border-radius: 8px;
+  font-size: 1.5rem;
+  font-family: "Jura", sans-serif;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border-left: 3px solid transparent;
+}
+
+.sheet-sidebar-btn:hover {
+  background: rgba(255, 255, 255, 0.03);
+  color: #fff;
+  border-left-color: rgba(155, 14, 14, 0.5);
+}
+
+.sheet-sidebar-btn.active {
+  background: rgba(155, 14, 14, 0.15);
+  color: #fff;
+  border-left-color: #9b0e0e;
+  font-weight: 700;
+  box-shadow: inset 0 0 10px rgba(155, 14, 14, 0.2);
+}
+
+.cheatsheet-view-area {
+  min-height: 500px;
+}
+
+.sheet-content {
+  display: none;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.sheet-content.active {
+  display: block;
+  opacity: 1;
+}
+
+.sheet-content h2 {
+  font-size: 2.6rem;
+  color: #fff;
+  margin-bottom: 0.8rem;
+}
+
+.sheet-desc {
+  font-family: "Poppins", sans-serif;
+  font-size: 1.4rem;
+  color: #aaa;
+  margin-bottom: 3.5rem;
+}
+
+.sheet-section {
+  margin-bottom: 3rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  padding-bottom: 2.5rem;
+}
+
+.sheet-section:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.sheet-section h3 {
+  font-size: 1.8rem;
+  color: #e7be08;
+  margin-bottom: 1.5rem;
+  letter-spacing: 0.05rem;
+}
+
+.code-block-wrapper {
+  position: relative;
+  background: #0d0d0d;
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 8px;
+  overflow: hidden;
+  margin-top: 1rem;
+}
+
+.copy-code-btn {
+  position: absolute;
+  right: 1.5rem;
+  top: 1.5rem;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 4px;
+  color: #ccc;
+  padding: 0.5rem 1rem;
+  font-size: 1.1rem;
+  font-family: "Poppins", sans-serif;
+  cursor: pointer;
+  z-index: 5;
+  transition: all 0.2s;
+}
+
+.copy-code-btn:hover {
+  background: #e7be08;
+  color: #000;
+  border-color: #e7be08;
+}
+
+.code-block-wrapper pre {
+  margin: 0;
+  padding: 2.5rem;
+  overflow-x: auto;
+}
+
+.code-block-wrapper code {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 1.35rem;
+  color: #00ff66; /* neon hacker green */
+  line-height: 1.6;
+}
+
+/* 3. ROADMAPS TAB STYLING */
+.roadmap-selector {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-bottom: 5rem;
+}
+
+.roadmap-sel-btn {
+  background: transparent;
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  color: #aaa;
+  padding: 1.2rem 3rem;
+  border-radius: 8px;
+  font-size: 1.6rem;
+  font-family: "Jura", sans-serif;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.roadmap-sel-btn:hover {
+  color: #fff;
+  border-color: rgba(231,190,8,0.5);
+  box-shadow: 0 0 15px rgba(231,190,8,0.1);
+}
+
+.roadmap-sel-btn.active {
+  background: rgba(231, 190, 8, 0.1);
+  border-color: #e7be08;
+  color: #e7be08;
+  box-shadow: 0 0 20px rgba(231, 190, 8, 0.2);
+}
+
+.roadmap-tree-container {
+  display: none;
+  opacity: 0;
+  position: relative;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 3rem 0;
+  transition: opacity 0.4s ease;
+}
+
+.roadmap-tree-container.active {
+  display: block;
+  opacity: 1;
+}
+
+/* Timeline Vertical Line */
+.roadmap-progress-bar {
+  position: absolute;
+  left: 3.5rem;
+  top: 0;
+  bottom: 0;
+  width: 4px;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 2px;
+}
+
+.roadmap-progress-fill {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 40%; /* dynamic percentage */
+  background: linear-gradient(to bottom, #9b0e0e, #e7be08);
+  border-radius: 2px;
+  box-shadow: 0 0 15px #e7be08;
+  transition: height 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.roadmap-nodes {
+  display: flex;
+  flex-direction: column;
+  gap: 5rem;
+}
+
+.roadmap-node {
+  display: flex;
+  gap: 3rem;
+  position: relative;
+}
+
+.node-indicator {
+  width: 7.4rem;
+  height: 7.4rem;
+  border-radius: 50%;
+  background: #1a1a1a;
+  border: 4px solid rgba(255, 255, 255, 0.1);
+  color: #888;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.2rem;
+  font-weight: 700;
+  z-index: 5;
+  transition: all 0.3s ease;
+  flex-shrink: 0;
+}
+
+.roadmap-node.completed .node-indicator {
+  background: #000;
+  border-color: #e7be08;
+  color: #e7be08;
+  box-shadow: 0 0 20px rgba(231, 190, 8, 0.4);
+}
+
+.roadmap-node.completed::after {
+  content: "✓";
+  position: absolute;
+  left: 5.5rem;
+  top: 0;
+  width: 2.2rem;
+  height: 2.2rem;
+  background: #e7be08;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #000;
+  font-size: 1.2rem;
+  font-weight: 900;
+  z-index: 6;
+  box-shadow: 0 0 8px #e7be08;
+}
+
+.node-content {
+  flex-grow: 1;
+  position: relative;
+  padding: 2.5rem;
+  background: rgba(255,255,255,0.015);
+}
+
+.node-content h3 {
+  font-size: 1.9rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: #fff;
+}
+
+.roadmap-node.completed .node-content h3 {
+  color: #e7be08;
+}
+
+.node-content p {
+  font-family: "Poppins", sans-serif;
+  font-size: 1.35rem;
+  color: #bbb;
+  line-height: 1.6;
+  margin-bottom: 2rem;
+}
+
+.node-checkbox-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.node-checkbox-wrapper input[type="checkbox"] {
+  width: 1.8rem;
+  height: 1.8rem;
+  accent-color: #e7be08;
+  cursor: pointer;
+}
+
+.node-checkbox-wrapper label {
+  font-family: "Poppins", sans-serif;
+  font-size: 1.25rem;
+  color: #aaa;
+  cursor: pointer;
+  user-select: none;
+}
+
+.node-checkbox-wrapper input[type="checkbox"]:checked + label {
+  color: #fff;
+  font-weight: 500;
+}
+
+/* 4. UPLOADS TAB STYLING */
+.upload-container {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 3rem;
+  align-items: start;
+}
+
+.upload-form-panel h2,
+.uploads-list-panel h2 {
+  font-size: 2.2rem;
+  color: #fff;
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+}
+
+.panel-header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.export-btn {
+  background: rgba(231,190,8,0.1);
+  border: 1px solid rgba(231,190,8,0.3);
+  color: #e7be08;
+  padding: 0.6rem 1.2rem;
+  border-radius: 6px;
+  font-family: "Poppins", sans-serif;
+  font-size: 1.2rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.export-btn:hover {
+  background: #e7be08;
+  color: #000;
+  box-shadow: 0 0 10px rgba(231,190,8,0.3);
+}
+
+.panel-desc {
+  font-family: "Poppins", sans-serif;
+  font-size: 1.3rem;
+  color: #888;
+  margin-bottom: 3rem;
+}
+
+.upload-form {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+}
+
+.form-group label {
+  font-family: "Poppins", sans-serif;
+  font-size: 1.3rem;
+  color: #ccc;
+  font-weight: 500;
+}
+
+.form-group input[type="text"],
+.form-group input[type="url"],
+.form-group select,
+.form-group textarea {
+  padding: 1.2rem 1.5rem;
+  background: rgba(0, 0, 0, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 8px;
+  color: #fff;
+  font-size: 1.4rem;
+  font-family: "Poppins", sans-serif;
+  transition: all 0.3s;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  border-color: #9b0e0e;
+  box-shadow: 0 0 10px rgba(155, 14, 14, 0.2);
+}
+
+.form-group select option {
+  background: #111;
+  color: #fff;
+}
+
+/* Drag and drop area */
+.drag-drop-zone {
+  border: 2px dashed rgba(255, 255, 255, 0.15);
+  border-radius: 8px;
+  padding: 3rem;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.01);
+  transition: all 0.3s ease;
+  position: relative;
+  cursor: pointer;
+}
+
+.drag-drop-zone.dragover {
+  border-color: #e7be08;
+  background: rgba(231, 190, 8, 0.05);
+  box-shadow: 0 0 15px rgba(231, 190, 8, 0.1);
+}
+
+.upload-cloud-icon {
+  font-size: 3.5rem;
+  margin-bottom: 1rem;
+  display: block;
+}
+
+.drag-drop-zone p {
+  font-family: "Poppins", sans-serif;
+  font-size: 1.4rem;
+  color: #ccc;
+}
+
+.browse-link {
+  color: #e7be08;
+  text-decoration: underline;
+  font-weight: 600;
+}
+
+.file-info-text {
+  font-family: "Poppins", sans-serif;
+  font-size: 1.1rem;
+  color: #666;
+  margin-top: 0.8rem;
+  display: block;
+}
+
+.file-input-hidden {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.upload-submit-btn {
+  background: #9b0e0e;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 1.5rem;
+  font-size: 1.5rem;
+  font-weight: 700;
+  font-family: "Jura", sans-serif;
+  letter-spacing: 0.05rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(155, 14, 14, 0.3);
+}
+
+.upload-submit-btn:hover {
+  background: #c81818;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(200, 24, 24, 0.4);
+}
+
+/* Uploads List Container */
+.uploaded-items-list {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  max-height: 600px;
+  overflow-y: auto;
+  padding-right: 0.5rem;
+}
+
+/* Scrollbar for list */
+.uploaded-items-list::-webkit-scrollbar {
+  width: 4px;
+}
+.uploaded-items-list::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 2px;
+}
+
+/* Empty State */
+.empty-state-message {
+  text-align: center;
+  padding: 5rem 2rem;
+}
+
+.empty-state-message span {
+  font-size: 5rem;
+  display: block;
+  margin-bottom: 1.5rem;
+  opacity: 0.5;
+}
+
+.empty-state-message p {
+  font-family: "Poppins", sans-serif;
+  font-size: 1.4rem;
+  color: #aaa;
+}
+
+.sub-empty-text {
+  font-size: 1.2rem !important;
+  color: #666 !important;
+  margin-top: 0.5rem;
+}
+
+/* Item cards in list */
+.upload-item-card {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 8px;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  transition: all 0.3s;
+}
+
+.upload-item-card:hover {
+  border-color: rgba(255, 255, 255, 0.15);
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.card-header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.upload-item-card h3 {
+  font-size: 1.6rem;
+  font-weight: 600;
+  color: #fff;
+  line-height: 1.3;
+}
+
+.item-category-badge {
+  font-family: "Poppins", sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  background: rgba(231,190,8,0.1);
+  border: 1px solid rgba(231,190,8,0.25);
+  color: #e7be08;
+  padding: 0.2rem 0.8rem;
+  border-radius: 3px;
+  white-space: nowrap;
+}
+
+.upload-item-card:nth-child(even) .item-category-badge {
+  background: rgba(0, 150, 136, 0.1);
+  border-color: rgba(0, 150, 136, 0.25);
+  color: #009688;
+}
+
+.upload-item-card p {
+  font-family: "Poppins", sans-serif;
+  font-size: 1.25rem;
+  color: #aaa;
+  line-height: 1.5;
+}
+
+.card-meta-info {
+  display: flex;
+  gap: 1.5rem;
+  font-family: "Poppins", sans-serif;
+  font-size: 1.1rem;
+  color: #555;
+}
+
+.actions-row {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1.2rem;
+  margin-top: 0.5rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.03);
+  padding-top: 1.2rem;
+}
+
+.item-action-btn {
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #ccc;
+  padding: 0.5rem 1.2rem;
+  border-radius: 4px;
+  font-family: "Poppins", sans-serif;
+  font-size: 1.15rem;
+  cursor: pointer;
+  transition: all 0.2s;
+  text-decoration: none;
+}
+
+.item-action-btn.view-btn:hover {
+  background: rgba(255,255,255,0.08);
+  color: #fff;
+  border-color: rgba(255,255,255,0.25);
+}
+
+.item-action-btn.dl-btn {
+  background: rgba(231, 190, 8, 0.1);
+  border-color: rgba(231, 190, 8, 0.2);
+  color: #e7be08;
+}
+
+.item-action-btn.dl-btn:hover {
+  background: #e7be08;
+  color: #000;
+  border-color: #e7be08;
+}
+
+.item-action-btn.del-btn {
+  color: #ef5350;
+  border-color: rgba(239, 83, 80, 0.2);
+}
+
+.item-action-btn.del-btn:hover {
+  background: rgba(239, 83, 80, 0.1);
+  border-color: #ef5350;
+}
+
+/* Developer integration guide box */
+.dev-guide-box {
+  background: rgba(231, 190, 8, 0.015);
+  border: 1px dashed rgba(231, 190, 8, 0.2);
+}
+
+.guide-badge {
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  font-size: 1.1rem;
+  text-transform: uppercase;
+  color: #e7be08;
+  display: inline-block;
+  margin-bottom: 1.2rem;
+  background: rgba(231,190,8,0.08);
+  padding: 0.3rem 1rem;
+  border-radius: 4px;
+}
+
+.dev-guide-box h3 {
+  font-size: 1.8rem;
+  color: #fff;
+  margin-bottom: 1rem;
+}
+
+.dev-guide-box p {
+  font-family: "Poppins", sans-serif;
+  font-size: 1.35rem;
+  color: #aaa;
+  line-height: 1.6;
+}
+
+.dev-guide-box ol li {
+  font-family: "Poppins", sans-serif;
+  font-size: 1.3rem;
+  color: #999;
+}
+
+.dev-guide-box ol li code {
+  background: rgba(255,255,255,0.05);
+  padding: 0.2rem 0.5rem;
+  border-radius: 3px;
+  font-family: monospace;
+  color: #fff;
+}
+
+/* ACTIVE NAV ITEM */
+.active-nav {
+  color: #e7be08 !important;
+  border-bottom: 2px solid #e7be08;
+  padding-bottom: 0.2rem;
+}
+
+/* RESPONSIVE LAYOUTS */
+@media (max-width: 992px) {
+  .cheatsheet-layout {
+    grid-template-columns: 1fr;
+  }
+  .cheatsheet-sidebar {
+    flex-direction: row;
+    overflow-x: auto;
+    padding: 1rem;
+  }
+  .sheet-sidebar-btn {
+    white-space: nowrap;
+    border-left: none;
+    border-bottom: 3px solid transparent;
+    padding: 1rem 1.5rem;
+  }
+  .sheet-sidebar-btn.active {
+    border-left-color: transparent;
+    border-bottom-color: #9b0e0e;
+  }
+  
+  .upload-container {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .resources-main {
+    padding-top: 10rem;
+  }
+  .tab-link {
+    padding: 1rem 1.8rem;
+    font-size: 1.35rem;
+  }
+  .roadmap-progress-bar {
+    left: 2rem;
+  }
+  .roadmap-node {
+    gap: 1.5rem;
+  }
+  .node-indicator {
+    width: 4.8rem;
+    height: 4.8rem;
+    font-size: 1.6rem;
+    border-width: 2px;
+  }
+  .roadmap-node.completed::after {
+    left: 3.3rem;
+    width: 1.5rem;
+    height: 1.5rem;
+    font-size: 0.9rem;
+  }
+  .form-row {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+}
