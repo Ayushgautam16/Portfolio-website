@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Jura:wght@400;500;700&family=Poppins:wght@100;200;300;400;500;600;700;800;900&family=Roboto:wght@400;700&family=Work+Sans:ital,wght@0,300;0,700;1,300&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Jura:wght@400;500;700&family=Poppins:wght@100;200;300;400;500;600;700;800;900&family=Roboto:wght@400;700&family=Work+Sans:ital,wght@0,300;0,700;1,300&family=Press+Start+2P&display=swap");
 /* Common Styles */
 .section-1 {
   position: relative;
@@ -1124,6 +1124,101 @@ body {
 /* End of Projects Button */
 /* End of Projects */
 /* End of Section 3 */
+
+/* Resources Section */
+.section-resources {
+  position: relative;
+  width: 100%;
+  padding: 12rem 10rem 8rem 10rem;
+  background:
+    linear-gradient(rgba(0, 0, 0, 0.82), rgba(0, 0, 0, 0.82)),
+    url(images/bg.jpg) center / cover no-repeat;
+}
+
+.resources-subtitle {
+  max-width: 78rem;
+  margin: 0 auto 4rem;
+  color: #ccc;
+  font-size: 1.7rem;
+  line-height: 1.7;
+  text-align: center;
+}
+
+.resources-grid {
+  width: 100%;
+  max-width: 110rem;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 2.5rem;
+}
+
+.resource-card {
+  display: flex;
+  align-items: center;
+  gap: 1.6rem;
+  padding: 2.4rem 2.6rem;
+  border: 0.2rem dotted #9b0e0e;
+  border-radius: 1.2rem;
+  background: rgba(255, 255, 255, 0.06);
+  color: #fff;
+  text-decoration: none;
+  transition:
+    transform 0.25s ease,
+    border-color 0.25s ease,
+    box-shadow 0.25s ease,
+    background 0.25s ease;
+  min-height: 13rem;
+}
+
+.resource-card:hover {
+  transform: translateY(-0.4rem);
+  border-color: #e7be08;
+  box-shadow: 0 0.8rem 2.4rem rgba(155, 14, 14, 0.35);
+  background: rgba(255, 255, 255, 0.09);
+}
+
+.resource-icon {
+  width: 5rem;
+  height: 5rem;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  border: 0.2rem solid #e7be08;
+  background: rgba(0, 0, 0, 0.35);
+  color: #e7be08;
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+.resource-copy {
+  flex: 1;
+  min-width: 0;
+}
+
+.resource-copy h2 {
+  font-size: 2.2rem;
+  color: #fff;
+  margin: 0 0 0.8rem;
+}
+
+.resource-copy p {
+  font-size: 1.5rem;
+  color: #ccc;
+  margin: 0;
+  line-height: 1.6;
+}
+
+.resource-action {
+  font-size: 1.3rem;
+  color: #e7be08;
+  text-transform: uppercase;
+  letter-spacing: 0.25rem;
+  white-space: nowrap;
+}
+/* End of Resources Section */
 
 /* Hire Section */
 .section-hire {
@@ -2456,6 +2551,10 @@ body {
     padding: 8rem 2rem;
     margin-top: 5rem;
   }
+  .section-resources {
+    padding: 8rem 2rem;
+    margin-top: 5rem;
+  }
   .section-hire {
     padding: 10rem 2rem 6rem;
   }
@@ -2770,6 +2869,7 @@ body {
     padding: 6rem 1.5rem 11rem;
   }
   .section-3,
+  .section-resources,
   .section-hire,
   .section-sponsors,
   .section-resume,
@@ -2790,6 +2890,23 @@ body {
   .hire-heading {
     font-size: 2rem;
     margin-bottom: 2.5rem;
+  }
+  .resources-subtitle {
+    font-size: 1.4rem;
+    margin-bottom: 3rem;
+  }
+  .resources-grid {
+    grid-template-columns: 1fr;
+  }
+  .resource-card {
+    min-height: auto;
+    padding: 2rem;
+  }
+  .resource-copy h2 {
+    font-size: 1.8rem;
+  }
+  .resource-copy p {
+    font-size: 1.35rem;
   }
   .drop-heading {
     font-size: 2rem;
@@ -2911,3 +3028,194 @@ body {
 }
 /* ===== End of Phone Responsiveness ===== */
 /* End of Responsive */
+
+/* Skill Deck Card Styles */
+.section-skills {
+  background: linear-gradient(
+    180deg,
+    rgba(10, 5, 5, 0.98) 0%,
+    rgba(18, 10, 10, 0.95) 100%
+  ) !important;
+}
+
+.section-skills .section-heading {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 3.8rem;
+  color: #ff4a4a;
+  text-shadow: 0 0 1.5rem rgba(255, 74, 74, 0.6);
+  letter-spacing: 0.2rem;
+  margin-bottom: 6rem;
+}
+
+.skills-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 3.5rem;
+  max-width: 120rem;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.deck-card {
+  width: 20rem;
+  height: 30rem;
+  background: #0d0606;
+  border: 0.25rem solid #9b0e0e;
+  border-radius: 1.6rem;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 1.8rem;
+  box-shadow: 0 0.8rem 2rem rgba(0, 0, 0, 0.7);
+  transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+  overflow: hidden;
+  cursor: pointer;
+  box-sizing: border-box;
+}
+
+/* Card suit color themes */
+.deck-card[data-suit="heart"],
+.deck-card[data-suit="diamond"] {
+  border-color: #ff4a4a;
+}
+.deck-card[data-suit="spade"],
+.deck-card[data-suit="club"] {
+  border-color: #ffaa00;
+}
+.deck-card[data-suit="joker"] {
+  border-color: #d844ff;
+}
+
+/* Hover effects */
+.deck-card:hover {
+  transform: translateY(-1.5rem) scale(1.05) rotate(2deg);
+  box-shadow: 0 1.5rem 3.5rem rgba(255, 74, 74, 0.35);
+  background: #150909;
+}
+
+.deck-card[data-suit="spade"]:hover,
+.deck-card[data-suit="club"]:hover {
+  box-shadow: 0 1.5rem 3.5rem rgba(255, 170, 0, 0.3);
+}
+
+.deck-card[data-suit="joker"]:hover {
+  box-shadow: 0 1.5rem 3.5rem rgba(216, 68, 255, 0.35);
+}
+
+/* Card indicators */
+.card-indicator {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  line-height: 1.1;
+  font-family: 'Press Start 2P', monospace;
+  font-size: 1.2rem;
+  user-select: none;
+}
+
+.card-indicator.top-left {
+  align-self: flex-start;
+}
+
+.card-indicator.bottom-right {
+  align-self: flex-end;
+  transform: rotate(180deg);
+}
+
+/* Theme indicator colors */
+.deck-card[data-suit="heart"] .card-indicator,
+.deck-card[data-suit="diamond"] .card-indicator {
+  color: #ff4a4a;
+}
+.deck-card[data-suit="spade"] .card-indicator,
+.deck-card[data-suit="club"] .card-indicator {
+  color: #ffaa00;
+}
+.deck-card[data-suit="joker"] .card-indicator {
+  color: #d844ff;
+}
+
+.card-suit {
+  font-size: 1.6rem;
+  margin-top: 0.4rem;
+}
+
+/* Center card contents */
+.card-center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex-grow: 1;
+  gap: 2rem;
+  width: 100%;
+}
+
+.pixel-avatar {
+  width: 8rem;
+  height: 8rem;
+}
+
+.card-skill-name {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 1.1rem;
+  color: #ffffff;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 0.05rem;
+  word-break: break-word;
+  padding: 0 0.5rem;
+  text-shadow: 0 0.2rem 0.5rem rgba(0, 0, 0, 0.8);
+}
+
+.deck-card:hover .card-skill-name {
+  color: #ffaa00;
+}
+.deck-card[data-suit="heart"]:hover .card-skill-name,
+.deck-card[data-suit="diamond"]:hover .card-skill-name {
+  color: #ff4a4a;
+}
+.deck-card[data-suit="joker"]:hover .card-skill-name {
+  color: #e59cff;
+}
+
+/* Responsive adjustment for fanned out card layout on large screens */
+@media (min-width: 992px) {
+  .deck-card:nth-child(2n) {
+    transform: rotate(-1.5deg);
+  }
+  .deck-card:nth-child(2n+1) {
+    transform: rotate(1.5deg);
+  }
+  .deck-card:hover {
+    transform: translateY(-1.8rem) scale(1.06) rotate(0deg) !important;
+  }
+}
+
+/* Responsive media query tweaks */
+@media (max-width: 768px) {
+  .section-skills {
+    padding: 10rem 1.5rem !important;
+  }
+  .section-skills .section-heading {
+    font-size: 2.8rem;
+  }
+  .deck-card {
+    width: 17rem;
+    height: 25.5rem;
+    padding: 1.4rem;
+  }
+  .pixel-avatar {
+    width: 6.5rem;
+    height: 6.5rem;
+  }
+  .card-skill-name {
+    font-size: 0.95rem;
+  }
+  .card-suit {
+    font-size: 1.4rem;
+  }
+}
+
