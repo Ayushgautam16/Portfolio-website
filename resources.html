@@ -1,0 +1,650 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Resources Hub | Ayush Gautam</title>
+
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="resources.css" />
+    <link rel="icon" type="image/png" href="images/favicon.png" />
+    
+    <!-- Primary SEO -->
+    <meta name="title" content="Resources Hub | Ayush Gautam" />
+    <meta name="description" content="Access web development cheatsheets, interactive frontend and backend roadmaps, and manage your personal study materials." />
+    <meta name="author" content="Ayush Gautam" />
+  </head>
+  <body>
+    <!-- Mouse Circle (Consistent with homepage) -->
+    <div class="mouse-circle"></div>
+    <div class="mouse-dot"></div>
+
+    <div class="container">
+      <!-- Page BG -->
+      <div class="page-bg"></div>
+
+      <!-- Navigation -->
+      <nav class="navbar" id="navbar">
+        <div class="navbar-header">
+          <a href="index.html" class="logo pointer-enter">
+            <img src="images/logo.png" alt="Ayush Gautam Logo" class="logo-img" />
+            <span>Ayush Gautam</span>
+          </a>
+          <button
+            type="button"
+            class="menu-btn pointer-enter"
+            id="menu-btn"
+            aria-label="Open navigation menu"
+            aria-expanded="false"
+            aria-controls="navbar-links"
+          >
+            <span class="menu-btn-text">Menu</span>
+            <span class="menu-btn-bars" aria-hidden="true">
+              <span class="menu-icon-line"></span>
+              <span class="menu-icon-line"></span>
+              <span class="menu-icon-line"></span>
+            </span>
+          </button>
+        </div>
+        <div class="navbar-links" id="navbar-links">
+          <a href="index.html" class="navbar-link pointer-enter">Home</a>
+          <a href="index.html#section-2" class="navbar-link pointer-enter">About Me</a>
+          <a href="index.html#section-projects" class="navbar-link pointer-enter">Projects</a>
+          <a href="#" class="navbar-link pointer-enter active-nav">Resources Hub</a>
+          <a href="index.html#section-4" class="navbar-link pointer-enter">Services</a>
+          <a href="index.html#section-5" class="navbar-link pointer-enter">Contact</a>
+        </div>
+      </nav>
+
+      <!-- Main Resources Panel -->
+      <main class="resources-main">
+        <header class="resources-header">
+          <h1 class="section-heading">Resources Hub</h1>
+          <p class="resources-subtitle">
+            Study guides, interactive roadmaps, and custom cheat sheets to level up your engineering skills.
+          </p>
+        </header>
+
+        <!-- Hub Tabs Navigation -->
+        <div class="tabs-nav center">
+          <button class="tab-link active pointer-enter" data-tab="dashboard-tab">
+            <span class="tab-icon">📊</span> Dashboard
+          </button>
+          <button class="tab-link pointer-enter" data-tab="cheatsheets-tab">
+            <span class="tab-icon">📄</span> Cheat Sheets
+          </button>
+          <button class="tab-link pointer-enter" data-tab="roadmaps-tab">
+            <span class="tab-icon">🗺️</span> Roadmaps
+          </button>
+          <button class="tab-link pointer-enter" data-tab="uploads-tab">
+            <span class="tab-icon">📤</span> My Study Uploads
+          </button>
+        </div>
+
+        <!-- TAB CONTENTS -->
+        <div class="tabs-content-wrapper">
+          
+          <!-- 1. DASHBOARD TAB -->
+          <div class="tab-pane active" id="dashboard-tab">
+            <div class="dashboard-stats-grid">
+              <div class="stat-card glass-panel pointer-enter">
+                <span class="stat-icon">📄</span>
+                <div class="stat-text">
+                  <h3 id="stat-sheets-count">4</h3>
+                  <p>Static Cheat Sheets</p>
+                </div>
+              </div>
+              <div class="stat-card glass-panel pointer-enter">
+                <span class="stat-icon">🗺️</span>
+                <div class="stat-text">
+                  <h3>2</h3>
+                  <p>Interactive Roadmaps</p>
+                </div>
+              </div>
+              <div class="stat-card glass-panel pointer-enter">
+                <span class="stat-icon">💾</span>
+                <div class="stat-text">
+                  <h3 id="stat-uploads-count">0</h3>
+                  <p>Your Uploaded Files</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Search Bar Section -->
+            <div class="search-section glass-panel">
+              <h2>Quick Resource Finder</h2>
+              <div class="search-wrapper">
+                <input type="text" id="resource-search" class="search-input" placeholder="Search keywords (e.g. Git, CSS, Array, API)..." />
+                <span class="search-lens-icon">🔍</span>
+              </div>
+            </div>
+
+            <!-- Featured Resources Grid -->
+            <div class="featured-grid">
+              <div class="featured-card glass-panel pointer-enter" onclick="switchTab('cheatsheets-tab')">
+                <span class="feat-badge">Cheatsheet</span>
+                <h3>JavaScript ES6+ Cheatsheet</h3>
+                <p>Arrow functions, destructuring, promises, classes, modules and new array methods.</p>
+                <span class="card-action-link">Open Sheet &rarr;</span>
+              </div>
+
+              <div class="featured-card glass-panel pointer-enter" onclick="switchTab('roadmaps-tab')">
+                <span class="feat-badge">Roadmap</span>
+                <h3>Frontend Developer Roadmap</h3>
+                <p>Interactive step-by-step roadmap from HTML/CSS to Frameworks and Deployments.</p>
+                <span class="card-action-link">View Roadmap &rarr;</span>
+              </div>
+
+              <div class="featured-card glass-panel pointer-enter" onclick="switchTab('roadmaps-tab')">
+                <span class="feat-badge">Roadmap</span>
+                <h3>Backend Developer Roadmap</h3>
+                <p>Master servers, databases, APIs, authentication, microservices, and system design.</p>
+                <span class="card-action-link">View Roadmap &rarr;</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- 2. CHEAT SHEETS TAB -->
+          <div class="tab-pane" id="cheatsheets-tab">
+            <div class="cheatsheet-layout">
+              <!-- Sidebar Selector -->
+              <aside class="cheatsheet-sidebar">
+                <button class="sheet-sidebar-btn active pointer-enter" data-sheet="js-sheet">JavaScript ES6+</button>
+                <button class="sheet-sidebar-btn pointer-enter" data-sheet="html-css-sheet">HTML5 & CSS3 Flexbox</button>
+                <button class="sheet-sidebar-btn pointer-enter" data-sheet="python-sheet">Python Advanced OOP</button>
+                <button class="sheet-sidebar-btn pointer-enter" data-sheet="git-sheet">Git & GitHub Essentials</button>
+              </aside>
+
+              <!-- Sheets View Area -->
+              <div class="cheatsheet-view-area glass-panel">
+                
+                <!-- JS Sheet -->
+                <div class="sheet-content active" id="js-sheet">
+                  <h2>JavaScript ES6+ Reference Sheet</h2>
+                  <p class="sheet-desc">Essential syntax patterns, promises, and standard modern JS concepts.</p>
+                  
+                  <div class="sheet-section">
+                    <h3>Arrow Functions & Lexical scoping</h3>
+                    <div class="code-block-wrapper">
+                      <button class="copy-code-btn pointer-enter" onclick="copyCode(this)">Copy</button>
+                      <pre><code>// Traditional Function
+function multiply(a, b) {
+  return a * b;
+}
+
+// Arrow Function (implicit return)
+const multiply = (a, b) => a * b;
+
+// With Lexical 'this'
+const calculator = {
+  factor: 2,
+  multiplyArray(arr) {
+    return arr.map(val => val * this.factor); // 'this' correctly refers to calculator
+  }
+};</code></pre>
+                    </div>
+                  </div>
+
+                  <div class="sheet-section">
+                    <h3>Destructuring & Spread Operator</h3>
+                    <div class="code-block-wrapper">
+                      <button class="copy-code-btn pointer-enter" onclick="copyCode(this)">Copy</button>
+                      <pre><code>// Object & Array Destructuring
+const user = { name: 'Ayush', role: 'AI Developer', location: 'India' };
+const { name, role } = user;
+
+const colors = ['red', 'gold', 'black'];
+const [primary, secondary] = colors;
+
+// Spread & Rest Operator
+const updatedUser = { ...user, active: true };
+const sumAll = (...args) => args.reduce((acc, curr) => acc + curr, 0);</code></pre>
+                    </div>
+                  </div>
+
+                  <div class="sheet-section">
+                    <h3>Promises & Async/Await</h3>
+                    <div class="code-block-wrapper">
+                      <button class="copy-code-btn pointer-enter" onclick="copyCode(this)">Copy</button>
+                      <pre><code>// Creating a promise
+const fetchData = (url) => {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => resolve(`Data from ${url}`), 1000);
+  });
+};
+
+// Async / Await with Error Handling
+async function loadDashboard() {
+  try {
+    const result = await fetchData('https://api.ayushgautam.co.in/status');
+    console.log(result);
+  } catch (error) {
+    console.error('Fetch failed:', error);
+  }
+}</code></pre>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- HTML / CSS Sheet -->
+                <div class="sheet-content" id="html-css-sheet">
+                  <h2>HTML5 & CSS3 Flexbox / Grid Reference</h2>
+                  <p class="sheet-desc">Layout systems cheat sheet for building responsive components quickly.</p>
+                  
+                  <div class="sheet-section">
+                    <h3>CSS Flexbox Properties</h3>
+                    <div class="code-block-wrapper">
+                      <button class="copy-code-btn pointer-enter" onclick="copyCode(this)">Copy</button>
+                      <pre><code>.flex-container {
+  display: flex;
+  flex-direction: row | row-reverse | column | column-reverse;
+  justify-content: flex-start | flex-end | center | space-between | space-around | space-evenly;
+  align-items: stretch | flex-start | flex-end | center | baseline;
+  flex-wrap: nowrap | wrap | wrap-reverse;
+}
+
+.flex-item {
+  flex-grow: 1; /* relative grow ratio */
+  flex-shrink: 1;
+  flex-basis: auto;
+  align-self: auto | flex-start | flex-end | center | baseline | stretch;
+}</code></pre>
+                    </div>
+                  </div>
+
+                  <div class="sheet-section">
+                    <h3>CSS Grid Essentials</h3>
+                    <div class="code-block-wrapper">
+                      <button class="copy-code-btn pointer-enter" onclick="copyCode(this)">Copy</button>
+                      <pre><code>.grid-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-template-rows: auto 1fr auto;
+  gap: 2rem; /* row-gap and column-gap */
+}
+
+.grid-item {
+  grid-column: span 2; /* span across columns */
+  grid-row: 1 / 3; /* start at row line 1, end at line 3 */
+}</code></pre>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Python Sheet -->
+                <div class="sheet-content" id="python-sheet">
+                  <h2>Python Advanced OOP Reference</h2>
+                  <p class="sheet-desc">Classes, magic methods, inheritance, and decorators.</p>
+                  
+                  <div class="sheet-section">
+                    <h3>Decorators & Magic Methods</h3>
+                    <div class="code-block-wrapper">
+                      <button class="copy-code-btn pointer-enter" onclick="copyCode(this)">Copy</button>
+                      <pre><code>class CustomDeveloper:
+    def __init__(self, name: str, skills: list):
+        self.name = name
+        self.skills = skills
+        
+    # Representation Magic Method
+    def __repr__(self):
+        return f"Developer(name={self.name}, skills={self.skills})"
+
+    # Custom Decorator for execution tracking
+    @staticmethod
+    def developer_check(func):
+        def wrapper(*args, **kwargs):
+            print("[System] Checking developer credentials...")
+            return func(*args, **kwargs)
+        return wrapper
+
+    @developer_check
+    def deploy_app(self):
+        return f"{self.name} deployed the code successfully!"</code></pre>
+                    </div>
+                  </div>
+
+                  <div class="sheet-section">
+                    <h3>List Comprehensions & Generator expressions</h3>
+                    <div class="code-block-wrapper">
+                      <button class="copy-code-btn pointer-enter" onclick="copyCode(this)">Copy</button>
+                      <pre><code># Basic List Comprehension
+squared_evens = [x**2 for x in range(10) if x % 2 == 0]
+
+# Dictionary Comprehension
+skill_ratings = {"Python": 9.5, "JavaScript": 8.5, "Docker": 7.5}
+expert_skills = {k: v for k, v in skill_ratings.items() if v >= 8.0}
+
+# Generator Expression (Memory Efficient)
+large_generator = (n ** 2 for n in range(1000000))
+# Access via next(large_generator) or loop</code></pre>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Git Sheet -->
+                <div class="sheet-content" id="git-sheet">
+                  <h2>Git & GitHub Cheat Sheet</h2>
+                  <p class="sheet-desc">Standard workflow commands for version control management.</p>
+                  
+                  <div class="sheet-section">
+                    <h3>Essential Git Commands</h3>
+                    <div class="code-block-wrapper">
+                      <button class="copy-code-btn pointer-enter" onclick="copyCode(this)">Copy</button>
+                      <pre><code># Initialize repository
+git init
+
+# Clone from remote server
+git clone https://github.com/Ayushgautam16/repo-name.git
+
+# Stage changes & commit
+git add .
+git commit -m "feat: implement resources page layout"
+
+# Push to origin
+git push origin main
+
+# View status & logs
+git status
+git log --oneline -n 10</code></pre>
+                    </div>
+                  </div>
+
+                  <div class="sheet-section">
+                    <h3>Branching & Merging</h3>
+                    <div class="code-block-wrapper">
+                      <button class="copy-code-btn pointer-enter" onclick="copyCode(this)">Copy</button>
+                      <pre><code># Create and switch to new branch
+git checkout -b feature/interactive-dashboard
+
+# View local branches
+git branch
+
+# Merge a branch into current branch
+git merge feature/interactive-dashboard
+
+# Delete branch
+git branch -d feature/interactive-dashboard</code></pre>
+                    </div>
+                  </div>
+
+                  <div class="sheet-section">
+                    <h3>Stashing & Amending</h3>
+                    <div class="code-block-wrapper">
+                      <button class="copy-code-btn pointer-enter" onclick="copyCode(this)">Copy</button>
+                      <pre><code># Temporarily save work (dirty working directory)
+git stash
+
+# Pop saved stash work
+git stash pop
+
+# Amend last commit message
+git commit --amend -m "Corrected description details"</code></pre>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+
+          <!-- 3. ROADMAPS TAB -->
+          <div class="tab-pane" id="roadmaps-tab">
+            <div class="roadmap-selector center">
+              <button class="roadmap-sel-btn active pointer-enter" onclick="selectRoadmap('frontend')">
+                Frontend Developer
+              </button>
+              <button class="roadmap-sel-btn pointer-enter" onclick="selectRoadmap('backend')">
+                Backend Developer
+              </button>
+            </div>
+
+            <!-- Frontend Roadmap -->
+            <div class="roadmap-tree-container active" id="frontend-roadmap">
+              <div class="roadmap-progress-bar">
+                <div class="roadmap-progress-fill" id="frontend-progress"></div>
+              </div>
+              
+              <div class="roadmap-nodes">
+                <!-- Node 1 -->
+                <div class="roadmap-node completed" data-id="fe-1">
+                  <div class="node-indicator pointer-enter">1</div>
+                  <div class="node-content glass-panel">
+                    <h3>HTML & CSS Basics</h3>
+                    <p>Learn semantic layouts, HTML tags, CSS selectors, box model, and responsiveness (Flexbox, Grid, Media queries).</p>
+                    <div class="node-checkbox-wrapper">
+                      <input type="checkbox" id="fe-chk-1" checked onchange="toggleNodeStatus('fe-1', this)" />
+                      <label for="fe-chk-1">Mark Completed</label>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Node 2 -->
+                <div class="roadmap-node completed" data-id="fe-2">
+                  <div class="node-indicator pointer-enter">2</div>
+                  <div class="node-content glass-panel">
+                    <h3>JavaScript Fundamentals</h3>
+                    <p>Master syntax, variables, scoping, array methods, DOM manipulation, promises, async/await, and APIs.</p>
+                    <div class="node-checkbox-wrapper">
+                      <input type="checkbox" id="fe-chk-2" checked onchange="toggleNodeStatus('fe-2', this)" />
+                      <label for="fe-chk-2">Mark Completed</label>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Node 3 -->
+                <div class="roadmap-node" data-id="fe-3">
+                  <div class="node-indicator pointer-enter">3</div>
+                  <div class="node-content glass-panel">
+                    <h3>Git & GitHub (Version Control)</h3>
+                    <p>Understand commit workflows, branching, resolving merge conflicts, pulling/pushing, and collaborative GitHub tooling.</p>
+                    <div class="node-checkbox-wrapper">
+                      <input type="checkbox" id="fe-chk-3" onchange="toggleNodeStatus('fe-3', this)" />
+                      <label for="fe-chk-3">Mark Completed</label>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Node 4 -->
+                <div class="roadmap-node" data-id="fe-4">
+                  <div class="node-indicator pointer-enter">4</div>
+                  <div class="node-content glass-panel">
+                    <h3>Package Managers & Build Tools</h3>
+                    <p>NPM or Yarn for module management. Transpilers like Babel, bundlers like Vite, and CSS frameworks (Tailwind).</p>
+                    <div class="node-checkbox-wrapper">
+                      <input type="checkbox" id="fe-chk-4" onchange="toggleNodeStatus('fe-4', this)" />
+                      <label for="fe-chk-4">Mark Completed</label>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Node 5 -->
+                <div class="roadmap-node" data-id="fe-5">
+                  <div class="node-indicator pointer-enter">5</div>
+                  <div class="node-content glass-panel">
+                    <h3>Frameworks (React, Next.js, etc.)</h3>
+                    <p>Choose a framework to study. Master routing, state management (Redux, Context API), lifecycle components, and hooks.</p>
+                    <div class="node-checkbox-wrapper">
+                      <input type="checkbox" id="fe-chk-5" onchange="toggleNodeStatus('fe-5', this)" />
+                      <label for="fe-chk-5">Mark Completed</label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Backend Roadmap -->
+            <div class="roadmap-tree-container" id="backend-roadmap">
+              <div class="roadmap-progress-bar">
+                <div class="roadmap-progress-fill" id="backend-progress"></div>
+              </div>
+
+              <div class="roadmap-nodes">
+                <!-- Node 1 -->
+                <div class="roadmap-node completed" data-id="be-1">
+                  <div class="node-indicator pointer-enter">1</div>
+                  <div class="node-content glass-panel">
+                    <h3>Language Choice (Python, Node.js, Go)</h3>
+                    <p>Master standard library features, asynchronous programming patterns, memory management, and typing models.</p>
+                    <div class="node-checkbox-wrapper">
+                      <input type="checkbox" id="be-chk-1" checked onchange="toggleNodeStatus('be-1', this)" />
+                      <label for="be-chk-1">Mark Completed</label>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Node 2 -->
+                <div class="roadmap-node" data-id="be-2">
+                  <div class="node-indicator pointer-enter">2</div>
+                  <div class="node-content glass-panel">
+                    <h3>Database Systems</h3>
+                    <p>Learn Relational databases (PostgreSQL, MySQL) vs. NoSQL (MongoDB, Redis). Study indexing, querying, transactions, and ORMs (Prisma, SQLAlchemy).</p>
+                    <div class="node-checkbox-wrapper">
+                      <input type="checkbox" id="be-chk-2" onchange="toggleNodeStatus('be-2', this)" />
+                      <label for="be-chk-2">Mark Completed</label>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Node 3 -->
+                <div class="roadmap-node" data-id="be-3">
+                  <div class="node-indicator pointer-enter">3</div>
+                  <div class="node-content glass-panel">
+                    <h3>API Development</h3>
+                    <p>Build scalable architectures with RESTful frameworks, GraphQL, or gRPC. Master request validation, middleware pipelines, and controllers.</p>
+                    <div class="node-checkbox-wrapper">
+                      <input type="checkbox" id="be-chk-3" onchange="toggleNodeStatus('be-3', this)" />
+                      <label for="be-chk-3">Mark Completed</label>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Node 4 -->
+                <div class="roadmap-node" data-id="be-4">
+                  <div class="node-indicator pointer-enter">4</div>
+                  <div class="node-content glass-panel">
+                    <h3>Security &amp; Auth Systems</h3>
+                    <p>Implement secure workflows using JWT authentication, OAuth 2.0, bcrypt hashing, CORS protocols, and SQL injection prevention.</p>
+                    <div class="node-checkbox-wrapper">
+                      <input type="checkbox" id="be-chk-4" onchange="toggleNodeStatus('be-4', this)" />
+                      <label for="be-chk-4">Mark Completed</label>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Node 5 -->
+                <div class="roadmap-node" data-id="be-5">
+                  <div class="node-indicator pointer-enter">5</div>
+                  <div class="node-content glass-panel">
+                    <h3>Testing, CI/CD &amp; Hosting</h3>
+                    <p>Write unit and integration tests. Set up automated test pipelines in GitHub Actions. Deploy to services like AWS, Netlify, or Docker containers.</p>
+                    <div class="node-checkbox-wrapper">
+                      <input type="checkbox" id="be-chk-5" onchange="toggleNodeStatus('be-5', this)" />
+                      <label for="be-chk-5">Mark Completed</label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 4. UPLOADS TAB -->
+          <div class="tab-pane" id="uploads-tab">
+            <div class="upload-container">
+              <!-- Upload Form panel -->
+              <div class="upload-form-panel glass-panel">
+                <h2>Upload Study Materials</h2>
+                <p class="panel-desc">Save roadmaps, cheat sheets, or notes locally in your browser's persistent storage.</p>
+                
+                <form id="study-upload-form" class="upload-form">
+                  <div class="form-group">
+                    <label for="upload-title">Resource Title *</label>
+                    <input type="text" id="upload-title" placeholder="e.g. Docker Commands Cheat Sheet" required />
+                  </div>
+                  
+                  <div class="form-row">
+                    <div class="form-group">
+                      <label for="upload-category">Category *</label>
+                      <select id="upload-category" required>
+                        <option value="Cheat Sheet">Cheat Sheet</option>
+                        <option value="Roadmap">Roadmap</option>
+                        <option value="Notes">Study Notes</option>
+                        <option value="Other">Other Reference</option>
+                      </select>
+                    </div>
+                    <div class="form-group">
+                      <label for="upload-link">Reference URL (Optional)</label>
+                      <input type="url" id="upload-link" placeholder="e.g. https://github.com/... or source link" />
+                    </div>
+                  </div>
+
+                  <div class="form-group">
+                    <label for="upload-desc">Short Description *</label>
+                    <textarea id="upload-desc" rows="3" placeholder="Explain what is inside this document..." required></textarea>
+                  </div>
+
+                  <div class="form-group">
+                    <label>File Attachment *</label>
+                    <div class="drag-drop-zone pointer-enter" id="drop-zone">
+                      <span class="upload-cloud-icon">☁️</span>
+                      <p>Drag and drop your file here, or <span class="browse-link">browse</span></p>
+                      <span class="file-info-text">Supports PDF, Images, JSON, TXT (Max 5MB)</span>
+                      <input type="file" id="upload-file" class="file-input-hidden" required />
+                    </div>
+                  </div>
+
+                  <button type="submit" class="upload-submit-btn pointer-enter">
+                    Upload to Resources Dashboard 🚀
+                  </button>
+                </form>
+              </div>
+
+              <!-- Upload list panel -->
+              <div class="uploads-list-panel glass-panel">
+                <div class="panel-header-row">
+                  <h2>My Uploaded Resources</h2>
+                  <button id="export-json-btn" class="export-btn pointer-enter" title="Export resource list to JSON configuration">
+                    💾 Export Config
+                  </button>
+                </div>
+                <p class="panel-desc">All files saved here will persist inside this browser instance.</p>
+                
+                <div class="uploaded-items-list" id="uploaded-items-list">
+                  <!-- Dynamic Item Cards will load here -->
+                  <div class="empty-state-message">
+                    <span>📂</span>
+                    <p>No custom study files uploaded yet.</p>
+                    <p class="sub-empty-text">Fill out the form on the left to add your cheatsheets or roadmaps!</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Developer Integration Guide -->
+            <div class="dev-guide-box glass-panel" style="margin-top: 4rem;">
+              <span class="guide-badge">💡 Developer Tip</span>
+              <h3>How to Permanently Embed These Resources Into Code</h3>
+              <p>Since this portfolio is built as a static site hosted on platforms like Netlify, uploads using the form on this page are stored in your browser's local sandbox (LocalStorage).</p>
+              <p>To make these files available to **everyone who visits your site**:</p>
+              <ol style="margin-left: 2rem; margin-top: 1rem; line-height: 1.8;">
+                <li>Place your PDF, image, or study files inside the project's folder structure (e.g. <code>images/resources/</code> or create a new directory).</li>
+                <li>Open <code>resources.js</code> in your editor and look for the static resources array variable.</li>
+                <li>Add a new JSON object pointing to the file path of your newly added asset. Run <code>git commit</code> and push it to your repository!</li>
+              </ol>
+            </div>
+
+          </div>
+
+        </div>
+      </main>
+
+      <!-- Footer (Matching index.html style) -->
+      <footer style="padding: 4rem; text-align: center; color: #888; font-size: 1.3rem; border-top: 1px solid rgba(255, 255, 255, 0.05); font-family: 'Poppins', sans-serif;">
+        <p>&copy; 2026 Ayush Gautam. All Rights Reserved. Crafted with passion.</p>
+      </footer>
+    </div>
+
+    <!-- Scripts -->
+    <script src="resources.js"></script>
+  </body>
+</html>

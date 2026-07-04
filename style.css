@@ -3219,3 +3219,57 @@ body {
   }
 }
 
+/* Resources Hub CTA Section */
+.resources-cta-container {
+  margin-top: 4rem;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.resources-hub-btn {
+  text-align: center;
+  display: inline-block;
+  padding: 2.5rem 5rem;
+  border: 0.2rem dashed #e7be08;
+  border-radius: 1.5rem;
+  background: rgba(155, 14, 14, 0.1);
+  box-shadow: 0 0 2rem rgba(0, 0, 0, 0.5);
+  transition: all 0.3s ease;
+  text-decoration: none;
+  max-width: 60rem;
+  width: 90%;
+  backdrop-filter: blur(0.5rem);
+}
+
+.resources-hub-btn:hover {
+  border-style: solid;
+  border-color: #9b0e0e;
+  background: rgba(231, 190, 8, 0.15);
+  box-shadow: 0 0 3rem rgba(231, 190, 8, 0.3);
+  transform: translateY(-0.5rem);
+}
+
+.resources-hub-btn h3 {
+  font-size: 2.2rem;
+  color: #e7be08;
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+  font-family: "Jura", sans-serif;
+  letter-spacing: 0.1rem;
+  transition: color 0.3s;
+}
+
+.resources-hub-btn:hover h3 {
+  color: #fff;
+}
+
+.resources-hub-btn p {
+  font-size: 1.4rem;
+  color: #ccc;
+  font-family: "Poppins", sans-serif;
+  font-weight: 300;
+  line-height: 1.6;
+}
+
+
