@@ -3029,193 +3029,187 @@ body {
 /* ===== End of Phone Responsiveness ===== */
 /* End of Responsive */
 
-/* Skill Deck Card Styles */
+/* Modern Tech Stack Styles */
 .section-skills {
+  padding: 12rem 5rem 10rem !important;
   background: linear-gradient(
     180deg,
-    rgba(10, 5, 5, 0.98) 0%,
-    rgba(18, 10, 10, 0.95) 100%
+    rgba(0, 0, 0, 0.95) 0%,
+    rgba(10, 5, 5, 0.98) 100%
   ) !important;
 }
 
-.section-skills .section-heading {
-  font-family: 'Press Start 2P', monospace;
-  font-size: 3.8rem;
-  color: #ff4a4a;
-  text-shadow: 0 0 1.5rem rgba(255, 74, 74, 0.6);
-  letter-spacing: 0.2rem;
+.skills-section-header {
+  text-align: center;
   margin-bottom: 6rem;
 }
 
-.skills-grid {
+.skills-main-heading {
+  margin-bottom: 1.5rem !important;
+  font-family: 'Poppins', sans-serif !important;
+  font-weight: 800 !important;
+  font-size: 4rem !important;
+  color: #fff !important;
+  text-shadow: 0 0 2rem rgba(155, 14, 14, 0.3) !important;
+  letter-spacing: 0.1rem;
+}
+
+.skills-subtitle {
+  max-width: 60rem;
+  margin: 0 auto;
+  font-size: 1.7rem;
+  color: #ccc;
+  line-height: 1.6;
+}
+
+/* Category Containers */
+.skill-category {
+  max-width: 100rem;
+  margin: 0 auto 4rem;
+  background: rgba(255, 255, 255, 0.02);
+  border: 0.1rem solid rgba(255, 255, 255, 0.05);
+  border-radius: 1.6rem;
+  padding: 3rem;
+  box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.4);
+  transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.skill-category:hover {
+  transform: translateY(-0.3rem);
+  border-color: rgba(155, 14, 14, 0.3);
+  box-shadow: 0 1.5rem 3.5rem rgba(155, 14, 14, 0.15);
+}
+
+.skill-category-label {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+  font-family: 'Poppins', sans-serif;
+  font-size: 2rem;
+  font-weight: 600;
+  color: #fff;
+  margin-bottom: 2.5rem;
+  letter-spacing: 0.05rem;
+}
+
+.skill-category-dot {
+  width: 1rem;
+  height: 1rem;
+  border-radius: 50%;
+  background: #9b0e0e;
+  box-shadow: 0 0 1rem #9b0e0e;
+  display: inline-block;
+}
+
+.skill-category-dot--gold {
+  background: #e7be08;
+  box-shadow: 0 0 1rem #e7be08;
+}
+
+.skill-category-dot--red {
+  background: #b60000;
+  box-shadow: 0 0 1rem #b60000;
+}
+
+/* Skill Pills Row & Individual Pill */
+.skill-pills-row {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
-  gap: 3.5rem;
-  max-width: 120rem;
-  margin: 0 auto;
-  padding: 2rem;
+  gap: 1.8rem;
 }
 
-.deck-card {
-  width: 20rem;
-  height: 30rem;
-  background: #0d0606;
-  border: 0.25rem solid #9b0e0e;
-  border-radius: 1.6rem;
-  position: relative;
+.skill-pill {
   display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  padding: 1.8rem;
-  box-shadow: 0 0.8rem 2rem rgba(0, 0, 0, 0.7);
-  transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
-  overflow: hidden;
+  align-items: center;
+  gap: 1.2rem;
+  padding: 1.2rem 2rem;
+  background: rgba(255, 255, 255, 0.04);
+  border: 0.15rem solid rgba(255, 255, 255, 0.08);
+  border-radius: 5rem;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
   cursor: pointer;
-  box-sizing: border-box;
 }
 
-/* Card suit color themes */
-.deck-card[data-suit="heart"],
-.deck-card[data-suit="diamond"] {
-  border-color: #ff4a4a;
-}
-.deck-card[data-suit="spade"],
-.deck-card[data-suit="club"] {
-  border-color: #ffaa00;
-}
-.deck-card[data-suit="joker"] {
-  border-color: #d844ff;
+.skill-pill span {
+  font-size: 1.5rem;
+  font-weight: 500;
+  color: #eee;
+  transition: color 0.25s ease;
 }
 
-/* Hover effects */
-.deck-card:hover {
-  transform: translateY(-1.5rem) scale(1.05) rotate(2deg);
-  box-shadow: 0 1.5rem 3.5rem rgba(255, 74, 74, 0.35);
-  background: #150909;
+.skill-pill-icon {
+  width: 2.4rem;
+  height: 2.4rem;
+  object-fit: contain;
+  filter: grayscale(20%);
+  transition: transform 0.25s ease, filter 0.25s ease;
 }
 
-.deck-card[data-suit="spade"]:hover,
-.deck-card[data-suit="club"]:hover {
-  box-shadow: 0 1.5rem 3.5rem rgba(255, 170, 0, 0.3);
+.skill-pill-icon--invert {
+  filter: invert(1) brightness(1.2);
 }
 
-.deck-card[data-suit="joker"]:hover {
-  box-shadow: 0 1.5rem 3.5rem rgba(216, 68, 255, 0.35);
+/* Interactive States */
+.skill-pill:hover {
+  background: rgba(155, 14, 14, 0.15);
+  border-color: #9b0e0e;
+  transform: translateY(-0.2rem) scale(1.03);
+  box-shadow: 0 0.8rem 2rem rgba(155, 14, 14, 0.25);
 }
 
-/* Card indicators */
-.card-indicator {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  line-height: 1.1;
-  font-family: 'Press Start 2P', monospace;
-  font-size: 1.2rem;
-  user-select: none;
+.skill-pill:hover span {
+  color: #fff;
 }
 
-.card-indicator.top-left {
-  align-self: flex-start;
+.skill-pill:hover .skill-pill-icon {
+  transform: scale(1.15) rotate(3deg);
+  filter: grayscale(0%);
 }
 
-.card-indicator.bottom-right {
-  align-self: flex-end;
-  transform: rotate(180deg);
+.skill-pill:hover .skill-pill-icon--invert {
+  filter: invert(1) brightness(2.0);
 }
 
-/* Theme indicator colors */
-.deck-card[data-suit="heart"] .card-indicator,
-.deck-card[data-suit="diamond"] .card-indicator {
-  color: #ff4a4a;
-}
-.deck-card[data-suit="spade"] .card-indicator,
-.deck-card[data-suit="club"] .card-indicator {
-  color: #ffaa00;
-}
-.deck-card[data-suit="joker"] .card-indicator {
-  color: #d844ff;
+/* Highlighted Main Pills (AWS, Python, LangChain, etc.) */
+.skill-pill--highlight {
+  background: rgba(231, 190, 8, 0.05);
+  border-color: rgba(231, 190, 8, 0.25);
 }
 
-.card-suit {
-  font-size: 1.6rem;
-  margin-top: 0.4rem;
+.skill-pill--highlight:hover {
+  background: rgba(231, 190, 8, 0.15);
+  border-color: #e7be08;
+  box-shadow: 0 0.8rem 2rem rgba(231, 190, 8, 0.2);
 }
 
-/* Center card contents */
-.card-center {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  flex-grow: 1;
-  gap: 2rem;
-  width: 100%;
-}
-
-.pixel-avatar {
-  width: 8rem;
-  height: 8rem;
-}
-
-.card-skill-name {
-  font-family: 'Press Start 2P', monospace;
-  font-size: 1.1rem;
-  color: #ffffff;
-  text-align: center;
-  text-transform: uppercase;
-  letter-spacing: 0.05rem;
-  word-break: break-word;
-  padding: 0 0.5rem;
-  text-shadow: 0 0.2rem 0.5rem rgba(0, 0, 0, 0.8);
-}
-
-.deck-card:hover .card-skill-name {
-  color: #ffaa00;
-}
-.deck-card[data-suit="heart"]:hover .card-skill-name,
-.deck-card[data-suit="diamond"]:hover .card-skill-name {
-  color: #ff4a4a;
-}
-.deck-card[data-suit="joker"]:hover .card-skill-name {
-  color: #e59cff;
-}
-
-/* Responsive adjustment for fanned out card layout on large screens */
-@media (min-width: 992px) {
-  .deck-card:nth-child(2n) {
-    transform: rotate(-1.5deg);
-  }
-  .deck-card:nth-child(2n+1) {
-    transform: rotate(1.5deg);
-  }
-  .deck-card:hover {
-    transform: translateY(-1.8rem) scale(1.06) rotate(0deg) !important;
-  }
-}
-
-/* Responsive media query tweaks */
+/* Responsive Tweak */
 @media (max-width: 768px) {
   .section-skills {
-    padding: 10rem 1.5rem !important;
+    padding: 8rem 2rem 6rem !important;
   }
-  .section-skills .section-heading {
-    font-size: 2.8rem;
+  .skills-main-heading {
+    font-size: 3.2rem !important;
   }
-  .deck-card {
-    width: 17rem;
-    height: 25.5rem;
-    padding: 1.4rem;
+  .skill-category {
+    padding: 2.2rem 1.8rem;
+    margin-bottom: 2.5rem;
   }
-  .pixel-avatar {
-    width: 6.5rem;
-    height: 6.5rem;
+  .skill-category-label {
+    font-size: 1.8rem;
+    margin-bottom: 2rem;
   }
-  .card-skill-name {
-    font-size: 0.95rem;
+  .skill-pills-row {
+    gap: 1.2rem;
   }
-  .card-suit {
-    font-size: 1.4rem;
+  .skill-pill {
+    padding: 1rem 1.6rem;
+  }
+  .skill-pill span {
+    font-size: 1.35rem;
+  }
+  .skill-pill-icon {
+    width: 2rem;
+    height: 2rem;
   }
 }
 
