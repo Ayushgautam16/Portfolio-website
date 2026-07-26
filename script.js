@@ -51,7 +51,7 @@ let hoveredElPosition = [];
 
 const stickyElement = (x, y, hoveredEl) => {
     // Sticky Elements
-    if (hoveredEl.classList.contains("sticky")) {
+    if (hoveredEl && hoveredEl.classList && hoveredEl.classList.contains("sticky")) {
         hoveredElPosition.length < 1 &&
             (hoveredElPosition = [hoveredEl.offsetTop, hoveredEl.offsetLeft]);
 
@@ -77,7 +77,7 @@ const stickyElement = (x, y, hoveredEl) => {
 
 // Mouse Circle Transform
 const mouseCircleTransform = (hoveredEl) => {
-    if (hoveredEl.classList.contains("pointer-enter")) {
+    if (hoveredEl && hoveredEl.classList && hoveredEl.classList.contains("pointer-enter")) {
         hoveredEl.onmousemove = () => {
             mouseCircleBool = false;
             mouseCircle.style.cssText = `
@@ -97,7 +97,7 @@ const mouseCircleTransform = (hoveredEl) => {
             mouseCircleBool = true;
         };
         document.onscroll = () => {
-            if (!mouseCircleBool) {
+            if (!mouseCircleBool && mouseCircle) {
                 mouseCircle.style.top = `${hoveredEl.getBoundingClientRect().top}px`;
             }
         };
