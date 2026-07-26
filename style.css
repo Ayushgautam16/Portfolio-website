@@ -3588,7 +3588,7 @@ body {
   height: 100vh;
   background: rgba(0, 0, 0, 0.85);
   backdrop-filter: blur(1rem);
-  display: flex;
+  display: none;
   align-items: center;
   justify-content: center;
   z-index: 1000;
@@ -3599,8 +3599,9 @@ body {
 }
 
 .review-modal.active {
-  opacity: 1;
-  pointer-events: auto;
+  display: flex !important;
+  opacity: 1 !important;
+  pointer-events: auto !important;
 }
 
 .review-modal-content {
