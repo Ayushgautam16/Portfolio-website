@@ -140,6 +140,7 @@
         <a href="#section-projects" class="navbar-link pointer-enter">Projects</a>
         <a href="resources.html" class="navbar-link pointer-enter" target="_blank">Resources</a>
         <a href="#section-4" class="navbar-link pointer-enter">Services</a>
+        <a href="#section-reviews" class="navbar-link pointer-enter">Reviews</a>
         <a href="#section-5" class="navbar-link pointer-enter">Contact</a>
         <a href="#section-hire" class="navbar-link pointer-enter">Hire Me</a>
       </div>
@@ -493,7 +494,7 @@
           </label>
 
           <label>
-            <span>What I will be working on *</span>
+            <span>What I will be working on </span>
             <input type="text" name="work" class="hire-input pointer-enter" placeholder="Describe the work/project"
               required />
           </label>
@@ -1035,6 +1036,114 @@
     <!--Section 4  -->
 
     <!-- End of Section 4 -->
+
+    <!-- Reviews Section -->
+    <section class="section-reviews" id="section-reviews">
+      <div class="reviews-header center">
+        <h1 class="section-heading">Customer Reviews</h1>
+        <p class="reviews-subtitle">Real feedback &amp; testimonials from clients, collaborators, and project partners.</p>
+
+        <!-- Summary & Action Bar -->
+        <div class="reviews-stats-bar">
+          <div class="reviews-overall-score">
+            <span class="score-num" id="reviewsAvgScore">5.0</span>
+            <div class="score-stars-wrapper">
+              <div class="score-stars" id="reviewsAvgStars">
+                <span class="star-icon filled">★</span>
+                <span class="star-icon filled">★</span>
+                <span class="star-icon filled">★</span>
+                <span class="star-icon filled">★</span>
+                <span class="star-icon filled">★</span>
+              </div>
+              <span class="score-count" id="reviewsTotalCount">Based on 4 reviews</span>
+            </div>
+          </div>
+
+          <button type="button" class="write-review-btn pointer-enter" id="openReviewModalBtn">
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M12 20h9M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z" />
+            </svg>
+            Write a Review
+          </button>
+        </div>
+
+        <!-- Filter Pills -->
+        <div class="reviews-filter-bar">
+          <button type="button" class="review-filter-btn active pointer-enter" data-filter="all">All Reviews</button>
+          <button type="button" class="review-filter-btn pointer-enter" data-filter="5">5 Stars</button>
+          <button type="button" class="review-filter-btn pointer-enter" data-filter="4">4 Stars</button>
+          <button type="button" class="review-filter-btn pointer-enter" data-filter="recent">Recent</button>
+        </div>
+      </div>
+
+      <!-- Reviews Grid -->
+      <div class="reviews-grid" id="reviewsGrid">
+        <!-- Rendered dynamically via JavaScript -->
+      </div>
+
+      <!-- Write a Review Modal -->
+      <div class="review-modal" id="reviewModal" aria-hidden="true">
+        <div class="review-modal-content">
+          <button type="button" class="review-modal-close pointer-enter" id="closeReviewModalBtn" aria-label="Close modal">&times;</button>
+          <div class="review-modal-header">
+            <h2>Write a Review</h2>
+            <p>Your feedback helps me improve and grow. It will appear directly on my public profile!</p>
+          </div>
+
+          <form class="review-form" id="reviewForm">
+            <div class="review-form-group">
+              <label for="reviewAuthor">Your Name <span class="req">*</span></label>
+              <input type="text" id="reviewAuthor" class="review-form-input pointer-enter" placeholder="e.g. Sarah Jenkins" required />
+            </div>
+
+            <div class="review-form-group">
+              <label for="reviewRole">Role / Organization <span class="req">*</span></label>
+              <input type="text" id="reviewRole" class="review-form-input pointer-enter" placeholder="e.g. Product Lead @ TechCorp" required />
+            </div>
+
+            <div class="review-form-group">
+              <label>Your Rating <span class="req">*</span></label>
+              <div class="star-rating-picker" id="starRatingPicker">
+                <span class="star-pick pointer-enter" data-value="1">★</span>
+                <span class="star-pick pointer-enter" data-value="2">★</span>
+                <span class="star-pick pointer-enter" data-value="3">★</span>
+                <span class="star-pick pointer-enter" data-value="4">★</span>
+                <span class="star-pick pointer-enter" data-value="5">★</span>
+                <span class="rating-label-display" id="ratingLabelDisplay">5 / 5 Stars</span>
+              </div>
+            </div>
+
+            <div class="review-form-group">
+              <label for="reviewAvatar">Avatar Image URL <span class="opt">(optional)</span></label>
+              <input type="url" id="reviewAvatar" class="review-form-input pointer-enter" placeholder="https://example.com/photo.jpg" />
+            </div>
+
+            <div class="review-form-group">
+              <label for="reviewText">Review Message <span class="req">*</span></label>
+              <textarea id="reviewText" class="review-form-input review-textarea pointer-enter" rows="4" placeholder="Describe your experience collaborating with Ayush..." required></textarea>
+            </div>
+
+            <button type="submit" class="review-submit-btn pointer-enter">
+              <span>Publish Review</span>
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
+                <line x1="22" y1="2" x2="11" y2="13"></line>
+                <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+              </svg>
+            </button>
+          </form>
+        </div>
+      </div>
+
+      <!-- Review Toast Notification -->
+      <div class="review-toast" id="reviewToast">
+        <div class="review-toast-icon">✓</div>
+        <div class="review-toast-body">
+          <h4>Review Published!</h4>
+          <p>Thank you! Your review is now automatically displayed on the profile.</p>
+        </div>
+      </div>
+    </section>
+    <!-- End of Reviews Section -->
 
     <!-- Section 5 -->
     <section class="section-5 center" id="section-5">

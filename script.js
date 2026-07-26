@@ -549,3 +549,292 @@ form.addEventListener("submit", (e) => {
 });
 // End of Form Validation
 // End of Section 5
+
+// ==========================================
+// Customer Reviews & Feedback Feature
+// ==========================================
+const DEFAULT_REVIEWS = [
+    {
+        id: 'rev-1',
+        name: 'Sarah Jenkins',
+        role: 'Product Lead @ TechCorp',
+        rating: 5,
+        date: 'July 2026',
+        text: 'Ayush delivered our full-stack web application on time with flawless animations and responsive design. His attention to detail and performance optimization is top-notch!',
+        avatar: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=150&auto=format&fit=crop&q=80',
+        verified: true
+    },
+    {
+        id: 'rev-2',
+        name: 'Alex Rivera',
+        role: 'Founder @ AI Launchpad',
+        rating: 5,
+        date: 'June 2026',
+        text: 'Outstanding work on our AI automation pipeline and UI integration. Ayush turned complex backend requirements into a smooth, user-friendly interface. Highly recommended!',
+        avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&auto=format&fit=crop&q=80',
+        verified: true
+    },
+    {
+        id: 'rev-3',
+        name: 'Marcus Vance',
+        role: 'Engineering Manager @ DevFlow',
+        rating: 5,
+        date: 'May 2026',
+        text: 'Collaborating with Ayush was a fantastic experience. Exceptional mastery in Next.js, Node.js, and clean code practices. Will definitely hire again.',
+        avatar: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=150&auto=format&fit=crop&q=80',
+        verified: true
+    },
+    {
+        id: 'rev-4',
+        name: 'Priya Sharma',
+        role: 'Co-Founder @ InnovateHub',
+        rating: 5,
+        date: 'April 2026',
+        text: 'Transformed our rough product vision into a high-converting, stunning website. His dedication, UI aesthetics, and technical speed are truly impressive.',
+        avatar: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=150&auto=format&fit=crop&q=80',
+        verified: true
+    }
+];
+
+let activeFilter = 'all';
+let selectedRating = 5;
+
+const getStoredReviews = () => {
+    try {
+        const stored = localStorage.getItem('ayush_portfolio_reviews');
+        return stored ? JSON.parse(stored) : [];
+    } catch (e) {
+        console.error('Failed to load reviews from localStorage', e);
+        return [];
+    }
+};
+
+const saveReviewsToStorage = (userReviews) => {
+    try {
+        localStorage.setItem('ayush_portfolio_reviews', JSON.stringify(userReviews));
+    } catch (e) {
+        console.error('Failed to save review to localStorage', e);
+    }
+};
+
+const getAllReviews = () => {
+    const customReviews = getStoredReviews();
+    return [...customReviews, ...DEFAULT_REVIEWS];
+};
+
+const renderStarsSVG = (rating) => {
+    let starsHtml = '';
+    for (let i = 1; i <= 5; i++) {
+        starsHtml += `<span class="star-icon ${i <= rating ? 'filled' : ''}">★</span>`;
+    }
+    return starsHtml;
+};
+
+const getInitials = (name) => {
+    if (!name) return 'A';
+    const parts = name.trim().split(' ');
+    if (parts.length >= 2) {
+        return (parts[0][0] + parts[1][0]).toUpperCase();
+    }
+    return name.slice(0, 2).toUpperCase();
+};
+
+const renderReviews = () => {
+    const grid = document.getElementById('reviewsGrid');
+    if (!grid) return;
+
+    const reviews = getAllReviews();
+    let filtered = reviews;
+
+    if (activeFilter === '5') {
+        filtered = reviews.filter(r => Number(r.rating) === 5);
+    } else if (activeFilter === '4') {
+        filtered = reviews.filter(r => Number(r.rating) >= 4 && Number(r.rating) < 5);
+    } else if (activeFilter === 'recent') {
+        filtered = [...reviews].reverse();
+    }
+
+    // Update Overall Stats
+    const totalCount = reviews.length;
+    const avgScore = totalCount > 0 
+        ? (reviews.reduce((acc, curr) => acc + Number(curr.rating), 0) / totalCount).toFixed(1)
+        : '5.0';
+
+    const avgScoreEl = document.getElementById('reviewsAvgScore');
+    const totalCountEl = document.getElementById('reviewsTotalCount');
+    const avgStarsEl = document.getElementById('reviewsAvgStars');
+
+    if (avgScoreEl) avgScoreEl.textContent = avgScore;
+    if (totalCountEl) totalCountEl.textContent = `Based on ${totalCount} review${totalCount === 1 ? '' : 's'}`;
+    if (avgStarsEl) avgStarsEl.innerHTML = renderStarsSVG(Math.round(Number(avgScore)));
+
+    if (filtered.length === 0) {
+        grid.innerHTML = `
+            <div class="no-reviews-msg">
+                <p>No reviews match this filter yet.</p>
+            </div>
+        `;
+        return;
+    }
+
+    grid.innerHTML = filtered.map(r => `
+        <div class="review-card pointer-enter" data-id="${r.id}">
+            <div class="review-card-header">
+                <div class="review-author-info">
+                    ${r.avatar ? 
+                        `<img src="${r.avatar}" alt="${r.name}" class="review-avatar-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" /><div class="review-avatar-fallback" style="display:none;">${getInitials(r.name)}</div>` :
+                        `<div class="review-avatar-fallback">${getInitials(r.name)}</div>`
+                    }
+                    <div>
+                        <h4 class="review-author-name">${r.name} ${r.verified ? '<span class="verified-badge" title="Verified Client">✓ Verified</span>' : ''}</h4>
+                        <p class="review-author-role">${r.role}</p>
+                    </div>
+                </div>
+                <span class="review-date">${r.date}</span>
+            </div>
+            <div class="review-rating-row">
+                ${renderStarsSVG(r.rating)}
+            </div>
+            <p class="review-text">"${r.text}"</p>
+        </div>
+    `).join('');
+};
+
+// Setup Star Rating Picker Logic
+const setupStarRatingPicker = () => {
+    const picker = document.getElementById('starRatingPicker');
+    if (!picker) return;
+
+    const stars = picker.querySelectorAll('.star-pick');
+    const display = document.getElementById('ratingLabelDisplay');
+
+    const updateStarUI = (val) => {
+        stars.forEach(s => {
+            const sVal = Number(s.dataset.value);
+            if (sVal <= val) {
+                s.classList.add('selected');
+            } else {
+                s.classList.remove('selected');
+            }
+        });
+        if (display) display.textContent = `${val} / 5 Stars`;
+    };
+
+    stars.forEach(star => {
+        star.addEventListener('click', () => {
+            selectedRating = Number(star.dataset.value);
+            updateStarUI(selectedRating);
+        });
+
+        star.addEventListener('mouseenter', () => {
+            const hoverVal = Number(star.dataset.value);
+            updateStarUI(hoverVal);
+        });
+    });
+
+    picker.addEventListener('mouseleave', () => {
+        updateStarUI(selectedRating);
+    });
+
+    updateStarUI(selectedRating);
+};
+
+// Modal handlers & Toast
+const initReviewsFeature = () => {
+    const modal = document.getElementById('reviewModal');
+    const openBtn = document.getElementById('openReviewModalBtn');
+    const closeBtn = document.getElementById('closeReviewModalBtn');
+    const form = document.getElementById('reviewForm');
+    const toast = document.getElementById('reviewToast');
+
+    if (openBtn && modal) {
+        openBtn.addEventListener('click', () => {
+            modal.classList.add('active');
+            modal.setAttribute('aria-hidden', 'false');
+        });
+    }
+
+    const closeModal = () => {
+        if (modal) {
+            modal.classList.remove('active');
+            modal.setAttribute('aria-hidden', 'true');
+        }
+    };
+
+    if (closeBtn) {
+        closeBtn.addEventListener('click', closeModal);
+    }
+
+    if (modal) {
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) closeModal();
+        });
+    }
+
+    // Filter Buttons
+    const filterBtns = document.querySelectorAll('.review-filter-btn');
+    filterBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            filterBtns.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            activeFilter = btn.dataset.filter;
+            renderReviews();
+        });
+    });
+
+    setupStarRatingPicker();
+
+    // Form Submission
+    if (form) {
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+
+            const author = document.getElementById('reviewAuthor').value.trim();
+            const role = document.getElementById('reviewRole').value.trim();
+            const avatar = document.getElementById('reviewAvatar').value.trim();
+            const text = document.getElementById('reviewText').value.trim();
+
+            if (!author || !role || !text) return;
+
+            const newReview = {
+                id: 'user-' + Date.now(),
+                name: author,
+                role: role,
+                rating: selectedRating,
+                date: 'Just now',
+                text: text,
+                avatar: avatar || null,
+                verified: true
+            };
+
+            const existingCustom = getStoredReviews();
+            existingCustom.unshift(newReview);
+            saveReviewsToStorage(existingCustom);
+
+            renderReviews();
+            closeModal();
+            form.reset();
+            selectedRating = 5;
+            setupStarRatingPicker();
+
+            // Show Toast
+            if (toast) {
+                toast.classList.add('show');
+                setTimeout(() => {
+                    toast.classList.remove('show');
+                }, 4000);
+            }
+        });
+    }
+
+    renderReviews();
+};
+
+document.addEventListener('DOMContentLoaded', () => {
+    initReviewsFeature();
+});
+
+if (document.readyState === 'complete' || document.readyState === 'interactive') {
+    initReviewsFeature();
+}
+
