@@ -1019,12 +1019,68 @@
             </div>
           </div>
 
-          <button type="button" class="write-review-btn pointer-enter" id="openReviewModalBtn" onclick="openReviewModal()">
+          <button type="button" class="write-review-btn pointer-enter" id="toggleReviewFormBtn" onclick="toggleReviewForm()">
             <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
               <path d="M12 20h9M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z" />
             </svg>
-            Write a Review
+            <span id="writeReviewBtnText">Write a Review</span>
           </button>
+        </div>
+
+        <!-- Inline Review Submission Form Box (Collapsible Proposal Form Style) -->
+        <div class="inline-review-box" id="inlineReviewFormBox" style="display: none;">
+          <div class="inline-review-box-inner">
+            <div class="inline-review-header">
+              <h2>Submit Your Review</h2>
+              <p>Your feedback will be automatically displayed on my profile below!</p>
+            </div>
+
+            <form class="review-form" id="reviewForm" onsubmit="handleReviewSubmit(event)">
+              <div class="review-form-row">
+                <div class="review-form-group">
+                  <label for="reviewAuthor">Your Name <span class="req">*</span></label>
+                  <input type="text" id="reviewAuthor" class="review-form-input pointer-enter" placeholder="e.g. Sarah Jenkins" required />
+                </div>
+
+                <div class="review-form-group">
+                  <label for="reviewRole">Role / Organization <span class="req">*</span></label>
+                  <input type="text" id="reviewRole" class="review-form-input pointer-enter" placeholder="e.g. Product Lead @ TechCorp" required />
+                </div>
+              </div>
+
+              <div class="review-form-row">
+                <div class="review-form-group">
+                  <label>Your Rating <span class="req">*</span></label>
+                  <div class="star-rating-picker" id="starRatingPicker" onmouseleave="resetStarPreview()">
+                    <span class="star-pick pointer-enter" data-value="1" onclick="setStarRating(1)" onmouseenter="previewStarRating(1)">★</span>
+                    <span class="star-pick pointer-enter" data-value="2" onclick="setStarRating(2)" onmouseenter="previewStarRating(2)">★</span>
+                    <span class="star-pick pointer-enter" data-value="3" onclick="setStarRating(3)" onmouseenter="previewStarRating(3)">★</span>
+                    <span class="star-pick pointer-enter" data-value="4" onclick="setStarRating(4)" onmouseenter="previewStarRating(4)">★</span>
+                    <span class="star-pick pointer-enter" data-value="5" onclick="setStarRating(5)" onmouseenter="previewStarRating(5)">★</span>
+                    <span class="rating-label-display" id="ratingLabelDisplay">5 / 5 Stars</span>
+                  </div>
+                </div>
+
+                <div class="review-form-group">
+                  <label for="reviewAvatar">Avatar Image URL <span class="opt">(optional)</span></label>
+                  <input type="url" id="reviewAvatar" class="review-form-input pointer-enter" placeholder="https://example.com/photo.jpg" />
+                </div>
+              </div>
+
+              <div class="review-form-group">
+                <label for="reviewText">Review Message <span class="req">*</span></label>
+                <textarea id="reviewText" class="review-form-input review-textarea pointer-enter" rows="4" placeholder="Describe your experience collaborating with Ayush..." required></textarea>
+              </div>
+
+              <button type="submit" class="review-submit-btn pointer-enter">
+                <span>Submit Review</span>
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
+                  <line x1="22" y1="2" x2="11" y2="13"></line>
+                  <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+                </svg>
+              </button>
+            </form>
+          </div>
         </div>
 
         <!-- Filter Pills -->
@@ -1036,62 +1092,16 @@
         </div>
       </div>
 
+      <!-- Marquee Slider Track (Moving like social media profiles) -->
+      <div class="reviews-marquee-wrapper">
+        <div class="reviews-marquee-track" id="reviewsMarqueeTrack">
+          <!-- Rendered dynamically via JavaScript -->
+        </div>
+      </div>
+
       <!-- Reviews Grid -->
       <div class="reviews-grid" id="reviewsGrid">
         <!-- Rendered dynamically via JavaScript -->
-      </div>
-
-      <!-- Write a Review Modal -->
-      <div class="review-modal" id="reviewModal" aria-hidden="true">
-        <div class="review-modal-content">
-          <button type="button" class="review-modal-close pointer-enter" id="closeReviewModalBtn" onclick="closeReviewModal()" aria-label="Close modal">&times;</button>
-          <div class="review-modal-header">
-            <h2>Write a Review</h2>
-            <p>Your feedback helps me improve and grow. It will appear directly on my public profile!</p>
-          </div>
-
-          <form class="review-form" id="reviewForm" onsubmit="handleReviewSubmit(event)">
-            <div class="review-form-group">
-              <label for="reviewAuthor">Your Name <span class="req">*</span></label>
-              <input type="text" id="reviewAuthor" class="review-form-input pointer-enter" placeholder="e.g. Sarah Jenkins" required />
-            </div>
-
-            <div class="review-form-group">
-              <label for="reviewRole">Role / Organization <span class="req">*</span></label>
-              <input type="text" id="reviewRole" class="review-form-input pointer-enter" placeholder="e.g. Product Lead @ TechCorp" required />
-            </div>
-
-            <div class="review-form-group">
-              <label>Your Rating <span class="req">*</span></label>
-              <div class="star-rating-picker" id="starRatingPicker" onmouseleave="resetStarPreview()">
-                <span class="star-pick pointer-enter" data-value="1" onclick="setStarRating(1)" onmouseenter="previewStarRating(1)">★</span>
-                <span class="star-pick pointer-enter" data-value="2" onclick="setStarRating(2)" onmouseenter="previewStarRating(2)">★</span>
-                <span class="star-pick pointer-enter" data-value="3" onclick="setStarRating(3)" onmouseenter="previewStarRating(3)">★</span>
-                <span class="star-pick pointer-enter" data-value="4" onclick="setStarRating(4)" onmouseenter="previewStarRating(4)">★</span>
-                <span class="star-pick pointer-enter" data-value="5" onclick="setStarRating(5)" onmouseenter="previewStarRating(5)">★</span>
-                <span class="rating-label-display" id="ratingLabelDisplay">5 / 5 Stars</span>
-              </div>
-            </div>
-
-            <div class="review-form-group">
-              <label for="reviewAvatar">Avatar Image URL <span class="opt">(optional)</span></label>
-              <input type="url" id="reviewAvatar" class="review-form-input pointer-enter" placeholder="https://example.com/photo.jpg" />
-            </div>
-
-            <div class="review-form-group">
-              <label for="reviewText">Review Message <span class="req">*</span></label>
-              <textarea id="reviewText" class="review-form-input review-textarea pointer-enter" rows="4" placeholder="Describe your experience collaborating with Ayush..." required></textarea>
-            </div>
-
-            <button type="submit" class="review-submit-btn pointer-enter">
-              <span>Publish Review</span>
-              <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
-                <line x1="22" y1="2" x2="11" y2="13"></line>
-                <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
-              </svg>
-            </button>
-          </form>
-        </div>
       </div>
 
       <!-- Review Toast Notification -->

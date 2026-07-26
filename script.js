@@ -677,6 +677,71 @@ const renderReviews = () => {
     if (avgStarsEl) avgStarsEl.innerHTML = renderStarsSVG(Math.round(Number(avgScore)));
 
     if (filtered.length === 0) {
+const renderMarqueeCard = (r) => `
+    <div class="marquee-review-card pointer-enter">
+        <div class="review-card-header">
+            <div class="review-author-info">
+                ${r.avatar ? 
+                    `<img src="${r.avatar}" alt="${r.name}" class="review-avatar-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" /><div class="review-avatar-fallback" style="display:none;">${getInitials(r.name)}</div>` :
+                    `<div class="review-avatar-fallback">${getInitials(r.name)}</div>`
+                }
+                <div>
+                    <h4 class="review-author-name">${r.name} ${r.verified ? '<span class="verified-badge" title="Verified Client">✓ Verified</span>' : ''}</h4>
+                    <p class="review-author-role">${r.role}</p>
+                </div>
+            </div>
+            <span class="review-date">${r.date}</span>
+        </div>
+        <div class="review-rating-row">
+            ${renderStarsSVG(r.rating)}
+        </div>
+        <p class="review-text">"${r.text}"</p>
+    </div>
+`;
+
+const renderReviews = () => {
+    const grid = document.getElementById('reviewsGrid');
+    const marqueeTrack = document.getElementById('reviewsMarqueeTrack');
+
+    const reviews = getAllReviews();
+
+    // 1. Populate Marquee Track (Duplicate array for seamless infinite marquee loop)
+    if (marqueeTrack) {
+        const loopCount = Math.max(3, Math.ceil(12 / (reviews.length || 1)));
+        let marqueeHtml = '';
+        for (let i = 0; i < loopCount; i++) {
+            marqueeHtml += reviews.map(renderMarqueeCard).join('');
+        }
+        marqueeTrack.innerHTML = marqueeHtml;
+    }
+
+    // 2. Filtered Grid
+    if (!grid) return;
+    let filtered = reviews;
+
+    if (activeFilter === '5') {
+        filtered = reviews.filter(r => Number(r.rating) === 5);
+    } else if (activeFilter === '4') {
+        filtered = reviews.filter(r => Number(r.rating) >= 4 && Number(r.rating) < 5);
+    } else if (activeFilter === 'recent') {
+        filtered = [...reviews].reverse();
+    }
+
+    // Update Overall Stats
+    const totalCount = reviews.length;
+    const avgScore = totalCount > 0 
+        ? (reviews.reduce((acc, curr) => acc + Number(curr.rating), 0) / totalCount).toFixed(1)
+        : '5.0';
+
+    const avgScoreEl = document.getElementById('reviewsAvgScore');
+    const totalCountEl = document.getElementById('reviewsTotalCount');
+    const avgStarsEl = document.getElementById('reviewsAvgStars');
+
+    if (avgScoreEl) avgScoreEl.textContent = avgScore;
+    if (totalCountEl) totalCountEl.textContent = `Based on ${totalCount} review${totalCount === 1 ? '' : 's'}`;
+    if (avgStarsEl) avgStarsEl.innerHTML = renderStarsSVG(Math.round(Number(avgScore)));
+
+    if (filtered.length === 0) {
         grid.innerHTML = `
             <div class="no-reviews-msg">
                 <p>No reviews match this filter yet.</p>
@@ -709,21 +774,19 @@ const renderReviews = () => {
 };
 
 // Global Review Handlers
-window.openReviewModal = function() {
-    const modal = document.getElementById('reviewModal');
-    if (modal) {
-        modal.style.display = 'flex';
-        modal.classList.add('active');
-        modal.setAttribute('aria-hidden', 'false');
-    }
-};
+window.toggleReviewForm = function() {
+    const box = document.getElementById('inlineReviewFormBox');
+    const btnText = document.getElementById('writeReviewBtnText');
+    if (!box) return;
 
-window.closeReviewModal = function() {
-    const modal = document.getElementById('reviewModal');
-    if (modal) {
-        modal.style.display = 'none';
-        modal.classList.remove('active');
-        modal.setAttribute('aria-hidden', 'true');
+    if (box.style.display === 'none' || box.style.display === '') {
+        box.style.display = 'block';
+        if (btnText) btnText.textContent = 'Close Form';
+        const firstInput = document.getElementById('reviewAuthor');
+        if (firstInput) firstInput.focus();
+    } else {
+        box.style.display = 'none';
+        if (btnText) btnText.textContent = 'Write a Review';
     }
 };
 
@@ -803,7 +866,12 @@ window.handleReviewSubmit = function(e) {
     saveReviewsToStorage(existingCustom);
 
     renderReviews();
-    window.closeReviewModal();
+
+    // Close form box
+    const box = document.getElementById('inlineReviewFormBox');
+    const btnText = document.getElementById('writeReviewBtnText');
+    if (box) box.style.display = 'none';
+    if (btnText) btnText.textContent = 'Write a Review';
 
     authorInput.value = '';
     roleInput.value = '';
@@ -813,12 +881,19 @@ window.handleReviewSubmit = function(e) {
     selectedRating = 5;
     window.updateStarUI(5);
 
+    // Toast
     const toast = document.getElementById('reviewToast');
     if (toast) {
         toast.classList.add('show');
         setTimeout(() => {
             toast.classList.remove('show');
         }, 4000);
+    }
+
+    // Scroll to reviews marquee / grid smoothly
+    const grid = document.getElementById('reviewsGrid');
+    if (grid) {
+        grid.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
     }
 };
 
