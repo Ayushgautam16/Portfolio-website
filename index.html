@@ -1059,7 +1059,7 @@
             </div>
           </div>
 
-          <button type="button" class="write-review-btn pointer-enter" id="openReviewModalBtn">
+          <button type="button" class="write-review-btn pointer-enter" id="openReviewModalBtn" onclick="openReviewModal()">
             <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
               <path d="M12 20h9M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z" />
             </svg>
@@ -1069,10 +1069,10 @@
 
         <!-- Filter Pills -->
         <div class="reviews-filter-bar">
-          <button type="button" class="review-filter-btn active pointer-enter" data-filter="all">All Reviews</button>
-          <button type="button" class="review-filter-btn pointer-enter" data-filter="5">5 Stars</button>
-          <button type="button" class="review-filter-btn pointer-enter" data-filter="4">4 Stars</button>
-          <button type="button" class="review-filter-btn pointer-enter" data-filter="recent">Recent</button>
+          <button type="button" class="review-filter-btn active pointer-enter" data-filter="all" onclick="filterReviews('all', this)">All Reviews</button>
+          <button type="button" class="review-filter-btn pointer-enter" data-filter="5" onclick="filterReviews('5', this)">5 Stars</button>
+          <button type="button" class="review-filter-btn pointer-enter" data-filter="4" onclick="filterReviews('4', this)">4 Stars</button>
+          <button type="button" class="review-filter-btn pointer-enter" data-filter="recent" onclick="filterReviews('recent', this)">Recent</button>
         </div>
       </div>
 
@@ -1084,13 +1084,13 @@
       <!-- Write a Review Modal -->
       <div class="review-modal" id="reviewModal" aria-hidden="true">
         <div class="review-modal-content">
-          <button type="button" class="review-modal-close pointer-enter" id="closeReviewModalBtn" aria-label="Close modal">&times;</button>
+          <button type="button" class="review-modal-close pointer-enter" id="closeReviewModalBtn" onclick="closeReviewModal()" aria-label="Close modal">&times;</button>
           <div class="review-modal-header">
             <h2>Write a Review</h2>
             <p>Your feedback helps me improve and grow. It will appear directly on my public profile!</p>
           </div>
 
-          <form class="review-form" id="reviewForm">
+          <form class="review-form" id="reviewForm" onsubmit="handleReviewSubmit(event)">
             <div class="review-form-group">
               <label for="reviewAuthor">Your Name <span class="req">*</span></label>
               <input type="text" id="reviewAuthor" class="review-form-input pointer-enter" placeholder="e.g. Sarah Jenkins" required />
@@ -1103,12 +1103,12 @@
 
             <div class="review-form-group">
               <label>Your Rating <span class="req">*</span></label>
-              <div class="star-rating-picker" id="starRatingPicker">
-                <span class="star-pick pointer-enter" data-value="1">★</span>
-                <span class="star-pick pointer-enter" data-value="2">★</span>
-                <span class="star-pick pointer-enter" data-value="3">★</span>
-                <span class="star-pick pointer-enter" data-value="4">★</span>
-                <span class="star-pick pointer-enter" data-value="5">★</span>
+              <div class="star-rating-picker" id="starRatingPicker" onmouseleave="resetStarPreview()">
+                <span class="star-pick pointer-enter" data-value="1" onclick="setStarRating(1)" onmouseenter="previewStarRating(1)">★</span>
+                <span class="star-pick pointer-enter" data-value="2" onclick="setStarRating(2)" onmouseenter="previewStarRating(2)">★</span>
+                <span class="star-pick pointer-enter" data-value="3" onclick="setStarRating(3)" onmouseenter="previewStarRating(3)">★</span>
+                <span class="star-pick pointer-enter" data-value="4" onclick="setStarRating(4)" onmouseenter="previewStarRating(4)">★</span>
+                <span class="star-pick pointer-enter" data-value="5" onclick="setStarRating(5)" onmouseenter="previewStarRating(5)">★</span>
                 <span class="rating-label-display" id="ratingLabelDisplay">5 / 5 Stars</span>
               </div>
             </div>
