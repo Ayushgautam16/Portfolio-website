@@ -491,7 +491,7 @@ function closeSponsorForm() {
     document.getElementById("sponsorPopup").style.display = "none";
 }
 // Form Validation
-const form = document.querySelector(".contact-form");
+const contactForm = document.querySelector(".contact-form");
 const username = document.getElementById("name");
 const email = document.getElementById("email");
 const subject = document.getElementById("subject");
@@ -499,31 +499,35 @@ const message = document.getElementById("message");
 const messages = document.querySelectorAll(".message");
 
 const error = (input, message) => {
+    if (!input || !input.nextElementSibling) return;
     input.nextElementSibling.classList.add("error");
     input.nextElementSibling.textContent = message;
 };
 
 const success = (input) => {
+    if (!input || !input.nextElementSibling) return;
     input.nextElementSibling.classList.remove("error");
 };
 
 const checkRequiredFields = (inputArr) => {
     inputArr.forEach((input) => {
-        if (input.value.trim() === "") {
-            error(input, `${input.id} is required`);
+        if (input && input.value.trim() === "") {
+            error(input, `${input.id || 'Field'} is required`);
         }
     });
 };
 
 const checkLength = (input, min) => {
+    if (!input) return;
     if (input.value.trim().length < min) {
-        error(input, `${input.id} must be at least ${min} characters`);
+        error(input, `${input.id || 'Field'} must be at least ${min} characters`);
     } else {
         success(input);
     }
 };
 
 const checkEmail = (input) => {
+    if (!input) return;
     const regEx =
         /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
 
@@ -534,19 +538,23 @@ const checkEmail = (input) => {
     }
 };
 
-form.addEventListener("submit", (e) => {
-    checkLength(username, 2);
-    checkLength(subject, 2);
-    checkLength(message, 10);
-    checkEmail(email);
-    checkRequiredFields([username, email, subject, message]);
+if (contactForm) {
+    contactForm.addEventListener("submit", (e) => {
+        if (username) checkLength(username, 2);
+        if (subject) checkLength(subject, 2);
+        if (message) checkLength(message, 10);
+        if (email) checkEmail(email);
 
-    const notValid = Array.from(messages).find((message) => {
-        return message.classList.contains("error");
+        const reqs = [username, email, subject, message].filter(Boolean);
+        checkRequiredFields(reqs);
+
+        const notValid = Array.from(messages).find((msg) => {
+            return msg.classList.contains("error");
+        });
+        
+        notValid && e.preventDefault();
     });
-    
-    notValid && e.preventDefault();
-});
+}
 // End of Form Validation
 // End of Section 5
 
@@ -700,141 +708,142 @@ const renderReviews = () => {
     `).join('');
 };
 
-// Setup Star Rating Picker Logic
-const setupStarRatingPicker = () => {
-    const picker = document.getElementById('starRatingPicker');
-    if (!picker) return;
-
-    const stars = picker.querySelectorAll('.star-pick');
-    const display = document.getElementById('ratingLabelDisplay');
-
-    const updateStarUI = (val) => {
-        stars.forEach(s => {
-            const sVal = Number(s.dataset.value);
-            if (sVal <= val) {
-                s.classList.add('selected');
-            } else {
-                s.classList.remove('selected');
-            }
-        });
-        if (display) display.textContent = `${val} / 5 Stars`;
-    };
-
-    stars.forEach(star => {
-        star.addEventListener('click', () => {
-            selectedRating = Number(star.dataset.value);
-            updateStarUI(selectedRating);
-        });
-
-        star.addEventListener('mouseenter', () => {
-            const hoverVal = Number(star.dataset.value);
-            updateStarUI(hoverVal);
-        });
-    });
-
-    picker.addEventListener('mouseleave', () => {
-        updateStarUI(selectedRating);
-    });
-
-    updateStarUI(selectedRating);
+// Global Review Handlers
+window.openReviewModal = function() {
+    const modal = document.getElementById('reviewModal');
+    if (modal) {
+        modal.style.display = 'flex';
+        modal.classList.add('active');
+        modal.setAttribute('aria-hidden', 'false');
+    }
 };
 
-// Modal handlers & Toast
-const initReviewsFeature = () => {
+window.closeReviewModal = function() {
     const modal = document.getElementById('reviewModal');
-    const openBtn = document.getElementById('openReviewModalBtn');
-    const closeBtn = document.getElementById('closeReviewModalBtn');
-    const form = document.getElementById('reviewForm');
-    const toast = document.getElementById('reviewToast');
-
-    if (openBtn && modal) {
-        openBtn.addEventListener('click', () => {
-            modal.classList.add('active');
-            modal.setAttribute('aria-hidden', 'false');
-        });
-    }
-
-    const closeModal = () => {
-        if (modal) {
-            modal.classList.remove('active');
-            modal.setAttribute('aria-hidden', 'true');
-        }
-    };
-
-    if (closeBtn) {
-        closeBtn.addEventListener('click', closeModal);
-    }
-
     if (modal) {
-        modal.addEventListener('click', (e) => {
-            if (e.target === modal) closeModal();
-        });
+        modal.style.display = 'none';
+        modal.classList.remove('active');
+        modal.setAttribute('aria-hidden', 'true');
     }
+};
 
-    // Filter Buttons
+window.filterReviews = function(filterType, btnEl) {
+    activeFilter = filterType;
     const filterBtns = document.querySelectorAll('.review-filter-btn');
-    filterBtns.forEach(btn => {
-        btn.addEventListener('click', () => {
-            filterBtns.forEach(b => b.classList.remove('active'));
-            btn.classList.add('active');
-            activeFilter = btn.dataset.filter;
-            renderReviews();
-        });
-    });
-
-    setupStarRatingPicker();
-
-    // Form Submission
-    if (form) {
-        form.addEventListener('submit', (e) => {
-            e.preventDefault();
-
-            const author = document.getElementById('reviewAuthor').value.trim();
-            const role = document.getElementById('reviewRole').value.trim();
-            const avatar = document.getElementById('reviewAvatar').value.trim();
-            const text = document.getElementById('reviewText').value.trim();
-
-            if (!author || !role || !text) return;
-
-            const newReview = {
-                id: 'user-' + Date.now(),
-                name: author,
-                role: role,
-                rating: selectedRating,
-                date: 'Just now',
-                text: text,
-                avatar: avatar || null,
-                verified: true
-            };
-
-            const existingCustom = getStoredReviews();
-            existingCustom.unshift(newReview);
-            saveReviewsToStorage(existingCustom);
-
-            renderReviews();
-            closeModal();
-            form.reset();
-            selectedRating = 5;
-            setupStarRatingPicker();
-
-            // Show Toast
-            if (toast) {
-                toast.classList.add('show');
-                setTimeout(() => {
-                    toast.classList.remove('show');
-                }, 4000);
-            }
-        });
+    filterBtns.forEach(b => b.classList.remove('active'));
+    if (btnEl) {
+        btnEl.classList.add('active');
+    } else {
+        const targetBtn = document.querySelector(`.review-filter-btn[data-filter="${filterType}"]`);
+        if (targetBtn) targetBtn.classList.add('active');
     }
-
     renderReviews();
 };
 
-document.addEventListener('DOMContentLoaded', () => {
-    initReviewsFeature();
+window.updateStarUI = function(val) {
+    const picker = document.getElementById('starRatingPicker');
+    if (!picker) return;
+    const stars = picker.querySelectorAll('.star-pick');
+    const display = document.getElementById('ratingLabelDisplay');
+
+    stars.forEach(s => {
+        const sVal = Number(s.dataset.value);
+        if (sVal <= val) {
+            s.classList.add('selected');
+        } else {
+            s.classList.remove('selected');
+        }
+    });
+    if (display) display.textContent = `${val} / 5 Stars`;
+};
+
+window.setStarRating = function(val) {
+    selectedRating = Number(val);
+    window.updateStarUI(selectedRating);
+};
+
+window.previewStarRating = function(val) {
+    window.updateStarUI(Number(val));
+};
+
+window.resetStarPreview = function() {
+    window.updateStarUI(selectedRating);
+};
+
+window.handleReviewSubmit = function(e) {
+    if (e && e.preventDefault) e.preventDefault();
+
+    const authorInput = document.getElementById('reviewAuthor');
+    const roleInput = document.getElementById('reviewRole');
+    const avatarInput = document.getElementById('reviewAvatar');
+    const textInput = document.getElementById('reviewText');
+
+    if (!authorInput || !roleInput || !textInput) return;
+
+    const author = authorInput.value.trim();
+    const role = roleInput.value.trim();
+    const avatar = avatarInput ? avatarInput.value.trim() : '';
+    const text = textInput.value.trim();
+
+    if (!author || !role || !text) return;
+
+    const newReview = {
+        id: 'user-' + Date.now(),
+        name: author,
+        role: role,
+        rating: selectedRating,
+        date: 'Just now',
+        text: text,
+        avatar: avatar || null,
+        verified: true
+    };
+
+    const existingCustom = getStoredReviews();
+    existingCustom.unshift(newReview);
+    saveReviewsToStorage(existingCustom);
+
+    renderReviews();
+    window.closeReviewModal();
+
+    authorInput.value = '';
+    roleInput.value = '';
+    if (avatarInput) avatarInput.value = '';
+    textInput.value = '';
+
+    selectedRating = 5;
+    window.updateStarUI(5);
+
+    const toast = document.getElementById('reviewToast');
+    if (toast) {
+        toast.classList.add('show');
+        setTimeout(() => {
+            toast.classList.remove('show');
+        }, 4000);
+    }
+};
+
+// Unified Modal Overlay Listener
+window.addEventListener("click", function (event) {
+    const freelancePopup = document.getElementById("freelancePopup");
+    const sponsorPopup = document.getElementById("sponsorPopup");
+    const reviewModal = document.getElementById("reviewModal");
+
+    if (freelancePopup && event.target === freelancePopup) {
+        freelancePopup.style.display = "none";
+    }
+    if (sponsorPopup && event.target === sponsorPopup) {
+        sponsorPopup.style.display = "none";
+    }
+    if (reviewModal && event.target === reviewModal) {
+        window.closeReviewModal();
+    }
 });
 
-if (document.readyState === 'complete' || document.readyState === 'interactive') {
-    initReviewsFeature();
-}
+// Render initial reviews immediately
+renderReviews();
+
+document.addEventListener('DOMContentLoaded', () => {
+    renderReviews();
+});
+
 
