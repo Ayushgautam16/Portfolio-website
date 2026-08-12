@@ -396,6 +396,7 @@ function openProjectPreview(thumbSrc, altText) {
         scale = 1;
         translateX = 0;
         translateY = 0;
+        bigImg.style.width = "100%";
         applyTransform();
         viewport.scrollTop = 0;
         viewport.scrollLeft = 0;

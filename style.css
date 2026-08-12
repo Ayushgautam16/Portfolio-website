@@ -1061,10 +1061,8 @@ body {
   width: 100%;
   height: 100%;
   overflow: auto;
-  display: flex;
-  align-items: flex-start;
-  justify-content: center;
-  padding: 7rem 2rem 3rem;
+  display: block;
+  padding: 7rem 0 3rem;
   cursor: grab;
 }
 
@@ -1073,16 +1071,16 @@ body {
 }
 
 .project-img {
-  width: auto;
-  max-width: min(92vw, 140rem);
+  width: 100%;
+  max-width: 100%;
   height: auto;
-  border-radius: 0.5rem;
+  border-radius: 0;
   display: block;
   transform-origin: center top;
   transition: transform 0.15s ease;
   user-select: none;
   -webkit-user-drag: none;
-  box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.55);
+  box-shadow: none;
 }
 
 .project-zoom-toolbar {
@@ -2325,7 +2323,8 @@ body {
     font-size: 7.5rem;
   }
   .project-img {
-    max-width: 96vw;
+    width: 100%;
+    max-width: 100%;
   }
   .project-zoom-toolbar {
     top: 1.2rem;
@@ -2705,7 +2704,8 @@ body {
     top: 1rem;
   }
   .project-img {
-    max-width: 98vw;
+    width: 100%;
+    max-width: 100%;
   }
   .project-hide-btn {
     left: 1.5rem;

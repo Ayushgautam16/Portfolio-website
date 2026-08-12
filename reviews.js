@@ -13,16 +13,6 @@
             verified: true,
         },
         {
-            id: "rev-2",
-            name: "Alex Rivera",
-            role: "Founder @ AI Launchpad",
-            rating: 5,
-            date: "June 2026",
-            text: "Outstanding work on our AI automation pipeline and UI integration. Ayush turned complex backend requirements into a smooth, user-friendly interface. Highly recommended!",
-            avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&auto=format&fit=crop&q=80",
-            verified: true,
-        },
-        {
             id: "rev-3",
             name: "Marcus Vance",
             role: "Engineering Manager @ DevFlow",
@@ -42,6 +32,16 @@
             avatar: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=150&auto=format&fit=crop&q=80",
             verified: true,
         },
+        {
+            id: "rev-5",
+            name: "Sanjeev Kumar",
+            role: "A1 Solar Services",
+            rating: 5,
+            date: "Aug 2026",
+            text: "I had a great experience with SolarService and Ayush. The service was professional, reliable, and the work was completed smoothly. Ayush was very helpful and responsive throughout the process. Highly recommended for quality solar solutions.",
+            avatar: "",
+            verified: true,
+        },
     ];
 
     let activeFilter = "all";
@@ -51,10 +51,31 @@
     const MAX_AVATAR_SIZE = 2 * 1024 * 1024;
     const AVATAR_MAX_PX = 200;
 
+    function normalizeReviewName(name) {
+        return String(name || "").trim().toLowerCase();
+    }
+
+    function isVerifiedReviewer(name) {
+        return normalizeReviewName(name) === "sanjeev kumar";
+    }
+
     function getStoredReviews() {
         try {
             const stored = localStorage.getItem("ayush_portfolio_reviews");
-            return stored ? JSON.parse(stored) : [];
+            if (!stored) return [];
+
+            const parsed = JSON.parse(stored);
+            let changed = false;
+            const updated = parsed.map((review) => {
+                if (isVerifiedReviewer(review.name) && !review.verified) {
+                    changed = true;
+                    return { ...review, verified: true };
+                }
+                return review;
+            });
+
+            if (changed) saveReviewsToStorage(updated);
+            return updated;
         } catch (error) {
             console.error("Failed to load reviews from localStorage", error);
             return [];
@@ -72,7 +93,15 @@
     }
 
     function getAllReviews() {
-        return [...getStoredReviews(), ...DEFAULT_REVIEWS];
+        const stored = getStoredReviews().map((review) => ({
+            ...review,
+            verified: review.verified || isVerifiedReviewer(review.name),
+        }));
+        const storedNames = new Set(stored.map((review) => normalizeReviewName(review.name)));
+        const defaults = DEFAULT_REVIEWS.filter(
+            (review) => !storedNames.has(normalizeReviewName(review.name))
+        );
+        return [...stored, ...defaults];
     }
 
     function renderStars(rating) {
