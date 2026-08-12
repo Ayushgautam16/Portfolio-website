@@ -5,10 +5,13 @@ const mouseDot = document.querySelector(".mouse-dot");
 let mouseCircleBool = true;
 
 const mouseCircleFn = (x, y) => {
-    mouseCircleBool &&
-        (mouseCircle.style.cssText = `top: ${y}px; left: ${x}px; opacity:1`);
-
-    mouseDot.style.cssText = `top: ${y}px; left: ${x}px; opacity:1`;
+    if (mouseCircle) {
+        mouseCircleBool &&
+            (mouseCircle.style.cssText = `top: ${y}px; left: ${x}px; opacity:1`);
+    }
+    if (mouseDot) {
+        mouseDot.style.cssText = `top: ${y}px; left: ${x}px; opacity:1`;
+    }
 };
 // End of Mouse Circle
 
@@ -20,6 +23,7 @@ let mX = 0;
 let mY = 0;
 const z = 100;
 const animateCircles = (e, x, y) => {
+    if (!mainImg) return;
     if (x < mX) {
         circles.forEach((circle) => {
             circle.style.left = `${z}px`;
@@ -119,8 +123,8 @@ document.body.addEventListener("mousemove", (e) => {
     mouseCircleTransform(hoveredEl);
 });
 document.body.addEventListener("mouseleave", () => {
-    mouseCircle.style.opacity = "0";
-    mouseDot.style.opacity = "0";
+    if (mouseCircle) mouseCircle.style.opacity = "0";
+    if (mouseDot) mouseDot.style.opacity = "0";
 });
 
 // Main Button
@@ -168,55 +172,60 @@ const progressBarFn = (bigImgWrapper) => {
         pageHeight = document.documentElement.scrollHeight;
         scrolledPortion = window.pageYOffset;
     } else {
+        if (!imageWrapper.firstElementChild) return;
         pageHeight = imageWrapper.firstElementChild.scrollHeight;
         scrolledPortion = imageWrapper.scrollTop;
     }
 
-    scrolledPortionDegree =
-        (scrolledPortion / (pageHeight - pageViewportHeight)) * 360;
+    const denominator = pageHeight - pageViewportHeight;
+    const scrolledPortionDegree = denominator > 0 ? (scrolledPortion / denominator) * 360 : 0;
 
-    halfCircles.forEach((el) => {
-        el.style.transform = `rotate(${scrolledPortionDegree}deg)`;
+    if (halfCircles && halfCircles.length > 0) {
+        halfCircles.forEach((el) => {
+            el.style.transform = `rotate(${scrolledPortionDegree}deg)`;
 
-        if (scrolledPortionDegree >= 180) {
-            halfCircles[0].style.transform = "rotate(180deg)";
-            halfCircleTop.style.opacity = "0";
-        } else {
-            halfCircleTop.style.opacity = "1";
-        }
-    });
+            if (scrolledPortionDegree >= 180) {
+                if (halfCircles[0]) halfCircles[0].style.transform = "rotate(180deg)";
+                if (halfCircleTop) halfCircleTop.style.opacity = "0";
+            } else {
+                if (halfCircleTop) halfCircleTop.style.opacity = "1";
+            }
+        });
+    }
     const scrollBool = scrolledPortion + pageViewportHeight - 0.5 === pageHeight;
 
     // Arrow Rotation
-    if (scrollBool) {
-        progressBarCircle.style.transform = "rotate(180deg)";
-    } else {
-        progressBarCircle.style.transform = "rotate(0)";
+    if (progressBarCircle) {
+        if (scrollBool) {
+            progressBarCircle.style.transform = "rotate(180deg)";
+        } else {
+            progressBarCircle.style.transform = "rotate(0)";
+        }
     }
-    // End of Arrow Rotation
 };
 
 // Progress Bar Click
-progressBar.addEventListener("click", (e) => {
-    e.preventDefault();
+if (progressBar) {
+    progressBar.addEventListener("click", (e) => {
+        e.preventDefault();
 
-    if (!imageWrapper) {
-        const sectionPositions = Array.from(sections).map(
-            (section) => scrolledPortion + section.getBoundingClientRect().top,
-        );
+        if (!imageWrapper) {
+            const sectionPositions = Array.from(sections).map(
+                (section) => scrolledPortion + section.getBoundingClientRect().top,
+            );
 
-        const position = sectionPositions.find((sectionPosition) => {
-            return sectionPosition > scrolledPortion;
-        });
+            const position = sectionPositions.find((sectionPosition) => {
+                return sectionPosition > scrolledPortion;
+            });
 
-        scrollBool ? window.scrollTo(0, 0) : window.scrollTo(0, position);
-    } else {
-        scrollBool
-            ? imageWrapper.scrollTo(0, 0)
-            : imageWrapper.scrollTo(0, imageWrapper.scrollHeight);
-    }
-});
-// End of Progress Bar Click
+            scrollBool ? window.scrollTo(0, 0) : window.scrollTo(0, position);
+        } else {
+            scrollBool
+                ? imageWrapper.scrollTo(0, 0)
+                : imageWrapper.scrollTo(0, imageWrapper.scrollHeight);
+        }
+    });
+}
 
 progressBarFn();
 // End of Progress Bar
@@ -273,17 +282,19 @@ onScroll();
 
 // About Me Text
 const aboutMeText = document.querySelector(".about-me-text");
-const aboutMeTextContent =
-    "I'm a web developer & I create websites with the best user experiences. Just contact me.";
-Array.from(aboutMeTextContent).forEach((char) => {
-    const span = document.createElement("span");
-    span.textContent = char;
-    aboutMeText.appendChild(span);
+if (aboutMeText) {
+    const aboutMeTextContent =
+        "I'm a web developer & I create websites with the best user experiences. Just contact me.";
+    Array.from(aboutMeTextContent).forEach((char) => {
+        const span = document.createElement("span");
+        span.textContent = char;
+        aboutMeText.appendChild(span);
 
-    span.addEventListener("mouseenter", (e) => {
-        e.target.style.animation = "aboutMeTextAnim 10s infinite";
+        span.addEventListener("mouseenter", (e) => {
+            e.target.style.animation = "aboutMeTextAnim 10s infinite";
+        });
     });
-});
+}
 
 const hireCardButtons = document.querySelectorAll(".hire-card-btn");
 const hireRoleInput = document.getElementById("hire-role");
@@ -336,17 +347,17 @@ projects.forEach((project, i) => {
             progressBarFn(imageWrapper);
         };
 
-        projectHideBtn.classList.add("change");
+        if (projectHideBtn) projectHideBtn.classList.add("change");
 
         const closePreview = () => {
-            projectHideBtn.classList.remove("change");
+            if (projectHideBtn) projectHideBtn.classList.remove("change");
             imageWrapper.remove();
             document.body.style.overflowY = "scroll";
             document.addEventListener("scroll", onScroll);
             progressBarFn();
         };
 
-        projectHideBtn.onclick = closePreview;
+        if (projectHideBtn) projectHideBtn.onclick = closePreview;
 
         // Close preview if user clicks the dark backdrop
         imageWrapper.addEventListener("click", (e) => {
@@ -386,21 +397,23 @@ const hideProjects = (project, i) => {
 
 let showHideBool = true;
 
-projectsBtn.addEventListener("click", (e) => {
-    e.preventDefault();
+if (projectsBtn) {
+    projectsBtn.addEventListener("click", (e) => {
+        e.preventDefault();
 
-    projectsBtn.firstElementChild.nextElementSibling.classList.toggle("change");
+        projectsBtn.firstElementChild.nextElementSibling.classList.toggle("change");
 
-    showHideBool
-        ? (projectsBtnText.textContent = "Show Less")
-        : (projectsBtnText.textContent = "Show More");
+        showHideBool
+            ? (projectsBtnText.textContent = "Show Less")
+            : (projectsBtnText.textContent = "Show More");
 
-    projects.forEach((project, i) => {
-        i >= 6 &&
-            (showHideBool ? showProjects(project, i) : hideProjects(project, i));
+        projects.forEach((project, i) => {
+            i >= 6 &&
+                (showHideBool ? showProjects(project, i) : hideProjects(project, i));
+        });
+        showHideBool = !showHideBool;
     });
-    showHideBool = !showHideBool;
-});
+}
 // End of Projects Button
 // End of Projects
 
@@ -949,6 +962,15 @@ window.addEventListener("click", function (event) {
 renderReviews();
 
 document.addEventListener('DOMContentLoaded', () => {
+    const toggleBtn = document.getElementById('toggleReviewFormBtn');
+    if (toggleBtn) {
+        toggleBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            if (typeof window.toggleReviewForm === 'function') {
+                window.toggleReviewForm();
+            }
+        });
+    }
     renderReviews();
 });
 
