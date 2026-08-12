@@ -453,13 +453,7 @@ function closeFreelanceForm() {
     document.getElementById("freelancePopup").style.display = "none";
 }
 
-window.onclick = function (event) {
-    const popup = document.getElementById("freelancePopup");
 
-    if (event.target == popup) {
-        popup.style.display = "none";
-    }
-};
 // SLide Show
 const slideshow = document.querySelector(".slideshow");
 
@@ -647,36 +641,6 @@ const getInitials = (name) => {
     return name.slice(0, 2).toUpperCase();
 };
 
-const renderReviews = () => {
-    const grid = document.getElementById('reviewsGrid');
-    if (!grid) return;
-
-    const reviews = getAllReviews();
-    let filtered = reviews;
-
-    if (activeFilter === '5') {
-        filtered = reviews.filter(r => Number(r.rating) === 5);
-    } else if (activeFilter === '4') {
-        filtered = reviews.filter(r => Number(r.rating) >= 4 && Number(r.rating) < 5);
-    } else if (activeFilter === 'recent') {
-        filtered = [...reviews].reverse();
-    }
-
-    // Update Overall Stats
-    const totalCount = reviews.length;
-    const avgScore = totalCount > 0 
-        ? (reviews.reduce((acc, curr) => acc + Number(curr.rating), 0) / totalCount).toFixed(1)
-        : '5.0';
-
-    const avgScoreEl = document.getElementById('reviewsAvgScore');
-    const totalCountEl = document.getElementById('reviewsTotalCount');
-    const avgStarsEl = document.getElementById('reviewsAvgStars');
-
-    if (avgScoreEl) avgScoreEl.textContent = avgScore;
-    if (totalCountEl) totalCountEl.textContent = `Based on ${totalCount} review${totalCount === 1 ? '' : 's'}`;
-    if (avgStarsEl) avgStarsEl.innerHTML = renderStarsSVG(Math.round(Number(avgScore)));
-
-    if (filtered.length === 0) {
 const renderMarqueeCard = (r) => `
     <div class="marquee-review-card pointer-enter">
         <div class="review-card-header">
