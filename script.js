@@ -317,11 +317,159 @@ const container = document.querySelector(".container");
 const projects = document.querySelectorAll(".project");
 const projectHideBtn = document.querySelector(".project-hide-btn");
 
+function openProjectPreview(thumbSrc, altText) {
+    const dotIndex = thumbSrc.lastIndexOf(".");
+    const basePath = dotIndex > -1 ? thumbSrc.slice(0, dotIndex) : thumbSrc;
+    const ext = dotIndex > -1 ? thumbSrc.slice(dotIndex) : ".png";
+    const bigSrc = `${basePath}-big${ext}`;
+
+    const imageWrapper = document.createElement("div");
+    imageWrapper.className = "project-img-wrapper";
+
+    const viewport = document.createElement("div");
+    viewport.className = "project-img-viewport";
+
+    const bigImg = document.createElement("img");
+    bigImg.className = "project-img";
+    bigImg.src = bigSrc;
+    bigImg.alt = altText || "Project preview";
+    bigImg.draggable = false;
+
+    const toolbar = document.createElement("div");
+    toolbar.className = "project-zoom-toolbar";
+    toolbar.innerHTML = `
+        <button type="button" class="project-zoom-btn" data-action="out" aria-label="Zoom out">−</button>
+        <span class="project-zoom-level">100%</span>
+        <button type="button" class="project-zoom-btn" data-action="in" aria-label="Zoom in">+</button>
+        <button type="button" class="project-zoom-btn" data-action="reset">Reset</button>
+        <button type="button" class="project-zoom-btn" data-action="fit">Fit</button>
+    `;
+
+    const hint = document.createElement("div");
+    hint.className = "project-zoom-hint";
+    hint.textContent = "Use + / − buttons, mouse wheel, or pinch to zoom • Drag to pan";
+
+    viewport.appendChild(bigImg);
+    imageWrapper.appendChild(viewport);
+    imageWrapper.appendChild(toolbar);
+    imageWrapper.appendChild(hint);
+    document.body.appendChild(imageWrapper);
+    document.body.style.overflowY = "hidden";
+    document.removeEventListener("scroll", onScroll);
+    if (mouseCircle) mouseCircle.style.opacity = 0;
+    if (projectHideBtn) projectHideBtn.classList.add("change");
+
+    let scale = 1;
+    let translateX = 0;
+    let translateY = 0;
+    let isDragging = false;
+    let dragStartX = 0;
+    let dragStartY = 0;
+    let originX = 0;
+    let originY = 0;
+
+    const levelEl = toolbar.querySelector(".project-zoom-level");
+    const minScale = 0.4;
+    const maxScale = 3;
+
+    const applyTransform = () => {
+        bigImg.style.transform = `translate(${translateX}px, ${translateY}px) scale(${scale})`;
+        if (levelEl) levelEl.textContent = `${Math.round(scale * 100)}%`;
+    };
+
+    const clampScale = (value) => Math.min(maxScale, Math.max(minScale, value));
+
+    const setScale = (nextScale, centerX, centerY) => {
+        const prevScale = scale;
+        scale = clampScale(nextScale);
+
+        if (typeof centerX === "number" && typeof centerY === "number") {
+            const ratio = scale / prevScale;
+            translateX = centerX - (centerX - translateX) * ratio;
+            translateY = centerY - (centerY - translateY) * ratio;
+        }
+
+        applyTransform();
+    };
+
+    const fitToScreen = () => {
+        scale = 1;
+        translateX = 0;
+        translateY = 0;
+        applyTransform();
+        viewport.scrollTop = 0;
+        viewport.scrollLeft = 0;
+    };
+
+    toolbar.addEventListener("click", (event) => {
+        const btn = event.target.closest("[data-action]");
+        if (!btn) return;
+        event.stopPropagation();
+
+        if (btn.dataset.action === "in") setScale(scale + 0.2);
+        if (btn.dataset.action === "out") setScale(scale - 0.2);
+        if (btn.dataset.action === "reset") fitToScreen();
+        if (btn.dataset.action === "fit") fitToScreen();
+    });
+
+    viewport.addEventListener("wheel", (event) => {
+        event.preventDefault();
+        const rect = viewport.getBoundingClientRect();
+        const centerX = event.clientX - rect.left + viewport.scrollLeft;
+        const centerY = event.clientY - rect.top + viewport.scrollTop;
+        const delta = event.deltaY > 0 ? -0.12 : 0.12;
+        setScale(scale + delta, centerX, centerY);
+    }, { passive: false });
+
+    viewport.addEventListener("mousedown", (event) => {
+        if (event.button !== 0) return;
+        isDragging = true;
+        viewport.classList.add("is-dragging");
+        dragStartX = event.clientX;
+        dragStartY = event.clientY;
+        originX = translateX;
+        originY = translateY;
+    });
+
+    window.addEventListener("mousemove", (event) => {
+        if (!isDragging) return;
+        translateX = originX + (event.clientX - dragStartX);
+        translateY = originY + (event.clientY - dragStartY);
+        applyTransform();
+    });
+
+    window.addEventListener("mouseup", () => {
+        isDragging = false;
+        viewport.classList.remove("is-dragging");
+    });
+
+    const closePreview = () => {
+        if (projectHideBtn) projectHideBtn.classList.remove("change");
+        imageWrapper.remove();
+        document.body.style.overflowY = "scroll";
+        document.addEventListener("scroll", onScroll);
+        progressBarFn();
+    };
+
+    if (projectHideBtn) projectHideBtn.onclick = closePreview;
+
+    imageWrapper.addEventListener("click", (event) => {
+        if (event.target === imageWrapper || event.target === viewport) closePreview();
+    });
+
+    bigImg.addEventListener("click", (event) => event.stopPropagation());
+    toolbar.addEventListener("click", (event) => event.stopPropagation());
+    hint.addEventListener("click", (event) => event.stopPropagation());
+
+    bigImg.addEventListener("load", fitToScreen);
+    applyTransform();
+}
+
 projects.forEach((project) => {
     project.addEventListener("mouseenter", () => {
         const img = project.firstElementChild;
         if (!img) return;
-        img.style.transform = "scale(1.03)";
+        img.style.transform = "scale(1.02)";
     });
     project.addEventListener("mouseleave", () => {
         const img = project.firstElementChild;
@@ -329,52 +477,11 @@ projects.forEach((project) => {
         img.style.transform = "";
     });
 
-    // Big Project Image
     project.addEventListener("click", () => {
-        const imageWrapper = document.createElement("div");
-        imageWrapper.className = "project-img-wrapper";
-        container.appendChild(imageWrapper);
-
-        const bigImg = document.createElement("img");
-        bigImg.className = "project-img";
-        const thumbSrc = project.firstElementChild.getAttribute("src");
-        const dotIndex = thumbSrc.lastIndexOf(".");
-        const basePath = dotIndex > -1 ? thumbSrc.slice(0, dotIndex) : thumbSrc;
-        const ext = dotIndex > -1 ? thumbSrc.slice(dotIndex) : ".png";
-        const bigSrc = `${basePath}-big${ext}`;
-        bigImg.setAttribute("src", bigSrc);
-        bigImg.setAttribute("alt", project.firstElementChild.getAttribute("alt") || "Project preview");
-        imageWrapper.appendChild(bigImg);
-        document.body.style.overflowY = "hidden";
-
-        document.removeEventListener("scroll", onScroll);
-
-        if (mouseCircle) mouseCircle.style.opacity = 0;
-
-        progressBarFn(imageWrapper);
-
-        imageWrapper.onscroll = () => {
-            progressBarFn(imageWrapper);
-        };
-
-        if (projectHideBtn) projectHideBtn.classList.add("change");
-
-        const closePreview = () => {
-            if (projectHideBtn) projectHideBtn.classList.remove("change");
-            imageWrapper.remove();
-            document.body.style.overflowY = "scroll";
-            document.addEventListener("scroll", onScroll);
-            progressBarFn();
-        };
-
-        if (projectHideBtn) projectHideBtn.onclick = closePreview;
-
-        // Close preview if user clicks the dark backdrop
-        imageWrapper.addEventListener("click", (e) => {
-            if (e.target === imageWrapper) closePreview();
-        });
+        const thumb = project.firstElementChild;
+        if (!thumb) return;
+        openProjectPreview(thumb.getAttribute("src"), thumb.getAttribute("alt"));
     });
-    // End of Big Project Image
 });
 
 // Projects Button
