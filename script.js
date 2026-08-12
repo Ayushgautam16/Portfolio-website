@@ -861,7 +861,7 @@ window.handleReviewSubmit = function(e) {
     }
 };
 
-// Unified Modal Overlay Listener
+// Unified Modal Overlay Listener — click outside to close + scroll to top
 window.addEventListener("click", function (event) {
     const freelancePopup = document.getElementById("freelancePopup");
     const sponsorPopup = document.getElementById("sponsorPopup");
@@ -869,12 +869,15 @@ window.addEventListener("click", function (event) {
 
     if (freelancePopup && event.target === freelancePopup) {
         freelancePopup.style.display = "none";
+        window.scrollTo({ top: 0, behavior: "smooth" });
     }
     if (sponsorPopup && event.target === sponsorPopup) {
         sponsorPopup.style.display = "none";
+        window.scrollTo({ top: 0, behavior: "smooth" });
     }
     if (reviewModal && event.target === reviewModal) {
         window.closeReviewModal();
+        window.scrollTo({ top: 0, behavior: "smooth" });
     }
 });
 

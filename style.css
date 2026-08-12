@@ -581,6 +581,31 @@ body {
   cursor: pointer;
 }
 
+/* Back to Home button inside popups */
+.popup-back-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 13px;
+  font-family: inherit;
+  padding: 6px 14px;
+  border-radius: 30px;
+  cursor: pointer;
+  margin-bottom: 18px;
+  letter-spacing: 0.5px;
+  transition: all 0.25s ease;
+}
+
+.popup-back-btn:hover {
+  background: rgba(231, 190, 8, 0.12);
+  border-color: #e7be08;
+  color: #e7be08;
+  transform: translateX(-3px);
+}
+
 .freelance-field {
   margin-bottom: 18px;
 }

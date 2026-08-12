@@ -410,8 +410,10 @@
       <!-- SPONSOR POPUP -->
       <div class="freelance-popup" id="sponsorPopup">
         <div class="freelance-popup-box">
-          <span class="freelance-close pointer-enter" onclick="closeSponsorForm()">
-          </span>
+          <button type="button" class="popup-back-btn pointer-enter" onclick="closeSponsorForm(); window.scrollTo({top:0, behavior:'smooth'});">
+            &#8592; Back to Home
+          </button>
+          <span class="freelance-close pointer-enter" onclick="closeSponsorForm()">&times;</span>
 
           <h2>Sponsorship Proposal</h2>
 
@@ -509,9 +511,10 @@
 
       <div class="freelance-popup" id="freelancePopup">
         <div class="freelance-popup-box">
-          <span class="freelance-close pointer-enter" onclick="closeFreelanceForm()">
-            &times;
-          </span>
+          <button type="button" class="popup-back-btn pointer-enter" onclick="closeFreelanceForm(); window.scrollTo({top:0, behavior:'smooth'});">
+            &#8592; Back to Home
+          </button>
+          <span class="freelance-close pointer-enter" onclick="closeFreelanceForm()">&times;</span>
 
           <h2>Freelance Project Proposal</h2>
 
