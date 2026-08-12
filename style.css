@@ -2598,10 +2598,10 @@ body {
     font-size: 1.8rem;
   }
   .featured-text-1 {
-    margin: 0 auto 0 2rem;
+    margin: 0 auto 0 5rem;
   }
   .featured-text-2 {
-    margin: 0 2rem 0 auto;
+    margin: 0 5rem 0 auto;
   }
 
   /* Section paddings */
@@ -2946,10 +2946,10 @@ body {
     font-size: 1.5rem;
   }
   .featured-text-1 {
-    margin: 0 auto 0 1rem;
+    margin: 0 auto 0 4rem;
   }
   .featured-text-2 {
-    margin: 0 1rem 0 auto;
+    margin: 0 4rem 0 auto;
   }
   .about-me-text span {
     font-size: 3.2rem;
