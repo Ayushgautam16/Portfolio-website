@@ -338,13 +338,24 @@ projects.forEach((project, i) => {
 
         projectHideBtn.classList.add("change");
 
+        // Create buttons on body so position:fixed works correctly
+        const backBtn = document.createElement("button");
+        backBtn.className = "project-preview-back-btn";
+        backBtn.innerHTML = "&#8592; Back to Home";
+        document.body.appendChild(backBtn);
+
+        const closeBtn = document.createElement("button");
+        closeBtn.className = "project-preview-close-btn";
+        closeBtn.innerHTML = "&#10005;";
+        document.body.appendChild(closeBtn);
+
         const closePreview = () => {
             projectHideBtn.classList.remove("change");
             imageWrapper.remove();
+            backBtn.remove();
+            closeBtn.remove();
             document.body.style.overflowY = "scroll";
-
             document.addEventListener("scroll", onScroll);
-
             progressBarFn();
         };
 
@@ -353,23 +364,12 @@ projects.forEach((project, i) => {
             window.scrollTo({ top: 0, behavior: "smooth" });
         };
 
-        // ← Back to Home button
-        const backBtn = document.createElement("button");
-        backBtn.className = "project-preview-back-btn";
-        backBtn.innerHTML = "&#8592; Back to Home";
-        backBtn.addEventListener("click", (e) => { e.stopPropagation(); closeAndGoHome(); });
-        imageWrapper.appendChild(backBtn);
-
-        // × Close button
-        const closeBtn = document.createElement("button");
-        closeBtn.className = "project-preview-close-btn";
-        closeBtn.innerHTML = "&#10005;";
-        closeBtn.addEventListener("click", (e) => { e.stopPropagation(); closePreview(); });
-        imageWrapper.appendChild(closeBtn);
+        backBtn.addEventListener("click", closeAndGoHome);
+        closeBtn.addEventListener("click", closePreview);
 
         projectHideBtn.onclick = closePreview;
 
-        // Close preview if user clicks directly on the dark wrapper (not the image or buttons)
+        // Close preview if user clicks the dark backdrop (not image or buttons)
         imageWrapper.addEventListener("click", (e) => {
             if (e.target === imageWrapper) closePreview();
         });
