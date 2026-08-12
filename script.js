@@ -469,12 +469,12 @@ projects.forEach((project) => {
     project.addEventListener("mouseenter", () => {
         const img = project.firstElementChild;
         if (!img) return;
-        img.style.transform = "scale(1.02)";
+        img.style.top = `-${img.offsetHeight - project.offsetHeight + 20}px`;
     });
     project.addEventListener("mouseleave", () => {
         const img = project.firstElementChild;
         if (!img) return;
-        img.style.transform = "";
+        img.style.top = "2rem";
     });
 
     project.addEventListener("click", () => {
