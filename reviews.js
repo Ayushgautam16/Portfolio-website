@@ -59,6 +59,15 @@
         return normalizeReviewName(name) === "sanjeev kumar";
     }
 
+    function applySanjeevReviewFixes(review) {
+        if (!isVerifiedReviewer(review.name)) return review;
+
+        const fixed = { ...review, verified: true, role: "A1 Solar Services" };
+        const changed =
+            review.verified !== fixed.verified || review.role !== fixed.role;
+        return changed ? fixed : review;
+    }
+
     function getStoredReviews() {
         try {
             const stored = localStorage.getItem("ayush_portfolio_reviews");
@@ -67,11 +76,9 @@
             const parsed = JSON.parse(stored);
             let changed = false;
             const updated = parsed.map((review) => {
-                if (isVerifiedReviewer(review.name) && !review.verified) {
-                    changed = true;
-                    return { ...review, verified: true };
-                }
-                return review;
+                const fixed = applySanjeevReviewFixes(review);
+                if (fixed !== review) changed = true;
+                return fixed;
             });
 
             if (changed) saveReviewsToStorage(updated);
@@ -93,10 +100,7 @@
     }
 
     function getAllReviews() {
-        const stored = getStoredReviews().map((review) => ({
-            ...review,
-            verified: review.verified || isVerifiedReviewer(review.name),
-        }));
+        const stored = getStoredReviews().map((review) => applySanjeevReviewFixes(review));
         const storedNames = new Set(stored.map((review) => normalizeReviewName(review.name)));
         const defaults = DEFAULT_REVIEWS.filter(
             (review) => !storedNames.has(normalizeReviewName(review.name))
