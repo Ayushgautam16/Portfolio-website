@@ -3635,6 +3635,65 @@ body {
   margin-bottom: 2.5rem;
 }
 
+/* Avatar-row layout */
+.review-form-row--avatar {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 2.5rem;
+  align-items: start;
+  margin-bottom: 2rem;
+}
+
+.review-avatar-preview-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  min-width: 11rem;
+}
+
+.review-avatar-preview {
+  width: 9rem;
+  height: 9rem;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #9b0e0e 0%, #e7be08 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Jura", sans-serif;
+  font-size: 2.8rem;
+  font-weight: 700;
+  color: #fff;
+  overflow: hidden;
+  border: 2px solid rgba(231, 190, 8, 0.4);
+  flex-shrink: 0;
+  position: relative;
+}
+
+.review-avatar-preview img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: absolute;
+  top: 0; left: 0;
+}
+
+.review-form-col {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+@media (max-width: 600px) {
+  .review-form-row--avatar {
+    grid-template-columns: 1fr;
+  }
+  .review-avatar-preview-wrap {
+    flex-direction: row;
+    min-width: unset;
+  }
+}
+
 .review-form-row {
   display: grid;
   grid-template-columns: 1fr 1fr;

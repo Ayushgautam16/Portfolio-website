@@ -1034,62 +1034,80 @@
           <div class="inline-review-box-inner">
             <!-- Close × button -->
             <button type="button" class="inline-review-close pointer-enter" onclick="toggleReviewForm()" title="Close form">&#10005;</button>
+
             <div class="inline-review-header">
               <button type="button" class="popup-back-btn pointer-enter" onclick="toggleReviewForm(); window.scrollTo({top:0, behavior:'smooth'});">
                 &#8592; Back to Home
               </button>
               <h2>Submit Your Review</h2>
-              <p>Your feedback will be automatically displayed on my profile below!</p>
+              <p>Your review will appear instantly in the testimonials section below!</p>
             </div>
 
             <form class="review-form" id="reviewForm" onsubmit="handleReviewSubmit(event)">
-              <div class="review-form-row">
-                <div class="review-form-group">
-                  <label for="reviewAuthor">Your Name <span class="req">*</span></label>
-                  <input type="text" id="reviewAuthor" class="review-form-input pointer-enter"
-                    placeholder="e.g. Sarah Jenkins" required />
-                </div>
 
-                <div class="review-form-group">
-                  <label for="reviewRole">Role / Organization <span class="req">*</span></label>
-                  <input type="text" id="reviewRole" class="review-form-input pointer-enter"
-                    placeholder="e.g. Product Lead @ TechCorp" required />
-                </div>
-              </div>
+              <!-- Row 1: Avatar preview + Name + Role -->
+              <div class="review-form-row review-form-row--avatar">
 
-              <div class="review-form-row">
-                <div class="review-form-group">
-                  <label>Your Rating <span class="req">*</span></label>
-                  <div class="star-rating-picker" id="starRatingPicker" onmouseleave="resetStarPreview()">
-                    <span class="star-pick pointer-enter" data-value="1" onclick="setStarRating(1)"
-                      onmouseenter="previewStarRating(1)">★</span>
-                    <span class="star-pick pointer-enter" data-value="2" onclick="setStarRating(2)"
-                      onmouseenter="previewStarRating(2)">★</span>
-                    <span class="star-pick pointer-enter" data-value="3" onclick="setStarRating(3)"
-                      onmouseenter="previewStarRating(3)">★</span>
-                    <span class="star-pick pointer-enter" data-value="4" onclick="setStarRating(4)"
-                      onmouseenter="previewStarRating(4)">★</span>
-                    <span class="star-pick pointer-enter" data-value="5" onclick="setStarRating(5)"
-                      onmouseenter="previewStarRating(5)">★</span>
-                    <span class="rating-label-display" id="ratingLabelDisplay">5 / 5 Stars</span>
+                <!-- Profile Picture Preview -->
+                <div class="review-avatar-preview-wrap">
+                  <div class="review-avatar-preview" id="reviewAvatarPreview">
+                    <span id="reviewAvatarInitials">?</span>
+                    <img id="reviewAvatarPreviewImg" src="" alt="" style="display:none;" />
+                  </div>
+                  <div class="review-form-group">
+                    <label for="reviewAvatar">Profile Picture URL <span class="opt">(optional)</span></label>
+                    <input type="url" id="reviewAvatar" class="review-form-input pointer-enter"
+                      placeholder="https://example.com/photo.jpg"
+                      oninput="previewReviewAvatar(this.value)" />
                   </div>
                 </div>
 
-                <div class="review-form-group">
-                  <label for="reviewAvatar">Avatar Image URL <span class="opt">(optional)</span></label>
-                  <input type="url" id="reviewAvatar" class="review-form-input pointer-enter"
-                    placeholder="https://example.com/photo.jpg" />
+                <!-- Name + Role stacked -->
+                <div class="review-form-col">
+                  <div class="review-form-group">
+                    <label for="reviewAuthor">Your Name <span class="req">*</span></label>
+                    <input type="text" id="reviewAuthor" class="review-form-input pointer-enter"
+                      placeholder="e.g. Sarah Jenkins" required
+                      oninput="updateReviewInitials(this.value)" />
+                  </div>
+                  <div class="review-form-group">
+                    <label for="reviewRole">Role / Organization <span class="req">*</span></label>
+                    <input type="text" id="reviewRole" class="review-form-input pointer-enter"
+                      placeholder="e.g. Product Lead @ TechCorp" required />
+                  </div>
                 </div>
               </div>
 
+              <!-- Row 2: Website + Star Rating -->
+              <div class="review-form-row">
+                <div class="review-form-group">
+                  <label for="reviewWebsite">Your Website / LinkedIn <span class="opt">(optional)</span></label>
+                  <input type="url" id="reviewWebsite" class="review-form-input pointer-enter"
+                    placeholder="https://yourwebsite.com" />
+                </div>
+
+                <div class="review-form-group">
+                  <label>Your Rating <span class="req">*</span></label>
+                  <div class="star-rating-picker" id="starRatingPicker" onmouseleave="resetStarPreview()">
+                    <span class="star-pick pointer-enter" data-value="1" onclick="setStarRating(1)" onmouseenter="previewStarRating(1)">★</span>
+                    <span class="star-pick pointer-enter" data-value="2" onclick="setStarRating(2)" onmouseenter="previewStarRating(2)">★</span>
+                    <span class="star-pick pointer-enter" data-value="3" onclick="setStarRating(3)" onmouseenter="previewStarRating(3)">★</span>
+                    <span class="star-pick pointer-enter" data-value="4" onclick="setStarRating(4)" onmouseenter="previewStarRating(4)">★</span>
+                    <span class="star-pick pointer-enter" data-value="5" onclick="setStarRating(5)" onmouseenter="previewStarRating(5)">★</span>
+                    <span class="rating-label-display" id="ratingLabelDisplay">5 / 5 Stars</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Review message -->
               <div class="review-form-group">
                 <label for="reviewText">Review Message <span class="req">*</span></label>
                 <textarea id="reviewText" class="review-form-input review-textarea pointer-enter" rows="4"
-                  placeholder="Describe your experience collaborating with Ayush..." required></textarea>
+                  placeholder="Describe your experience working with Ayush..." required></textarea>
               </div>
 
               <button type="submit" class="review-submit-btn pointer-enter">
-                <span>Submit Review</span>
+                <span>Post Review</span>
                 <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
                   <line x1="22" y1="2" x2="11" y2="13"></line>
                   <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>

@@ -447,23 +447,25 @@ document.querySelectorAll(".service-btn").forEach((service) => {
 const formHeading = document.querySelector(".form-heading");
 const formInputs = document.querySelectorAll(".contact-form-input");
 
-formInputs.forEach((input) => {
-    input.addEventListener("focus", () => {
-        formHeading.style.opacity = "0";
-        setTimeout(() => {
-            formHeading.textContent = "Let's Talk";
-            formHeading.style.opacity = "1";
-        }, 300);
-    });
+if (formHeading) {
+    formInputs.forEach((input) => {
+        input.addEventListener("focus", () => {
+            formHeading.style.opacity = "0";
+            setTimeout(() => {
+                formHeading.textContent = "Let's Talk";
+                formHeading.style.opacity = "1";
+            }, 300);
+        });
 
-    input.addEventListener("blur", () => {
-        formHeading.style.opacity = "0";
-        setTimeout(() => {
-            formHeading.textContent = "Let's Talk";
-            formHeading.style.opacity = "1";
-        }, 300);
+        input.addEventListener("blur", () => {
+            formHeading.style.opacity = "0";
+            setTimeout(() => {
+                formHeading.textContent = "Let's Talk";
+                formHeading.style.opacity = "1";
+            }, 300);
+        });
     });
-});
+}
 
 // End of Form
 function openFreelanceForm() {
@@ -478,25 +480,25 @@ function closeFreelanceForm() {
 // SLide Show
 const slideshow = document.querySelector(".slideshow");
 
-setInterval(() => {
-    const firstIcon = slideshow.firstElementChild;
+if (slideshow && slideshow.children.length >= 4) {
+    setInterval(() => {
+        const firstIcon = slideshow.firstElementChild;
+        firstIcon.classList.add("faded-out");
 
-    firstIcon.classList.add("faded-out");
-
-    const thirdIcon = slideshow.children[3];
-
-    thirdIcon.classList.add("light");
-    thirdIcon.previousElementSibling.classList.remove("light");
-
-    setTimeout(() => {
-        slideshow.removeChild(firstIcon);
-        slideshow.appendChild(firstIcon);
+        const thirdIcon = slideshow.children[3];
+        thirdIcon.classList.add("light");
+        thirdIcon.previousElementSibling.classList.remove("light");
 
         setTimeout(() => {
-            firstIcon.classList.remove("faded-out");
+            slideshow.removeChild(firstIcon);
+            slideshow.appendChild(firstIcon);
+
+            setTimeout(() => {
+                firstIcon.classList.remove("faded-out");
+            }, 500);
         }, 500);
-    }, 500);
-}, 3000);
+    }, 3000);
+}
 // End of Slide Show
 function openSponsorForm() {
     document.getElementById("sponsorPopup").style.display = "flex";
@@ -824,6 +826,7 @@ window.handleReviewSubmit = function(e) {
     const authorInput = document.getElementById('reviewAuthor');
     const roleInput = document.getElementById('reviewRole');
     const avatarInput = document.getElementById('reviewAvatar');
+    const websiteInput = document.getElementById('reviewWebsite');
     const textInput = document.getElementById('reviewText');
 
     if (!authorInput || !roleInput || !textInput) return;
@@ -831,56 +834,117 @@ window.handleReviewSubmit = function(e) {
     const author = authorInput.value.trim();
     const role = roleInput.value.trim();
     const avatar = avatarInput ? avatarInput.value.trim() : '';
+    const website = websiteInput ? websiteInput.value.trim() : '';
     const text = textInput.value.trim();
 
-    if (!author || !role || !text) return;
+    if (!author || !role || !text) {
+        if (!author) authorInput.style.borderColor = '#e7be08';
+        if (!role) roleInput.style.borderColor = '#e7be08';
+        if (!text) textInput.style.borderColor = '#e7be08';
+        return;
+    }
+
+    const now = new Date();
+    const months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+    const dateStr = `${months[now.getMonth()]} ${now.getFullYear()}`;
 
     const newReview = {
         id: 'user-' + Date.now(),
         name: author,
         role: role,
         rating: selectedRating,
-        date: 'Just now',
+        date: dateStr,
         text: text,
         avatar: avatar || null,
-        verified: true
+        website: website || null,
+        verified: false
     };
 
     const existingCustom = getStoredReviews();
     existingCustom.unshift(newReview);
     saveReviewsToStorage(existingCustom);
 
+    // Re-render reviews — new review will be first
+    activeFilter = 'all';
+    const filterBtns = document.querySelectorAll('.review-filter-btn');
+    filterBtns.forEach(b => b.classList.remove('active'));
+    const allBtn = document.querySelector('.review-filter-btn[data-filter="all"]');
+    if (allBtn) allBtn.classList.add('active');
+
     renderReviews();
 
-    // Close form box
+    // Close form box & reset button text
     const box = document.getElementById('inlineReviewFormBox');
     const btnText = document.getElementById('writeReviewBtnText');
     if (box) box.style.display = 'none';
     if (btnText) btnText.textContent = 'Write a Review';
 
+    // Clear fields
     authorInput.value = '';
     roleInput.value = '';
     if (avatarInput) avatarInput.value = '';
+    if (websiteInput) websiteInput.value = '';
     textInput.value = '';
+
+    // Reset border colors
+    [authorInput, roleInput, textInput].forEach(el => el.style.borderColor = '');
+
+    // Reset avatar preview
+    const previewImg = document.getElementById('reviewAvatarPreviewImg');
+    const initials = document.getElementById('reviewAvatarInitials');
+    if (previewImg) { previewImg.style.display = 'none'; previewImg.src = ''; }
+    if (initials) { initials.textContent = '?'; initials.style.display = 'flex'; }
 
     selectedRating = 5;
     window.updateStarUI(5);
 
-    // Toast
+    // Toast notification
     const toast = document.getElementById('reviewToast');
     if (toast) {
         toast.classList.add('show');
-        setTimeout(() => {
-            toast.classList.remove('show');
-        }, 4000);
+        setTimeout(() => toast.classList.remove('show'), 4000);
     }
 
-    // Scroll to reviews marquee / grid smoothly
+    // Scroll to the reviews grid so user sees their review immediately
     const grid = document.getElementById('reviewsGrid');
     if (grid) {
-        grid.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        setTimeout(() => {
+            grid.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }, 200);
     }
 };
+
+// Live avatar preview in form
+window.previewReviewAvatar = function(url) {
+    const previewImg = document.getElementById('reviewAvatarPreviewImg');
+    const initials = document.getElementById('reviewAvatarInitials');
+    if (!previewImg || !initials) return;
+
+    if (url && url.startsWith('http')) {
+        previewImg.src = url;
+        previewImg.style.display = 'block';
+        initials.style.display = 'none';
+        previewImg.onerror = () => {
+            previewImg.style.display = 'none';
+            initials.style.display = 'flex';
+        };
+    } else {
+        previewImg.style.display = 'none';
+        initials.style.display = 'flex';
+    }
+};
+
+// Update initials bubble as user types their name
+window.updateReviewInitials = function(name) {
+    const initials = document.getElementById('reviewAvatarInitials');
+    if (!initials) return;
+    const previewImg = document.getElementById('reviewAvatarPreviewImg');
+    if (previewImg && previewImg.style.display === 'block') return; // avatar is showing
+    if (!name.trim()) { initials.textContent = '?'; return; }
+    initials.textContent = getInitials(name);
+};
+
+
 
 // Unified Modal Overlay Listener — click outside to close + scroll to top
 window.addEventListener("click", function (event) {
