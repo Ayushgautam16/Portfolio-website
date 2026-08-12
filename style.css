@@ -985,20 +985,24 @@ body {
   perspective: 20rem;
 }
 .project img {
-  width: 90%;
+  width: 100%;
+  height: 100%;
   object-fit: cover;
+  object-position: top center;
   position: absolute;
-  top: 2rem;
+  top: 0;
+  left: 0;
   pointer-events: none;
   transition:
-    top 4s,
-    opacity 0.2s;
-  opacity: 0.5;
+    transform 0.4s ease,
+    opacity 0.3s ease;
+  opacity: 0.92;
 }
 
 .project:nth-child(even):hover img {
   animation: evenImgAnim 4s 0.2s;
   opacity: 1;
+  transform: scale(1.02);
 }
 
 @keyframes evenImgAnim {
@@ -1018,6 +1022,7 @@ body {
 .project:nth-child(odd):hover img {
   animation: oddImgAnim 4s 0.2s;
   opacity: 1;
+  transform: scale(1.02);
 }
 
 @keyframes oddImgAnim {

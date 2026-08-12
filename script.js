@@ -317,12 +317,16 @@ const container = document.querySelector(".container");
 const projects = document.querySelectorAll(".project");
 const projectHideBtn = document.querySelector(".project-hide-btn");
 
-projects.forEach((project, i) => {
+projects.forEach((project) => {
     project.addEventListener("mouseenter", () => {
-        project.firstElementChild.style.top = `-${project.firstElementChild.offsetHeight - project.offsetHeight + 20}px`;
+        const img = project.firstElementChild;
+        if (!img) return;
+        img.style.transform = "scale(1.03)";
     });
     project.addEventListener("mouseleave", () => {
-        project.firstElementChild.style.top = "2rem";
+        const img = project.firstElementChild;
+        if (!img) return;
+        img.style.transform = "";
     });
 
     // Big Project Image
@@ -333,8 +337,13 @@ projects.forEach((project, i) => {
 
         const bigImg = document.createElement("img");
         bigImg.className = "project-img";
-        const imgPath = project.firstElementChild.getAttribute("src").split(".")[0];
-        bigImg.setAttribute("src", `${imgPath}-big.jpg`);
+        const thumbSrc = project.firstElementChild.getAttribute("src");
+        const dotIndex = thumbSrc.lastIndexOf(".");
+        const basePath = dotIndex > -1 ? thumbSrc.slice(0, dotIndex) : thumbSrc;
+        const ext = dotIndex > -1 ? thumbSrc.slice(dotIndex) : ".png";
+        const bigSrc = `${basePath}-big${ext}`;
+        bigImg.setAttribute("src", bigSrc);
+        bigImg.setAttribute("alt", project.firstElementChild.getAttribute("alt") || "Project preview");
         imageWrapper.appendChild(bigImg);
         document.body.style.overflowY = "hidden";
 
@@ -366,8 +375,6 @@ projects.forEach((project, i) => {
         });
     });
     // End of Big Project Image
-
-    i >= 6 && (project.style.cssText = "display:none; opacity:0");
 });
 
 // Projects Button
