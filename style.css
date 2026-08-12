@@ -3314,7 +3314,7 @@ body {
   padding: 10rem 8% 8rem;
   background: linear-gradient(180deg, rgba(0, 0, 0, 0.95) 0%, rgba(12, 12, 16, 0.98) 100%);
   color: #fff;
-  overflow: hidden;
+  overflow: visible;
 }
 
 .reviews-header {
@@ -3409,6 +3409,8 @@ body {
   cursor: pointer;
   box-shadow: 0 0.5rem 1.8rem rgba(155, 14, 14, 0.4);
   transition: all 0.3s ease;
+  position: relative;
+  z-index: 5;
 }
 
 .write-review-btn:hover {
@@ -3452,6 +3454,13 @@ body {
   gap: 2.5rem;
   max-width: 120rem;
   margin: 0 auto;
+  padding: 0 2rem 2rem;
+  min-height: 20rem;
+}
+
+.review-avatar-fallback[hidden],
+.review-avatar-img[hidden] {
+  display: none !important;
 }
 
 .review-card {
@@ -3574,6 +3583,7 @@ body {
 
 /* Inline Review Box (Proposal Form Style) */
 .inline-review-box {
+  display: none;
   width: 100%;
   max-width: 85rem;
   margin: 0 auto 4rem;
@@ -3585,6 +3595,10 @@ body {
   box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.6);
   animation: boxExpand 0.4s ease-out forwards;
   text-align: left;
+}
+
+.inline-review-box.is-open {
+  display: block;
 }
 
 @keyframes boxExpand {
