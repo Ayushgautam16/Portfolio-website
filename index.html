@@ -9,7 +9,7 @@
     Ayush Gautam (gainsby_ayush) | AI Developer | Full Stack Developer | Automation Engineer @ Tech Mahindra
   </title>
 
-  <link rel="stylesheet" href="style.css?v=3.2" />
+  <link rel="stylesheet" href="style.css?v=3.3" />
   <link rel="icon" type="image/png" href="images/favicon.png" />
 
   <!-- Primary SEO -->
@@ -1041,12 +1041,13 @@
                 <div class="review-avatar-preview-wrap">
                   <div class="review-avatar-preview" id="reviewAvatarPreview">
                     <span id="reviewAvatarInitials">?</span>
-                    <img id="reviewAvatarPreviewImg" src="" alt="" style="display:none;" />
+                    <img id="reviewAvatarPreviewImg" src="" alt="" hidden />
                   </div>
-                  <div class="review-form-group">
-                    <label for="reviewAvatar">Profile Picture URL <span class="opt">(optional)</span></label>
-                    <input type="url" id="reviewAvatar" class="review-form-input pointer-enter"
-                      placeholder="https://example.com/photo.jpg" />
+                  <div class="review-form-group review-upload-group">
+                    <label for="reviewAvatarUpload">Profile Photo <span class="opt">(optional)</span></label>
+                    <input type="file" id="reviewAvatarUpload" class="review-avatar-upload-input" accept="image/jpeg,image/png,image/webp,image/gif" />
+                    <label for="reviewAvatarUpload" class="review-upload-btn">Upload Photo</label>
+                    <span class="review-upload-hint" id="reviewUploadHint">JPG, PNG, WEBP — max 2MB</span>
                   </div>
                 </div>
 
@@ -1506,7 +1507,7 @@
   <!-- End of Project Hide Buttons -->
 
   <script src="script.js?v=2.1"></script>
-  <script src="reviews.js?v=1.0"></script>
+  <script src="reviews.js?v=1.1"></script>
 </body>
 
 </html>

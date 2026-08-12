@@ -3850,6 +3850,55 @@ body {
   font-size: 1.5rem;
 }
 
+.review-upload-group {
+  width: 100%;
+}
+
+.review-avatar-upload-input {
+  position: absolute;
+  width: 0.1px;
+  height: 0.1px;
+  opacity: 0;
+  overflow: hidden;
+  z-index: -1;
+}
+
+.review-upload-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 1rem 1.4rem;
+  background: rgba(231, 190, 8, 0.12);
+  border: 0.15rem dashed #e7be08;
+  border-radius: 1rem;
+  color: #e7be08;
+  font-family: "Jura", sans-serif;
+  font-size: 1.35rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  text-align: center;
+}
+
+.review-upload-btn:hover {
+  background: rgba(231, 190, 8, 0.22);
+  transform: translateY(-0.1rem);
+}
+
+.review-upload-hint {
+  display: block;
+  margin-top: 0.6rem;
+  font-family: "Poppins", sans-serif;
+  font-size: 1.15rem;
+  color: #888;
+  word-break: break-all;
+}
+
+.review-upload-hint.is-error {
+  color: #ff6b6b;
+}
+
 .review-form-group {
   display: flex;
   flex-direction: column;

@@ -46,6 +46,10 @@
 
     let activeFilter = "all";
     let selectedRating = 5;
+    let uploadedAvatarData = null;
+
+    const MAX_AVATAR_SIZE = 2 * 1024 * 1024;
+    const AVATAR_MAX_PX = 200;
 
     function getStoredReviews() {
         try {
@@ -60,8 +64,10 @@
     function saveReviewsToStorage(userReviews) {
         try {
             localStorage.setItem("ayush_portfolio_reviews", JSON.stringify(userReviews));
+            return true;
         } catch (error) {
             console.error("Failed to save review to localStorage", error);
+            return false;
         }
     }
 
@@ -227,17 +233,18 @@
         renderReviews();
     }
 
-    function previewReviewAvatar(url) {
+    function setAvatarPreview(url) {
         const previewImg = document.getElementById("reviewAvatarPreviewImg");
         const initials = document.getElementById("reviewAvatarInitials");
         if (!previewImg || !initials) return;
 
-        if (url && /^https?:\/\//i.test(url)) {
+        if (url) {
             previewImg.src = url;
             previewImg.hidden = false;
             initials.hidden = true;
             previewImg.onerror = () => {
                 previewImg.hidden = true;
+                previewImg.removeAttribute("src");
                 initials.hidden = false;
             };
         } else {
@@ -245,6 +252,77 @@
             previewImg.removeAttribute("src");
             initials.hidden = false;
         }
+    }
+
+    function compressImage(file) {
+        return new Promise((resolve, reject) => {
+            const reader = new FileReader();
+            reader.onload = () => {
+                const img = new Image();
+                img.onload = () => {
+                    const scale = Math.min(1, AVATAR_MAX_PX / Math.max(img.width, img.height));
+                    const width = Math.max(1, Math.round(img.width * scale));
+                    const height = Math.max(1, Math.round(img.height * scale));
+                    const canvas = document.createElement("canvas");
+                    canvas.width = width;
+                    canvas.height = height;
+                    const ctx = canvas.getContext("2d");
+                    if (!ctx) {
+                        reject(new Error("Could not process image"));
+                        return;
+                    }
+                    ctx.drawImage(img, 0, 0, width, height);
+                    resolve(canvas.toDataURL("image/jpeg", 0.82));
+                };
+                img.onerror = () => reject(new Error("Invalid image file"));
+                img.src = reader.result;
+            };
+            reader.onerror = () => reject(new Error("Could not read file"));
+            reader.readAsDataURL(file);
+        });
+    }
+
+    function showUploadHint(message, isError) {
+        const hint = document.getElementById("reviewUploadHint");
+        if (!hint) return;
+        hint.textContent = message;
+        hint.classList.toggle("is-error", Boolean(isError));
+    }
+
+    async function handleAvatarUpload(event) {
+        const file = event.target.files && event.target.files[0];
+        if (!file) return;
+
+        if (!file.type.startsWith("image/")) {
+            showUploadHint("Please choose a valid image file.", true);
+            event.target.value = "";
+            return;
+        }
+
+        if (file.size > MAX_AVATAR_SIZE) {
+            showUploadHint("Image must be 2MB or smaller.", true);
+            event.target.value = "";
+            return;
+        }
+
+        try {
+            uploadedAvatarData = await compressImage(file);
+            setAvatarPreview(uploadedAvatarData);
+            showUploadHint(file.name, false);
+        } catch (error) {
+            showUploadHint("Could not upload this image. Try another file.", true);
+            uploadedAvatarData = null;
+            setAvatarPreview("");
+            event.target.value = "";
+        }
+    }
+
+    function resetAvatarUpload() {
+        uploadedAvatarData = null;
+        const uploadInput = document.getElementById("reviewAvatarUpload");
+        if (uploadInput) uploadInput.value = "";
+        setAvatarPreview("");
+        showUploadHint("JPG, PNG, WEBP — max 2MB", false);
     }
 
     function updateReviewInitials(name) {
@@ -260,7 +338,6 @@
 
         const authorInput = document.getElementById("reviewAuthor");
         const roleInput = document.getElementById("reviewRole");
-        const avatarInput = document.getElementById("reviewAvatar");
         const websiteInput = document.getElementById("reviewWebsite");
         const textInput = document.getElementById("reviewText");
 
@@ -286,14 +363,17 @@
             rating: selectedRating,
             date: `${months[now.getMonth()]} ${now.getFullYear()}`,
             text: text,
-            avatar: avatarInput && avatarInput.value.trim() ? avatarInput.value.trim() : null,
+            avatar: uploadedAvatarData,
             website: websiteInput && websiteInput.value.trim() ? websiteInput.value.trim() : null,
             verified: false,
         };
 
         const stored = getStoredReviews();
         stored.unshift(newReview);
-        saveReviewsToStorage(stored);
+        if (!saveReviewsToStorage(stored)) {
+            showUploadHint("Could not save review. Try a smaller photo.", true);
+            return;
+        }
 
         activeFilter = "all";
         document.querySelectorAll(".review-filter-btn").forEach((btn) => {
@@ -305,15 +385,13 @@
 
         authorInput.value = "";
         roleInput.value = "";
-        if (avatarInput) avatarInput.value = "";
         if (websiteInput) websiteInput.value = "";
         textInput.value = "";
         [authorInput, roleInput, textInput].forEach((input) => {
             input.style.borderColor = "";
         });
 
-        previewReviewAvatar("");
-        updateReviewInitials("");
+        resetAvatarUpload();
         selectedRating = 5;
         updateStarUI(5);
 
@@ -350,9 +428,7 @@
 
         document.getElementById("reviewForm")?.addEventListener("submit", handleReviewSubmit);
 
-        document.getElementById("reviewAvatar")?.addEventListener("input", (event) => {
-            previewReviewAvatar(event.target.value);
-        });
+        document.getElementById("reviewAvatarUpload")?.addEventListener("change", handleAvatarUpload);
 
         document.getElementById("reviewAuthor")?.addEventListener("input", (event) => {
             updateReviewInitials(event.target.value);
