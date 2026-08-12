@@ -326,7 +326,7 @@ projects.forEach((project, i) => {
         imageWrapper.appendChild(bigImg);
         document.body.style.overflowY = "hidden";
 
-        document.removeEventListener("scroll", scrollFn);
+        document.removeEventListener("scroll", onScroll);
 
         mouseCircle.style.opacity = 0;
 
@@ -343,15 +343,36 @@ projects.forEach((project, i) => {
             imageWrapper.remove();
             document.body.style.overflowY = "scroll";
 
-            document.addEventListener("scroll", scrollFn);
+            document.addEventListener("scroll", onScroll);
 
             progressBarFn();
         };
 
+        const closeAndGoHome = () => {
+            closePreview();
+            window.scrollTo({ top: 0, behavior: "smooth" });
+        };
+
+        // ← Back to Home button
+        const backBtn = document.createElement("button");
+        backBtn.className = "project-preview-back-btn";
+        backBtn.innerHTML = "&#8592; Back to Home";
+        backBtn.addEventListener("click", (e) => { e.stopPropagation(); closeAndGoHome(); });
+        imageWrapper.appendChild(backBtn);
+
+        // × Close button
+        const closeBtn = document.createElement("button");
+        closeBtn.className = "project-preview-close-btn";
+        closeBtn.innerHTML = "&#10005;";
+        closeBtn.addEventListener("click", (e) => { e.stopPropagation(); closePreview(); });
+        imageWrapper.appendChild(closeBtn);
+
         projectHideBtn.onclick = closePreview;
 
-        // Close preview if user clicks anywhere on the wrapper or the image
-        imageWrapper.onclick = closePreview;
+        // Close preview if user clicks directly on the dark wrapper (not the image or buttons)
+        imageWrapper.addEventListener("click", (e) => {
+            if (e.target === imageWrapper) closePreview();
+        });
     });
     // End of Big Project Image
 

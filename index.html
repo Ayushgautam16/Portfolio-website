@@ -1032,7 +1032,12 @@
         <!-- Inline Review Submission Form Box (Collapsible Proposal Form Style) -->
         <div class="inline-review-box" id="inlineReviewFormBox" style="display: none;">
           <div class="inline-review-box-inner">
+            <!-- Close × button -->
+            <button type="button" class="inline-review-close pointer-enter" onclick="toggleReviewForm()" title="Close form">&#10005;</button>
             <div class="inline-review-header">
+              <button type="button" class="popup-back-btn pointer-enter" onclick="toggleReviewForm(); window.scrollTo({top:0, behavior:'smooth'});">
+                &#8592; Back to Home
+              </button>
               <h2>Submit Your Review</h2>
               <p>Your feedback will be automatically displayed on my profile below!</p>
             </div>
