@@ -651,6 +651,7 @@ const checkLength = (input, min) => {
     }
 };
 
+
 const checkEmail = (input) => {
     if (!input) return;
     const regEx =
