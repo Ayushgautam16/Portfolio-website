@@ -37,6 +37,7 @@ See the live portfolio on GitHub Pages or your hosting provider after deployment
 ## 📦 Deployment
 This repository can be deployed using GitHub Pages or a static hosting platform such as Netlify or Vercel.
 
+
 ### GitHub Pages
 1. Push the repository to GitHub.
 2. In the repository settings, enable GitHub Pages from the `main` branch.
